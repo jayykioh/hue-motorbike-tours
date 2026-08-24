@@ -1,26 +1,95 @@
 @import "tailwindcss";
 
+@theme {
+  --color-ink:        #17201C;
+  --color-night:      #101514;
+  --color-limestone:  #F3EEE6;
+  --color-sand:       #D8C5A8;
+  --color-river:      #526F72;
+  --color-palm:       #66745A;
+  --color-terracotta: #B85C3E;
+
+  --font-display: var(--font-display);
+  --font-body:    var(--font-body);
+
+  --container-max:  1360px;
+  --space-section:  clamp(88px, 11vw, 180px);
+
+  --radius-sm:   12px;
+  --radius-md:   18px;
+  --radius-lg:   28px;
+  --radius-pill: 999px;
+
+  --ease-standard:  cubic-bezier(.2,.65,.3,1);
+  --duration-fast:  150ms;
+  --duration-mid:   250ms;
+  --duration-slow:  450ms;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --color-ink:        #17201C;
+  --color-night:      #101514;
+  --color-limestone:  #F3EEE6;
+  --color-sand:       #D8C5A8;
+  --color-river:      #526F72;
+  --color-palm:       #66745A;
+  --color-terracotta: #B85C3E;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --container-max:  1360px;
+  --space-section:  clamp(88px, 11vw, 180px);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --radius-sm:   12px;
+  --radius-md:   18px;
+  --radius-lg:   28px;
+  --radius-pill: 999px;
+
+  --ease-standard:  cubic-bezier(.2,.65,.3,1);
+  --duration-fast:  150ms;
+  --duration-mid:   250ms;
+  --duration-slow:  450ms;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-limestone);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+@layer utilities {
+  .text-display-xl { font-size: clamp(4rem, 7vw, 7.5rem);   line-height: 0.92; font-family: var(--font-display); }
+  .text-display-l  { font-size: clamp(3rem, 5vw, 5.5rem);   line-height: 0.95; font-family: var(--font-display); }
+  .text-h1         { font-size: clamp(2.8rem, 4vw, 4.5rem); line-height: 1.05; font-family: var(--font-display); }
+  .text-h2         { font-size: clamp(2rem, 3vw, 3.2rem);   line-height: 1.1;  font-family: var(--font-display); }
+  .text-h3         { font-size: clamp(1.5rem, 2.2vw, 2rem); line-height: 1.2;  font-family: var(--font-display); }
+  .text-body-lg    { font-size: clamp(1.1rem, 1.4vw, 1.25rem); line-height: 1.65; font-family: var(--font-body); }
+  .text-body       { font-size: 1rem;    line-height: 1.6; font-family: var(--font-body); }
+  .text-small      { font-size: 0.875rem; line-height: 1.5; font-family: var(--font-body); }
+
+  .btn-primary {
+    background:     var(--color-terracotta);
+    color:          var(--color-limestone);
+    border-radius:  var(--radius-pill);
+    height:         48px;
+    padding:        0 24px;
+    display:        inline-flex;
+    align-items:    center;
+    justify-content: center;
+    font-family:    var(--font-body);
+    font-weight:    600;
+    font-size:      0.9rem;
+    cursor:         pointer;
+    transition:     background var(--duration-fast) var(--ease-standard);
+    text-decoration: none;
+  }
+  .btn-primary:hover          { background: color-mix(in srgb, var(--color-terracotta) 85%, black); }
+  .btn-primary:focus-visible   { outline: 2px solid var(--color-terracotta); outline-offset: 3px; }
+  .btn-primary:active          { transform: translateY(1px); }
+  .btn-primary[disabled]       { opacity: 0.5; pointer-events: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
