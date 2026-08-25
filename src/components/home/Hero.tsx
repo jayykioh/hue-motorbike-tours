@@ -41,7 +41,7 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative w-full h-[85vh] min-h-[600px] flex items-end pb-24 px-6 overflow-hidden">
+      <section className="relative w-full h-[85vh] min-h-[600px] flex items-end pb-16 sm:pb-24 px-5 sm:px-6 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0 bg-[var(--color-night)]">
           <Image
@@ -63,19 +63,19 @@ export default function Hero() {
             <p className="whitespace-pre-line text-small font-semibold tracking-widest uppercase opacity-80">
               {lang.subtitle}
             </p>
-            <h1 className="text-display-l font-display">
+            <h1 className="text-[2.6rem] sm:text-[3.2rem] lg:text-display-l font-display leading-[1.05]">
               {lang.title}
             </h1>
             <p className="text-body-lg opacity-80 max-w-md">
               {lang.description}
             </p>
-            <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
-              <Link href={`/${currentLocale}/plan`} className="btn-primary w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-6">
+              <Link href={`/${currentLocale}/plan`} className="btn-primary w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center">
                 {lang.primaryCta}
               </Link>
               <Link
                 href={`/${currentLocale}/tours`}
-                className="w-full sm:w-auto text-center px-6 py-3 rounded-[var(--radius-pill)] border border-[var(--color-limestone)] border-opacity-30 hover:bg-[var(--color-limestone)] hover:text-[var(--color-ink)] transition-colors font-semibold"
+                className="w-full sm:w-auto text-center px-6 py-3.5 rounded-[var(--radius-pill)] border border-[var(--color-limestone)] border-opacity-30 hover:bg-[var(--color-limestone)] hover:text-[var(--color-ink)] transition-colors font-semibold min-h-[52px] flex items-center justify-center"
               >
                 {lang.secondaryCta}
               </Link>

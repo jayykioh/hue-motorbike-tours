@@ -30,7 +30,7 @@ export default function FeaturedTours() {
   const lang = t[currentLocale];
 
   return (
-    <section className="bg-[var(--color-limestone)] py-24 lg:py-40 px-6">
+    <section className="bg-[var(--color-limestone)] py-16 lg:py-40 px-5 sm:px-6">
       <div className="max-w-[var(--container-max)] mx-auto">
         <div className="mb-16 lg:mb-24 flex flex-col items-start gap-4">
           <p className="text-small font-semibold tracking-widest uppercase text-[var(--color-terracotta)]">
@@ -41,7 +41,7 @@ export default function FeaturedTours() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 lg:gap-12">
           {tours.map((tour) => {
             // For now, exclude draft tours or those without slugs
             if (!tour.slug) return null;

@@ -22,7 +22,7 @@ export default function NotFound() {
       {/* Cinematic Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/photo/thum.png"
+          src="/photo/thumbnail.jpg"
           alt="Lost in Vietnam"
           fill
           priority

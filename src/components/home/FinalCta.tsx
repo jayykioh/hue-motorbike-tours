@@ -24,7 +24,7 @@ export default function FinalCta() {
   const lang = t[currentLocale];
 
   return (
-    <section className="bg-[var(--color-limestone)] py-24 lg:py-32 px-6 border-t border-[var(--color-sand)]">
+    <section className="bg-[var(--color-limestone)] py-16 lg:py-32 px-5 sm:px-6 border-t border-[var(--color-sand)]">
       <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-8">
         <div className="flex flex-col gap-4">
           <p className="text-small font-semibold tracking-widest uppercase opacity-60 text-[var(--color-ink)]">
@@ -40,10 +40,10 @@ export default function FinalCta() {
         </p>
 
         <a 
-          href="https://wa.me/84862391918?text=Hi" 
+          href="https://wa.me/84899215366?text=Hi%20I%27d%20like%20to%20plan%20a%20trip" 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="btn-primary mt-4"
+          className="btn-primary mt-4 w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center"
         >
           {lang.buttonText} →
         </a>

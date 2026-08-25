@@ -48,7 +48,7 @@ export default function WhyUs() {
   const lang = t[currentLocale];
 
   return (
-    <section className="bg-[var(--color-ink)] py-24 lg:py-40 px-6 text-[var(--color-limestone)]">
+    <section className="bg-[var(--color-ink)] py-16 lg:py-40 px-5 sm:px-6 text-[var(--color-limestone)]">
       <div className="max-w-[var(--container-max)] mx-auto">
         <div className="text-center mb-20 lg:mb-32 flex flex-col items-center gap-4">
           <p className="text-small font-semibold tracking-widest uppercase text-[var(--color-terracotta)]">

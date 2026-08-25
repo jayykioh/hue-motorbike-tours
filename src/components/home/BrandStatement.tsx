@@ -25,28 +25,28 @@ export default function BrandStatement() {
   const lang = t[currentLocale];
 
   return (
-    <section className="bg-white py-24 lg:py-40 px-6">
-      <div className="max-w-[var(--container-max)] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+    <section className="bg-white py-16 lg:py-40 px-5 sm:px-6">
+      <div className="max-w-[var(--container-max)] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 items-center">
         
-        {/* Left: Typography */}
-        <div className="lg:col-span-7 flex flex-col gap-8">
-          <h2 className="text-h2 lg:text-[3.5rem] font-display text-[var(--color-ink)] leading-[1.1] max-w-2xl tracking-tight">
+        {/* Left: Typography — appears below image on mobile */}
+        <div className="lg:col-span-7 flex flex-col gap-6 lg:gap-8 order-2 lg:order-1">
+          <h2 className="text-[1.9rem] sm:text-h2 lg:text-[3.5rem] font-display text-[var(--color-ink)] leading-[1.1] tracking-tight">
             {lang.headline}
           </h2>
-          <div className="flex flex-col gap-6 text-body-lg text-[var(--color-ink)]/70 max-w-xl font-medium">
-            <p>{lang.paragraph1}</p>
-            <p>{lang.paragraph2}</p>
+          <div className="flex flex-col gap-5 text-body text-[var(--color-ink)]/70 max-w-xl">
+            <p className="leading-relaxed">{lang.paragraph1}</p>
+            <p className="leading-relaxed">{lang.paragraph2}</p>
           </div>
         </div>
 
-        {/* Right: Founder Image */}
-        <div className="lg:col-span-5 flex flex-col gap-4">
-          <div className="relative w-full aspect-[4/5] rounded-[var(--radius-lg)] overflow-hidden bg-[var(--color-limestone)] shadow-2xl shadow-black/5">
+        {/* Right: Founder Image — appears first on mobile */}
+        <div className="lg:col-span-5 flex flex-col gap-3 order-1 lg:order-2">
+          <div className="relative w-full aspect-[4/5] rounded-[var(--radius-lg)] overflow-hidden bg-[var(--color-limestone)] shadow-xl shadow-black/8">
             <Image 
-              src="/photo/thum.png" 
-              alt="Mai Anh Tu - Founder"
+              src="/photo/thumbnail.jpg" 
+              alt="Mai Anh Tu - Founder of Hue Motorbike Tours"
               fill
-              className="object-cover hover:scale-105 transition-transform duration-1000 ease-[var(--ease-standard)]"
+              className="object-cover transition-transform duration-1000 ease-[var(--ease-standard)]"
               sizes="(max-width: 1024px) 100vw, 40vw"
             />
           </div>
