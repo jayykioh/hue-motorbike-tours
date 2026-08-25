@@ -43,7 +43,7 @@ export default function BrandStatement() {
         <div className="lg:col-span-5 flex flex-col gap-4">
           <div className="relative w-full aspect-[4/5] rounded-[var(--radius-lg)] overflow-hidden bg-[var(--color-limestone)] shadow-2xl shadow-black/5">
             <Image 
-              src="https://images.unsplash.com/photo-1542640244-7e672d6cb466?auto=format&fit=crop&q=80&w=600" 
+              src="/photo/thum.png" 
               alt="Mai Anh Tu - Founder"
               fill
               className="object-cover hover:scale-105 transition-transform duration-1000 ease-[var(--ease-standard)]"

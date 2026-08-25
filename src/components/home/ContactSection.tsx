@@ -65,6 +65,44 @@ export default function ContactSection() {
               <p className="text-body text-[var(--color-ink)]/75">{lang.address}</p>
             </div>
 
+            {/* Email */}
+            <div className="flex flex-col gap-2">
+              <span className="text-small font-semibold uppercase tracking-widest text-[var(--color-ink)]/50">
+                Email
+              </span>
+              <a
+                href="mailto:info.hoianmotorbike@gmail.com"
+                className="text-body font-semibold text-[var(--color-ink)] hover:text-[var(--color-terracotta)] transition-colors"
+              >
+                info.hoianmotorbike@gmail.com
+              </a>
+            </div>
+
+            {/* Socials */}
+            <div className="flex flex-col gap-2">
+              <span className="text-small font-semibold uppercase tracking-widest text-[var(--color-ink)]/50">
+                {currentLocale === 'vi' ? 'Mạng xã hội' : 'Social'}
+              </span>
+              <div className="flex flex-col gap-2">
+                <a
+                  href="https://www.facebook.com/Vietnamonmotorbike"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-body font-semibold text-[var(--color-ink)] hover:text-[var(--color-terracotta)] transition-colors"
+                >
+                  Facebook
+                </a>
+                <a
+                  href="https://www.tripadvisor.com/Attraction_Review-g293926-d12453921-Reviews-Trider_Adventure_Motorbike_Tours-Hue_Thua_Thien_Hue_Province.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-body font-semibold text-[var(--color-ink)] hover:text-[var(--color-terracotta)] transition-colors"
+                >
+                  TripAdvisor
+                </a>
+              </div>
+            </div>
+
             {/* CTA button */}
             <a
               href="https://wa.me/84862391918?text=Hi"

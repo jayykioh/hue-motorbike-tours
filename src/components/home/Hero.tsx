@@ -7,13 +7,13 @@ import { MapPin, Mountain, Waves, Compass, Sun, Camera, Map } from "lucide-react
 import LogoLoop, { LogoItem } from "@/components/ui/LogoLoop";
 
 const partnerLogos: LogoItem[] = [
-  { node: <span className="font-body text-xs font-semibold tracking-[0.2em] uppercase text-white/50 flex items-center gap-3"><Mountain className="w-4 h-4 opacity-70" /> HAI VAN PASS</span> },
-  { node: <span className="font-body text-xs font-semibold tracking-[0.2em] uppercase text-white/50 flex items-center gap-3"><Waves className="w-4 h-4 opacity-70" /> LANG CO BEACH</span> },
-  { node: <span className="font-body text-xs font-semibold tracking-[0.2em] uppercase text-white/50 flex items-center gap-3"><Sun className="w-4 h-4 opacity-70" /> DREAM SPRING</span> },
-  { node: <span className="font-body text-xs font-semibold tracking-[0.2em] uppercase text-white/50 flex items-center gap-3"><MapPin className="w-4 h-4 opacity-70" /> IMPERIAL CITY</span> },
-  { node: <span className="font-body text-xs font-semibold tracking-[0.2em] uppercase text-white/50 flex items-center gap-3"><Compass className="w-4 h-4 opacity-70" /> PERFUME RIVER</span> },
-  { node: <span className="font-body text-xs font-semibold tracking-[0.2em] uppercase text-white/50 flex items-center gap-3"><Map className="w-4 h-4 opacity-70" /> THIEN MU PAGODA</span> },
-  { node: <span className="font-body text-xs font-semibold tracking-[0.2em] uppercase text-white/50 flex items-center gap-3"><Camera className="w-4 h-4 opacity-70" /> LAP AN LAGOON</span> },
+  { node: <span className="whitespace-nowrap font-body text-sm font-semibold tracking-[0.2em] uppercase text-white/50 flex items-center gap-3"><Mountain className="w-5 h-5 opacity-70" /> HAI VAN PASS</span> },
+  { node: <span className="whitespace-nowrap font-body text-sm font-semibold tracking-[0.2em] uppercase text-white/50 flex items-center gap-3"><Waves className="w-5 h-5 opacity-70" /> LANG CO BEACH</span> },
+  { node: <span className="whitespace-nowrap font-body text-sm font-semibold tracking-[0.2em] uppercase text-white/50 flex items-center gap-3"><Sun className="w-5 h-5 opacity-70" /> DREAM SPRING</span> },
+  { node: <span className="whitespace-nowrap font-body text-sm font-semibold tracking-[0.2em] uppercase text-white/50 flex items-center gap-3"><MapPin className="w-5 h-5 opacity-70" /> IMPERIAL CITY</span> },
+  { node: <span className="whitespace-nowrap font-body text-sm font-semibold tracking-[0.2em] uppercase text-white/50 flex items-center gap-3"><Compass className="w-5 h-5 opacity-70" /> PERFUME RIVER</span> },
+  { node: <span className="whitespace-nowrap font-body text-sm font-semibold tracking-[0.2em] uppercase text-white/50 flex items-center gap-3"><Map className="w-5 h-5 opacity-70" /> THIEN MU PAGODA</span> },
+  { node: <span className="whitespace-nowrap font-body text-sm font-semibold tracking-[0.2em] uppercase text-white/50 flex items-center gap-3"><Camera className="w-5 h-5 opacity-70" /> LAP AN LAGOON</span> },
 ];
 
 export default function Hero() {
@@ -90,7 +90,7 @@ export default function Hero() {
           logos={partnerLogos}
           speed={30}
           direction="left"
-          logoHeight={24}
+          logoHeight={32}
           gap={100}
           pauseOnHover={false}
           fadeOut={true}
