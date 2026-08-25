@@ -49,9 +49,9 @@ export default async function TourDetailPage({ params }: Props) {
   const title = isVi ? tour.title.vi : tour.title.en;
   const description = isVi ? tour.shortDescription.vi : tour.shortDescription.en;
   const transportText = isVi ? tour.transport.vi : tour.transport.en;
-  
+
   const strings = {
-    bookThisTour: isVi ? 'Đặt Tour Này' : 'Book This Tour',
+    bookThisTour: isVi ? 'Đặt Tour Ngay' : 'Book This Tour',
     duration: isVi ? 'Thời Gian' : 'Duration',
     start: isVi ? 'Khởi Hành' : 'Start',
     transport: isVi ? 'Di Chuyển' : 'Transport',
@@ -62,10 +62,17 @@ export default async function TourDetailPage({ params }: Props) {
     itinerary: isVi ? 'Lịch trình dự kiến' : 'Itinerary',
     faq: isVi ? 'Câu hỏi thường gặp' : 'FAQ',
     haveQuestions: isVi ? 'Bạn có câu hỏi?' : 'Have questions?',
-    haveQuestionsDesc: isVi ? 'Nhắn tin qua WhatsApp để chúng tôi tư vấn lịch trình tốt nhất cho bạn.' : 'Drop us a message on WhatsApp and we will help you figure out the best route.',
-    messageUs: isVi ? 'Nhắn tin WhatsApp' : 'Message on WhatsApp'
+    haveQuestionsDesc: isVi ? 'Nhắn tin qua WhatsApp để chúng tôi tư vấn lịch trình tốt nhất cho bạn.' : 'Drop us a message on WhatsApp and we\'ll help you plan the perfect trip.',
+    messageUs: isVi ? 'Nhắn tin WhatsApp' : 'Message on WhatsApp',
+    transportOptions: isVi ? 'Phương thức di chuyển' : 'Transport Options',
+    whyBookWithUs: isVi ? 'Tại sao chọn chúng tôi?' : 'Why Book With Us',
+    included: isVi ? 'Bao gồm' : 'What\'s Included',
+    notIncluded: isVi ? 'Không bao gồm' : 'Not Included',
+    optionalAddons: isVi ? 'Tuỳ chọn thêm' : 'Optional Add-ons',
   };
-  
+
+  const whatsappHref = tour.whatsappLink ?? `https://wa.me/84899215366?text=Hi%20I%20am%20interested%20in%20${encodeURIComponent(title)}`;
+
   // JSON-LD for TouristTrip
   const jsonLd = {
     "@context": "https://schema.org",
@@ -75,7 +82,7 @@ export default async function TourDetailPage({ params }: Props) {
     "provider": {
       "@type": "TravelAgency",
       "name": "Hue Motorbike Tours",
-      "telephone": "+84862391918"
+      "telephone": "+84899215366"
     }
   };
 
@@ -89,8 +96,8 @@ export default async function TourDetailPage({ params }: Props) {
         {/* Breadcrumb / Back Navigation */}
         <div className="bg-[var(--color-limestone)] py-4 px-6 pt-20 lg:pt-24 border-b border-[var(--color-sand)]">
           <div className="max-w-[var(--container-max)] mx-auto flex items-center gap-4">
-            <Link 
-              href={`/${locale}/tours`} 
+            <Link
+              href={`/${locale}/tours`}
               className="flex items-center gap-2 text-small font-semibold uppercase tracking-widest text-[var(--color-ink)] opacity-60 hover:opacity-100 hover:text-[var(--color-terracotta)] transition-colors group"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-x-1 transition-transform">
@@ -114,9 +121,9 @@ export default async function TourDetailPage({ params }: Props) {
               <p className="text-body-lg text-[var(--color-ink)] opacity-80 mb-10 leading-relaxed">
                 {description}
               </p>
-              
+
               <div className="flex flex-col sm:flex-row items-center gap-6">
-                <a href="https://wa.me/84862391918?text=Hi" target="_blank" rel="noopener noreferrer" className="btn-primary w-full sm:w-auto">
+                <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="btn-primary w-full sm:w-auto">
                   {strings.bookThisTour} →
                 </a>
                 <span className="text-body font-semibold">{tour.price}</span>
@@ -126,8 +133,8 @@ export default async function TourDetailPage({ params }: Props) {
             {/* Right Image */}
             <div className="lg:col-span-7">
               <div className="relative aspect-[4/3] bg-[var(--color-sand)] rounded-[var(--radius-lg)] w-full overflow-hidden">
-                <Image 
-                  src={tour.image} 
+                <Image
+                  src={tour.image}
                   alt={title}
                   fill
                   priority
@@ -160,21 +167,21 @@ export default async function TourDetailPage({ params }: Props) {
             </div>
           </div>
         </section>
-        
+
         {/* Main Content Area */}
         <section className="bg-[var(--color-limestone)] py-20 px-6">
           <div className="max-w-[var(--container-max)] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
-            
-            {/* Left Column: Itinerary & Details */}
+
+            {/* Left Column: Details */}
             <div className="lg:col-span-8 flex flex-col gap-16">
-              
+
               {/* Highlights */}
               <div className="flex flex-col gap-6">
                 <h2 className="text-h3 font-display text-[var(--color-ink)]">{strings.highlights}</h2>
                 <ul className="flex flex-col gap-4">
                   {tour.highlights.map((highlight, idx) => (
                     <li key={idx} className="flex items-start gap-4">
-                      <span className="text-[var(--color-terracotta)] mt-1">•</span>
+                      <span className="text-[var(--color-terracotta)] mt-0.5 text-lg leading-tight">✓</span>
                       <span className="text-body text-[var(--color-ink)] opacity-80 leading-relaxed">
                         {isVi ? highlight.vi : highlight.en}
                       </span>
@@ -182,6 +189,25 @@ export default async function TourDetailPage({ params }: Props) {
                   ))}
                 </ul>
               </div>
+
+              {/* Transport Options */}
+              {tour.transportOptions && tour.transportOptions.length > 0 && (
+                <div className="flex flex-col gap-6">
+                  <h2 className="text-h3 font-display text-[var(--color-ink)]">{strings.transportOptions}</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {tour.transportOptions.map((opt, idx) => (
+                      <div key={idx} className="bg-[var(--color-sand)] rounded-[var(--radius-md)] p-6 flex flex-col gap-3">
+                        <h3 className="text-body font-semibold text-[var(--color-ink)]">
+                          {isVi ? opt.name.vi : opt.name.en}
+                        </h3>
+                        <p className="text-body text-[var(--color-ink)] opacity-70 leading-relaxed">
+                          {isVi ? opt.description.vi : opt.description.en}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Itinerary */}
               <div className="flex flex-col gap-8">
@@ -191,12 +217,12 @@ export default async function TourDetailPage({ params }: Props) {
                     <div key={idx} className="relative pl-8 pb-10 last:pb-0">
                       {/* Timeline Dot */}
                       <div className="absolute left-[-9px] top-1 w-4 h-4 rounded-full bg-[var(--color-terracotta)] ring-4 ring-[var(--color-limestone)]"></div>
-                      
+
                       <h3 className="text-h4 font-display text-[var(--color-ink)] mb-2">
                         {isVi ? item.title.vi : item.title.en}
                       </h3>
                       {item.description && (
-                        <p className="text-body text-[var(--color-ink)] opacity-70">
+                        <p className="text-body text-[var(--color-ink)] opacity-70 leading-relaxed">
                           {isVi ? item.description.vi : item.description.en}
                         </p>
                       )}
@@ -205,17 +231,83 @@ export default async function TourDetailPage({ params }: Props) {
                 </div>
               </div>
 
+              {/* Inclusions & Exclusions */}
+              {(tour.inclusions || tour.exclusions) && (
+                <div className="flex flex-col gap-6 pt-8 border-t border-[var(--color-sand)]">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {tour.inclusions && tour.inclusions.length > 0 && (
+                      <div className="flex flex-col gap-4">
+                        <h3 className="text-body font-semibold uppercase tracking-widest text-[var(--color-ink)] opacity-60">{strings.included}</h3>
+                        <ul className="flex flex-col gap-3">
+                          {tour.inclusions.map((item, idx) => (
+                            <li key={idx} className="flex items-start gap-3">
+                              <span className="text-green-600 font-bold mt-0.5">✓</span>
+                              <span className="text-body text-[var(--color-ink)] opacity-80">{isVi ? item.vi : item.en}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {tour.exclusions && tour.exclusions.length > 0 && (
+                      <div className="flex flex-col gap-4">
+                        <h3 className="text-body font-semibold uppercase tracking-widest text-[var(--color-ink)] opacity-60">{strings.notIncluded}</h3>
+                        <ul className="flex flex-col gap-3">
+                          {tour.exclusions.map((item, idx) => (
+                            <li key={idx} className="flex items-start gap-3">
+                              <span className="text-[var(--color-terracotta)] font-bold mt-0.5">✗</span>
+                              <span className="text-body text-[var(--color-ink)] opacity-80">{isVi ? item.vi : item.en}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Optional Add-ons */}
+              {tour.optionalAddons && tour.optionalAddons.length > 0 && (
+                <div className="flex flex-col gap-4 pt-4">
+                  <h3 className="text-body font-semibold uppercase tracking-widest text-[var(--color-ink)] opacity-60">{strings.optionalAddons}</h3>
+                  <ul className="flex flex-col gap-3">
+                    {tour.optionalAddons.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <span className="text-[var(--color-terracotta)] mt-0.5">+</span>
+                        <span className="text-body text-[var(--color-ink)] opacity-80">{isVi ? item.vi : item.en}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Why Book With Us */}
+              {tour.whyBookWithUs && tour.whyBookWithUs.length > 0 && (
+                <div className="flex flex-col gap-6 pt-8 border-t border-[var(--color-sand)]">
+                  <h2 className="text-h3 font-display text-[var(--color-ink)]">{strings.whyBookWithUs}</h2>
+                  <ul className="flex flex-col gap-4">
+                    {tour.whyBookWithUs.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-4">
+                        <span className="text-[var(--color-terracotta)] font-bold text-lg mt-0.5">✓</span>
+                        <span className="text-body text-[var(--color-ink)] opacity-80 leading-relaxed">
+                          {isVi ? item.vi : item.en}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               {/* FAQ */}
               {tour.faq && tour.faq.length > 0 && (
                 <div className="flex flex-col gap-8 pt-8 border-t border-[var(--color-sand)]">
                   <h2 className="text-h3 font-display text-[var(--color-ink)]">{strings.faq}</h2>
-                  <div className="flex flex-col gap-6">
+                  <div className="flex flex-col gap-8">
                     {tour.faq.map((q, idx) => (
-                      <div key={idx} className="flex flex-col gap-2">
+                      <div key={idx} className="flex flex-col gap-2 pb-8 border-b border-[var(--color-sand)] last:border-none last:pb-0">
                         <h4 className="text-body font-semibold text-[var(--color-ink)]">
                           {isVi ? q.question.vi : q.question.en}
                         </h4>
-                        <p className="text-body text-[var(--color-ink)] opacity-70">
+                        <p className="text-body text-[var(--color-ink)] opacity-70 leading-relaxed">
                           {isVi ? q.answer.vi : q.answer.en}
                         </p>
                       </div>
@@ -228,19 +320,41 @@ export default async function TourDetailPage({ params }: Props) {
 
             {/* Right Column: Sticky Booking Widget */}
             <div className="lg:col-span-4 relative">
-              <div className="sticky top-32 bg-[var(--color-sand)] p-8 rounded-[var(--radius-md)] flex flex-col gap-6">
-                <h3 className="text-h4 font-display text-[var(--color-ink)]">{strings.haveQuestions}</h3>
-                <p className="text-body text-[var(--color-ink)] opacity-80">
-                  {strings.haveQuestionsDesc}
-                </p>
-                <a 
-                  href="https://wa.me/84862391918?text=Hi" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="btn-primary w-full"
-                >
-                  {strings.messageUs}
-                </a>
+              <div className="sticky top-32 flex flex-col gap-4">
+                {/* Booking CTA card */}
+                <div className="bg-[var(--color-sand)] p-8 rounded-[var(--radius-md)] flex flex-col gap-6">
+                  <div>
+                    <p className="text-small font-semibold uppercase tracking-widest text-[var(--color-terracotta)] mb-2">{isVi ? 'Giá từ' : 'Starting from'}</p>
+                    <p className="text-h3 font-display text-[var(--color-ink)]">{tour.price}</p>
+                  </div>
+                  <a
+                    href={whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary w-full text-center"
+                  >
+                    {strings.bookThisTour} →
+                  </a>
+                  <p className="text-small text-[var(--color-ink)] opacity-60 text-center leading-relaxed">
+                    {isVi ? 'Nhắn tin qua WhatsApp — phản hồi trong vòng vài tiếng.' : 'Book via WhatsApp — we reply within a few hours.'}
+                  </p>
+                </div>
+
+                {/* Questions card */}
+                <div className="bg-[var(--color-limestone)] border border-[var(--color-sand)] p-6 rounded-[var(--radius-md)] flex flex-col gap-4">
+                  <h3 className="text-h4 font-display text-[var(--color-ink)]">{strings.haveQuestions}</h3>
+                  <p className="text-body text-[var(--color-ink)] opacity-70 leading-relaxed">
+                    {strings.haveQuestionsDesc}
+                  </p>
+                  <a
+                    href={whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-body font-semibold text-[var(--color-terracotta)] hover:opacity-75 transition-opacity"
+                  >
+                    {strings.messageUs} →
+                  </a>
+                </div>
               </div>
             </div>
 
