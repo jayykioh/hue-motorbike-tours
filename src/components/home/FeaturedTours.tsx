@@ -66,7 +66,7 @@ export default function FeaturedTours() {
 
                 {/* Content */}
                 <div className="flex flex-col gap-3">
-                  <h3 className="text-h4 font-display text-[var(--color-ink)] group-hover:text-[var(--color-terracotta)] transition-colors">
+                  <h3 className="text-h3 font-display text-[var(--color-ink)] group-hover:text-[var(--color-terracotta)] transition-colors">
                     {isVi ? tour.title.vi : tour.title.en}
                   </h3>
                   

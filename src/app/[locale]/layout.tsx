@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
+  icons: {
+    icon: '/photo/logo.jpeg',
+  },
   twitter: {
     card: "summary_large_image",
     title: "Hue Motorbike Tours | Authentic Local Experiences in Central Vietnam",

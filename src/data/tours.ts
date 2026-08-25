@@ -49,7 +49,7 @@ export const tours: Tour[] = [
       vi: 'Xe riêng hoặc Xe máy'
     },
     price: 'From $— USD',
-    image: 'https://picsum.photos/seed/haivanpass/800/600',
+    image: '/photo/haivanpass.jpg',
     highlights: [
       { en: 'Hue to Hoi An or Da Nang transfer with sightseeing', vi: 'Di chuyển từ Huế đến Hội An hoặc Đà Nẵng kết hợp ngắm cảnh' },
       { en: 'Ride through Hai Van Pass', vi: 'Chinh phục đèo Hải Vân' },
@@ -90,7 +90,7 @@ export const tours: Tour[] = [
       vi: 'Xe riêng hoặc Xe máy'
     },
     price: 'From $— USD',
-    image: 'https://picsum.photos/seed/imperialcity/800/600',
+    image: '/photo/hue-kien-trung-palace.jpg',
     highlights: [
       { en: 'Explore the Imperial Citadel and Forbidden Purple City', vi: 'Khám phá Đại Nội và Tử Cấm Thành' },
       { en: 'Visit Khai Dinh Tomb', vi: 'Tham quan Lăng Khải Định' },
@@ -129,7 +129,7 @@ export const tours: Tour[] = [
       vi: 'Xe riêng'
     },
     price: 'From $70 USD',
-    image: 'https://picsum.photos/seed/dmztour/800/600',
+    image: '/photo/f06819e96f07b159e8167.jpg',
     highlights: [
       { en: 'Explore Vinh Moc Tunnels', vi: 'Khám phá Địa đạo Vịnh Mốc' },
       { en: 'Stand at the 17th Parallel', vi: 'Đứng tại Vĩ tuyến 17' },
@@ -162,7 +162,7 @@ export const tours: Tour[] = [
       vi: 'Xe máy'
     },
     price: 'From $— USD',
-    image: 'https://picsum.photos/seed/huefood/800/600',
+    image: '/photo/huefoodtour.jpg',
     highlights: [
       { en: 'Ride with a local motorbike guide', vi: 'Đi xe máy cùng hướng dẫn viên bản địa' },
       { en: 'Taste Hue dishes at local spots', vi: 'Thưởng thức các món Huế tại quán ăn địa phương' },
@@ -194,7 +194,7 @@ export const tours: Tour[] = [
       vi: 'Xích lô'
     },
     price: 'From $— USD',
-    image: 'https://picsum.photos/seed/cyclo/800/600',
+    image: '/photo/hue-incense-sticks-village.jpg',
     highlights: [
       { en: 'Gentle ride through the ancient city', vi: 'Trải nghiệm xích lô quanh khu phố cổ' },
       { en: 'Explore local streets and markets', vi: 'Tham quan các con phố và chợ địa phương' },
