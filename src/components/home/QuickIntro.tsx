@@ -11,14 +11,14 @@ export default function QuickIntro() {
   const t = {
     en: {
       eyebrow: "WHAT WE DO",
-      headline: "Real roads.\nReal food.\nReal Hue.",
-      body: "We don't do big buses or rushed checklists. Our motorbike tours move at the pace of the people who live here — stopping at the spots locals actually go, eating the food that doesn't appear on menus, and taking the roads that don't appear on Google Maps.",
+      headline: "Real roads. Authentic food. The true Hue.",
+      body: "Forget the crowded tourist buses and rushed itineraries. We guide you at the pace of the locals. We stop where the locals eat, ride the backroads absent from Google Maps, and ensure every mile of your journey is safe, comfortable, and deeply authentic.",
       cta: "See all tours →",
     },
     vi: {
       eyebrow: "CHÚNG TÔI LÀM GÌ",
-      headline: "Con đường thật.\nẨm thực thật.\nHuế thật.",
-      body: "Chúng tôi không đi xe buýt đông đúc hay chạy theo checklist vội vàng. Tour xe máy của chúng tôi đi theo nhịp sống của người bản địa — dừng chân ở những nơi người Huế thực sự lui tới, thưởng thức ẩm thực không có trên menu, và khám phá những con đường không có trên Google Maps.",
+      headline: "Những cung đường thật. Ẩm thực nguyên bản. Một Huế rất riêng.",
+      body: "Hãy quên đi những chuyến xe buýt đông đúc và lịch trình vội vã. Chúng mình sẽ đưa bạn đi theo nhịp sống của người bản địa. Dừng chân tại những quán ăn không tên, chạy qua những con đường làng vắng bóng trên bản đồ số, và trên hết, đảm bảo mỗi dặm đường bạn đi đều an toàn, thoải mái và chân thực nhất.",
       cta: "Xem tất cả tour →",
     }
   };

@@ -9,15 +9,15 @@ export default function BrandStatement() {
 
   const t = {
     en: {
-      headline: "The real Vietnam isn't seen through a bus window.",
-      paragraph1: "Hi, I'm Mai Anh Tu. For over 10 years, I've been guiding travelers through Central Vietnam. But the tours I lead today are different from the ones I started with.",
-      paragraph2: "We skip the rushed tourist traps and crowded highways. Instead, we take the rural roads, stop at local cafes, and experience the landscape the way locals do—on a motorbike, taking it slow.",
+      headline: "You won't find the real Vietnam looking through a bus window.",
+      paragraph1: "I'm Mai Anh Tu. For over a decade, my team and I have been showing travelers the hidden side of Central Vietnam. We don't just drive; we share the stories, the secret food spots, and the vibrant culture of our home.",
+      paragraph2: "Your safety is our absolute priority. We use well-maintained bikes, provide high-quality safety gear, and ride at a pace that lets you truly take in the scenery. Whether it's your first time on a motorbike or you're a seasoned rider, you're in safe, experienced hands.",
       imageCaption: "Mai Anh Tu — Founder & Head Guide",
     },
     vi: {
       headline: "Việt Nam thực sự không nằm sau khung cửa kính xe buýt.",
-      paragraph1: "Chào bạn, mình là Mai Anh Tú. Hơn 10 năm qua, mình đã dẫn đường cho du khách qua miền Trung. Nhưng những chuyến đi hiện tại khác xa với những ngày đầu.",
-      paragraph2: "Chúng ta sẽ bỏ qua những điểm du lịch vội vã. Thay vào đó, len lỏi qua đường làng, dừng ở quán cà phê nhỏ ven đường và cảm nhận phong cảnh theo cách của người bản địa — trên chiếc xe máy, thật chậm rãi.",
+      paragraph1: "Chào bạn, mình là Mai Anh Tú. Hơn 10 năm qua, đội ngũ của mình đã dẫn đường cho du khách khám phá một miền Trung rất khác. Chúng mình không chỉ là tài xế, mà còn là những người kể chuyện, đưa bạn đến những quán ăn bí mật và trải nghiệm văn hóa bản địa chân thực nhất.",
+      paragraph2: "Sự an toàn của bạn luôn được đặt lên hàng đầu. Toàn bộ xe đều được bảo dưỡng kỹ lưỡng, trang bị đồ bảo hộ chất lượng cao và di chuyển với tốc độ vừa phải để bạn tha hồ ngắm cảnh. Dù bạn lần đầu ngồi xe máy hay đã quá quen thuộc, bạn luôn được đảm bảo an toàn tuyệt đối.",
       imageCaption: "Mai Anh Tú — Người sáng lập",
     }
   };

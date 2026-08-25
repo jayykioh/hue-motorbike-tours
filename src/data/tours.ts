@@ -40,37 +40,35 @@ export const tours: Tour[] = [
       vi: 'Huế đi Hội An qua đèo Hải Vân'
     },
     shortDescription: {
-      en: 'Turn a regular transfer from Hue into a scenic journey through Central Vietnam. Travel via the Hai Van Pass and stop along the way at Lap An Lagoon, Lang Co Beach, and Nhi Ho Waterfall.',
-      vi: 'Biến chuyến đi từ Huế vào Hội An thành một hành trình ngắm cảnh. Vượt đèo Hải Vân và dừng chân tại Đầm Lập An, Vịnh Lăng Cô, và thác Nhị Hồ.'
+      en: 'Why take a boring bus when you can ride over the legendary Hai Van Pass? This isn’t just a transfer; it’s a full-day adventure where we guide you through the hidden beauty of Lap An Lagoon, Lang Co Beach, and the winding coastal roads.',
+      vi: 'Tại sao phải ngồi xe khách nhàm chán khi bạn có thể chinh phục đèo Hải Vân huyền thoại? Đây không chỉ là một chuyến đi, mà là cả một hành trình phiêu lưu trọn vẹn khám phá Đầm Lập An tĩnh lặng và Vịnh Lăng Cô tuyệt đẹp.'
     },
     duration: '6–8 hours',
     transport: {
       en: 'Private Car or Motorbike',
-      vi: 'Xe riêng hoặc Xe máy'
+      vi: 'Xe ô tô riêng hoặc Xe máy'
     },
     price: 'From $— USD',
     image: '/photo/haivanpass.jpg',
     highlights: [
-      { en: 'Hue to Hoi An or Da Nang transfer with sightseeing', vi: 'Di chuyển từ Huế đến Hội An hoặc Đà Nẵng kết hợp ngắm cảnh' },
-      { en: 'Ride through Hai Van Pass', vi: 'Chinh phục đèo Hải Vân' },
-      { en: 'Visit Lap An Lagoon', vi: 'Thăm đầm Lập An' },
-      { en: 'Visit Lang Co Beach', vi: 'Thăm vịnh Lăng Cô' },
-      { en: 'Stop at Nhị Hồ Waterfall', vi: 'Dừng chân tại thác Nhị Hồ' },
-      { en: 'Optional Marble Mountains stop', vi: 'Lựa chọn thêm: Thăm Ngũ Hành Sơn' }
+      { en: 'Escape the crowds and travel scenic backroads', vi: 'Tránh xa đám đông để tận hưởng những cung đường vắng vẻ' },
+      { en: 'Conquer the legendary curves of Hai Van Pass', vi: 'Chinh phục những khúc cua ngoạn mục của Đèo Hải Vân' },
+      { en: 'Relax by the tranquil waters of Lap An Lagoon', vi: 'Thư giãn bên dòng nước tĩnh lặng của Đầm Lập An' },
+      { en: 'Breathe the ocean air at Lang Co Beach', vi: 'Hít thở bầu không khí biển trong lành tại Lăng Cô' },
+      { en: 'Cool off in the natural pools of Nhị Hồ Waterfall', vi: 'Đắm mình trong làn nước mát tại thác Nhị Hồ' }
     ],
     itinerary: [
-      { title: { en: 'Pickup at hotel in Hue', vi: 'Đón khách tại khách sạn ở Huế' } },
-      { title: { en: 'Lap An Lagoon', vi: 'Đầm Lập An' }, description: { en: 'Mountain and lagoon views.', vi: 'Ngắm nhìn khung cảnh đầm phá và núi non.' } },
-      { title: { en: 'Lang Co Beach', vi: 'Vịnh Lăng Cô' }, description: { en: 'Relaxation and photo stop.', vi: 'Dừng chân nghỉ ngơi và chụp ảnh.' } },
-      { title: { en: 'Nhị Hồ Waterfall', vi: 'Thác Nhị Hồ' }, description: { en: 'Natural pools and swimming opportunity.', vi: 'Tắm suối và thư giãn.' } },
-      { title: { en: 'Hai Van Pass', vi: 'Đèo Hải Vân' }, description: { en: 'Scenic mountain road and panoramic viewpoints.', vi: 'Cung đường đèo tuyệt đẹp với tầm nhìn toàn cảnh.' } },
-      { title: { en: 'Marble Mountains (optional)', vi: 'Ngũ Hành Sơn (tuỳ chọn)' }, description: { en: 'Pagodas, caves, and viewpoints.', vi: 'Khám phá hang động và chùa chiền.' } },
-      { title: { en: 'Hotel drop-off in Hoi An or Da Nang', vi: 'Trả khách tại khách sạn Hội An hoặc Đà Nẵng' } }
+      { title: { en: 'We pick you up directly from your hotel in Hue', vi: 'Xe đón bạn tận nơi tại khách sạn ở Huế' } },
+      { title: { en: 'Discover Lap An Lagoon', vi: 'Khám phá Đầm Lập An' }, description: { en: 'Take in the stunning views where the mountains meet the calm lagoon waters.', vi: 'Ngắm nhìn khung cảnh tuyệt mỹ nơi đồi núi giao hòa cùng mặt đầm tĩnh lặng.' } },
+      { title: { en: 'Unwind at Lang Co Beach', vi: 'Dừng chân tại Vịnh Lăng Cô' }, description: { en: 'Stretch your legs, feel the ocean breeze, and snap some incredible photos.', vi: 'Tản bộ, hít thở gió biển và lưu lại những bức ảnh kỷ niệm tuyệt đẹp.' } },
+      { title: { en: 'Swim at Nhị Hồ Waterfall', vi: 'Tắm suối tại Thác Nhị Hồ' }, description: { en: 'Jump into clear, refreshing natural pools surrounded by lush jungle.', vi: 'Thả mình vào làn nước suối mát lạnh giữa khung cảnh rừng cây xanh ngát.' } },
+      { title: { en: 'Cross the Hai Van Pass', vi: 'Vượt Đèo Hải Vân' }, description: { en: 'Experience the thrill of Vietnam’s most famous coastal mountain road.', vi: 'Trải nghiệm cảm giác phấn khích trên cung đường đèo ven biển nổi tiếng nhất Việt Nam.' } },
+      { title: { en: 'Arrive safely at your hotel in Hoi An or Da Nang', vi: 'Trở về an toàn tại khách sạn ở Hội An hoặc Đà Nẵng' } }
     ],
     faq: [
-      { question: { en: 'How long is the trip?', vi: 'Chuyến đi kéo dài bao lâu?' }, answer: { en: 'Around 6–8 hours with sightseeing stops.', vi: 'Khoảng 6–8 tiếng bao gồm cả thời gian dừng ngắm cảnh.' } },
-      { question: { en: 'Is the motorbike option safe?', vi: 'Đi xe máy có an toàn không?' }, answer: { en: 'Travelers ride with an experienced local driver and helmets and safety gear are included.', vi: 'Du khách sẽ ngồi sau xe của tài xế địa phương giàu kinh nghiệm và được trang bị đầy đủ đồ bảo hộ.' } },
-      { question: { en: 'Can travelers bring luggage?', vi: 'Có thể mang theo hành lý không?' }, answer: { en: 'Cars have luggage space and motorbikes use secure luggage transport.', vi: 'Xe ô tô có chỗ để hành lý, xe máy sẽ có dịch vụ chuyển hành lý an toàn.' } }
+      { question: { en: 'How long does the journey take?', vi: 'Chuyến đi kéo dài trong bao lâu?' }, answer: { en: 'Expect a relaxed pace lasting 6 to 8 hours, giving us plenty of time to stop and enjoy the views.', vi: 'Chúng mình sẽ di chuyển thong thả trong khoảng 6 đến 8 tiếng, đủ thời gian để dừng lại và thưởng thức cảnh đẹp.' } },
+      { question: { en: 'Is riding on a motorbike safe?', vi: 'Đi xe máy có an toàn không?' }, answer: { en: 'Absolutely. You ride behind highly experienced local guides, and we provide top-quality helmets and protective gear.', vi: 'Chắc chắn rồi. Bạn sẽ ngồi sau những tài xế địa phương dày dặn kinh nghiệm, được trang bị mũ bảo hiểm và đồ bảo hộ chất lượng cao nhất.' } },
+      { question: { en: 'What happens to my luggage?', vi: 'Hành lý của tôi sẽ được xử lý ra sao?' }, answer: { en: 'We securely strap your bags to the motorbikes, or if you choose a car, there is plenty of trunk space.', vi: 'Hành lý sẽ được chằng buộc an toàn phía sau xe máy, hoặc nếu đi ô tô thì có khoang chứa đồ vô cùng rộng rãi.' } }
     ]
   },
   {
@@ -78,71 +76,70 @@ export const tours: Tour[] = [
     slug: 'hue-imperial-city-tour',
     title: {
       en: 'Hue Imperial City Tour',
-      vi: 'Tour Tham Quan Đại Nội Huế'
+      vi: 'Tour Khám Phá Đại Nội Huế'
     },
     shortDescription: {
-      en: 'Step into the heart of Vietnam’s last royal dynasty. Explore the Imperial Citadel, Forbidden Purple City, royal tombs, and Thien Mu Pagoda.',
-      vi: 'Khám phá hoàng cung của triều đại phong kiến cuối cùng tại Việt Nam. Tham quan Đại Nội, Tử Cấm Thành, lăng tẩm hoàng gia và chùa Thiên Mụ.'
+      en: 'Leave the guidebooks behind and step into the real history of Vietnam’s last royal dynasty. We’ll guide you through the intricate architecture of the Imperial Citadel, royal tombs, and share the deep stories behind the walls.',
+      vi: 'Hãy cất sách hướng dẫn đi và bước vào trang sử có thật của triều đại phong kiến cuối cùng. Chúng mình sẽ kể cho bạn nghe những câu chuyện chưa từng được tiết lộ đằng sau những bức tường của Đại Nội và các lăng tẩm hoàng gia.'
     },
     duration: '7–8 hours',
     transport: {
       en: 'Private Car or Motorbike',
-      vi: 'Xe riêng hoặc Xe máy'
+      vi: 'Xe ô tô riêng hoặc Xe máy'
     },
     price: 'From $— USD',
     image: '/photo/hue-kien-trung-palace.jpg',
     highlights: [
-      { en: 'Explore the Imperial Citadel and Forbidden Purple City', vi: 'Khám phá Đại Nội và Tử Cấm Thành' },
-      { en: 'Visit Khai Dinh Tomb', vi: 'Tham quan Lăng Khải Định' },
-      { en: 'Discover Thien Mu Pagoda', vi: 'Tham quan Chùa Thiên Mụ' },
-      { en: 'Enjoy lunch with authentic Hue cuisine', vi: 'Thưởng thức bữa trưa với ẩm thực Huế' },
-      { en: 'Customize afternoon stops', vi: 'Tùy chỉnh lịch trình buổi chiều' }
+      { en: 'Wander the ancient halls of the Imperial Citadel', vi: 'Rảo bước qua những dãy hành lang cổ kính của Đại Nội' },
+      { en: 'Marvel at the breathtaking details of Khai Dinh Tomb', vi: 'Chiêm ngưỡng sự tinh xảo trong kiến trúc Lăng Khải Định' },
+      { en: 'Experience the serenity of Thien Mu Pagoda', vi: 'Cảm nhận sự tĩnh lặng bình yên tại Chùa Thiên Mụ' },
+      { en: 'Savor an authentic, home-cooked style Hue lunch', vi: 'Thưởng thức bữa trưa đậm đà hương vị truyền thống Huế' },
+      { en: 'Shape your own afternoon with flexible local stops', vi: 'Tự do tùy chỉnh lịch trình buổi chiều theo sở thích cá nhân' }
     ],
     itinerary: [
-      { title: { en: 'Hotel pickup in Hue', vi: 'Đón tại khách sạn ở Huế' } },
-      { title: { en: 'Imperial Citadel & Forbidden Purple City', vi: 'Đại Nội & Tử Cấm Thành' }, description: { en: 'Explore palaces, temples, and royal courtyards.', vi: 'Khám phá cung điện, đền đài và sân chầu.' } },
-      { title: { en: 'Thien Mu Pagoda', vi: 'Chùa Thiên Mụ' }, description: { en: 'Visit the historic pagoda overlooking the Perfume River.', vi: 'Thăm ngôi chùa lịch sử bên bờ sông Hương.' } },
-      { title: { en: 'Lunch at a local restaurant', vi: 'Ăn trưa tại nhà hàng địa phương' } },
-      { title: { en: 'Khai Dinh Tomb', vi: 'Lăng Khải Định' }, description: { en: 'Explore architecture combining Eastern and Western influences.', vi: 'Khám phá kiến trúc kết hợp giữa Đông và Tây.' } },
-      { title: { en: 'Flexible afternoon stops', vi: 'Lịch trình chiều tự chọn' }, description: { en: 'Abandoned waterpark, Vong Canh Hill, traditional incense village, etc.', vi: 'Công viên nước bỏ hoang, Đồi Vọng Cảnh, làng làm hương truyền thống...' } },
-      { title: { en: 'Return to hotel', vi: 'Trở về khách sạn' } }
+      { title: { en: 'We pick you up directly from your hotel', vi: 'Xe đón bạn tận nơi tại khách sạn' } },
+      { title: { en: 'Step into the Imperial Citadel', vi: 'Bước vào Đại Nội Huế' }, description: { en: 'Walk the grounds of the Forbidden Purple City and hear stories of ancient kings.', vi: 'Khám phá Tử Cấm Thành và lắng nghe những giai thoại về các vị vua triều Nguyễn.' } },
+      { title: { en: 'Visit Thien Mu Pagoda', vi: 'Vãn cảnh Chùa Thiên Mụ' }, description: { en: 'Enjoy the peaceful atmosphere overlooking the Perfume River.', vi: 'Tận hưởng không gian thanh tịnh với tầm nhìn hướng ra dòng sông Hương.' } },
+      { title: { en: 'Share a delicious local lunch', vi: 'Thưởng thức bữa trưa đậm chất Huế' } },
+      { title: { en: 'Marvel at Khai Dinh Tomb', vi: 'Chiêm ngưỡng Lăng Khải Định' }, description: { en: 'Witness the striking blend of Eastern tradition and Western architecture.', vi: 'Tận mắt thấy sự pha trộn độc đáo giữa kiến trúc phương Đông và phương Tây.' } },
+      { title: { en: 'Customize your afternoon', vi: 'Lịch trình tự chọn buổi chiều' }, description: { en: 'Choose to visit the abandoned waterpark, Vong Canh Hill, or a traditional incense-making village.', vi: 'Lựa chọn khám phá công viên nước bỏ hoang, Đồi Vọng Cảnh, hoặc làng làm hương truyền thống.' } },
+      { title: { en: 'Arrive safely back at your hotel', vi: 'Trở về khách sạn an toàn' } }
     ],
     faq: [
-      { question: { en: 'Can the afternoon stops be customized?', vi: 'Có thể tùy chỉnh điểm đến buổi chiều không?' }, answer: { en: 'Yes. Options include royal tombs, cultural villages, scenic spots, and the abandoned waterpark.', vi: 'Có. Các lựa chọn bao gồm lăng tẩm khác, làng văn hóa, điểm ngắm cảnh và công viên nước bỏ hoang.' } },
-      { question: { en: 'Is the tour suitable for children?', vi: 'Tour có phù hợp với trẻ em không?' }, answer: { en: 'Both car and motorbike options are family-friendly.', vi: 'Cả lựa chọn xe máy và ô tô đều thân thiện với gia đình có trẻ nhỏ.' } }
+      { question: { en: 'Are we locked into a strict schedule?', vi: 'Lịch trình có bị gò bó không?' }, answer: { en: 'Not at all. We keep the afternoon flexible so you can choose the spots that interest you most.', vi: 'Hoàn toàn không. Buổi chiều rất linh hoạt, bạn có thể tự do chọn những điểm đến mà mình thích nhất.' } },
+      { question: { en: 'Is this a good choice for families?', vi: 'Tour này có phù hợp cho gia đình không?' }, answer: { en: 'Yes, our experienced drivers ensure a smooth, comfortable ride for guests of all ages.', vi: 'Có, các bác tài của chúng mình luôn lái xe vô cùng cẩn thận, đảm bảo sự thoải mái cho mọi lứa tuổi.' } }
     ]
   },
   {
     id: 'hue-dmz-tour',
     slug: 'hue-dmz-tour',
     title: {
-      en: 'Hue DMZ Tour',
-      vi: 'Tour Lịch Sử DMZ'
+      en: 'Hue DMZ Historical Tour',
+      vi: 'Tour Lịch Sử Khu Phi Quân Sự (DMZ)'
     },
     shortDescription: {
-      en: 'Travel to Vietnam’s former Demilitarized Zone and explore Vinh Moc Tunnels, Hien Luong Bridge at the 17th Parallel, and Quang Tri Ancient Citadel.',
-      vi: 'Đến thăm khu phi quân sự DMZ và khám phá địa đạo Vịnh Mốc, cầu Hiền Lương ở vĩ tuyến 17 và thành cổ Quảng Trị.'
+      en: 'Journey back in time to the Demilitarized Zone. With our knowledgeable local guides, you’ll safely explore the underground Vinh Moc Tunnels, the iconic 17th Parallel, and hear the powerful history of the Vietnam War.',
+      vi: 'Quay ngược thời gian về Khu Phi Quân Sự. Dưới sự dẫn dắt của hướng dẫn viên bản địa, bạn sẽ an toàn khám phá địa đạo Vịnh Mốc, vĩ tuyến 17 lịch sử và lắng nghe những câu chuyện hào hùng về chiến tranh.'
     },
     duration: 'Full day',
     transport: {
       en: 'Private Car',
-      vi: 'Xe riêng'
+      vi: 'Xe ô tô riêng'
     },
     price: 'From $70 USD',
     image: '/photo/f06819e96f07b159e8167.jpg',
     highlights: [
-      { en: 'Explore Vinh Moc Tunnels', vi: 'Khám phá Địa đạo Vịnh Mốc' },
-      { en: 'Stand at the 17th Parallel', vi: 'Đứng tại Vĩ tuyến 17' },
-      { en: 'Visit Hien Luong Bridge', vi: 'Thăm Cầu Hiền Lương' },
-      { en: 'Visit Quang Tri Citadel', vi: 'Thăm Thành cổ Quảng Trị' }
+      { en: 'Walk deep into the historic Vinh Moc Tunnels', vi: 'Đi bộ vào sâu trong hệ thống Địa Đạo Vịnh Mốc' },
+      { en: 'Stand exactly on the 17th Parallel at Hien Luong Bridge', vi: 'Đứng ngay trên Vĩ Tuyến 17 tại cầu Hiền Lương' },
+      { en: 'Pay your respects at the Quang Tri Ancient Citadel', vi: 'Thăm viếng và dâng hương tại Thành Cổ Quảng Trị' }
     ],
     itinerary: [
-      { title: { en: 'Morning pickup in Hue', vi: 'Đón tại Huế vào buổi sáng' } },
-      { title: { en: 'Hien Luong Bridge & Ben Hai River', vi: 'Cầu Hiền Lương & Sông Bến Hải' }, description: { en: 'Stand at the historic 17th Parallel and visit the DMZ Museum.', vi: 'Đứng tại Vĩ tuyến 17 lịch sử và thăm bảo tàng DMZ.' } },
-      { title: { en: 'Vinh Moc Tunnels', vi: 'Địa đạo Vịnh Mốc' }, description: { en: 'Explore the underground tunnel network.', vi: 'Khám phá hệ thống địa đạo ngầm dưới đất.' } },
-      { title: { en: 'Lunch at a local restaurant', vi: 'Ăn trưa tại nhà hàng địa phương' } },
-      { title: { en: 'Quang Tri Ancient Citadel', vi: 'Thành cổ Quảng Trị' }, description: { en: 'Visit the memorial park and exhibits.', vi: 'Thăm công viên tưởng niệm và các di tích lịch sử.' } },
-      { title: { en: 'Scenic drive back to Hue', vi: 'Trở về Huế' } }
+      { title: { en: 'Morning pickup from your hotel in Hue', vi: 'Đón tại khách sạn vào buổi sáng' } },
+      { title: { en: 'Stand at Hien Luong Bridge', vi: 'Dừng chân tại Cầu Hiền Lương' }, description: { en: 'Look across the Ben Hai River that once divided the nation.', vi: 'Nhìn ngắm dòng sông Bến Hải từng là ranh giới chia cắt hai miền.' } },
+      { title: { en: 'Explore Vinh Moc Tunnels', vi: 'Khám phá Địa Đạo Vịnh Mốc' }, description: { en: 'Safely walk through the remarkably preserved underground village.', vi: 'An toàn đi bộ qua ngôi làng dưới lòng đất được bảo tồn gần như nguyên vẹn.' } },
+      { title: { en: 'Enjoy a hearty local lunch', vi: 'Dùng bữa trưa tại nhà hàng địa phương' } },
+      { title: { en: 'Reflect at Quang Tri Ancient Citadel', vi: 'Lắng đọng tại Thành Cổ Quảng Trị' }, description: { en: 'Learn about the intense 81-day battle that took place here.', vi: 'Lắng nghe câu chuyện về 81 ngày đêm rực lửa bảo vệ thành cổ.' } },
+      { title: { en: 'Comfortable drive back to Hue', vi: 'Ngồi xe êm ái trở về Huế' } }
     ]
   },
   {
@@ -153,8 +150,8 @@ export const tours: Tour[] = [
       vi: 'Food Tour Xe Máy & Hoàng Hôn Phá Tam Giang'
     },
     shortDescription: {
-      en: 'Explore Hue through food and adventure on two wheels. Taste Hue specialties, visit a local market, and end the journey at Tam Giang Lagoon for sunset.',
-      vi: 'Khám phá ẩm thực Huế trên xe máy. Thưởng thức đặc sản địa phương, thăm chợ truyền thống và ngắm hoàng hôn trên phá Tam Giang.'
+      en: 'Food tastes better when locals show you where to eat. We’ll weave through small alleyways to find the best street food in Hue, then ride out to Tam Giang Lagoon just in time to watch a spectacular sunset over the water.',
+      vi: 'Đồ ăn luôn ngon hơn khi có người địa phương dẫn đường. Chúng mình sẽ luồn lách qua các ngõ hẻm để tìm những quán ăn ngon nhất Huế, sau đó chạy xe ra Phá Tam Giang vừa kịp lúc ngắm hoàng hôn tuyệt đẹp rủ xuống mặt nước.'
     },
     duration: 'Half day / Evening',
     transport: {
@@ -164,29 +161,29 @@ export const tours: Tour[] = [
     price: 'From $— USD',
     image: '/photo/huefoodtour.jpg',
     highlights: [
-      { en: 'Ride with a local motorbike guide', vi: 'Đi xe máy cùng hướng dẫn viên bản địa' },
-      { en: 'Taste Hue dishes at local spots', vi: 'Thưởng thức các món Huế tại quán ăn địa phương' },
-      { en: 'Visit a local market', vi: 'Tham quan khu chợ truyền thống' },
-      { en: 'Watch sunset at Tam Giang Lagoon', vi: 'Ngắm hoàng hôn trên phá Tam Giang' }
+      { en: 'Ride safely through vibrant city streets with a local expert', vi: 'Ngồi sau tay lái an toàn của người địa phương dạo quanh phố phường' },
+      { en: 'Savor authentic, off-the-beaten-path Hue dishes', vi: 'Thưởng thức những món ăn đặc sản Huế ẩn mình trong các con hẻm' },
+      { en: 'Experience the energetic vibe of a traditional local market', vi: 'Hòa mình vào không khí nhộn nhịp của một khu chợ truyền thống' },
+      { en: 'Watch an unforgettable sunset over the vast Tam Giang Lagoon', vi: 'Chiêm ngưỡng buổi chiều tà rực rỡ trên đầm phá Tam Giang bao la' }
     ],
     itinerary: [
-      { title: { en: 'Stop 1 – Bún Bò Huế', vi: 'Điểm 1 - Bún Bò Huế' } },
-      { title: { en: 'Stop 2 – Royal Cakes & Nem Lụi', vi: 'Điểm 2 - Bánh bèo, nậm, lọc & Nem lụi' } },
-      { title: { en: 'Stop 3 – Local Market + Bánh Khoái Cá Kình', vi: 'Điểm 3 - Chợ địa phương & Bánh khoái cá kình' } },
-      { title: { en: 'Stop 4 – Sunset at Tam Giang Lagoon', vi: 'Điểm 4 - Hoàng hôn Phá Tam Giang' } },
-      { title: { en: 'Stop 5 – Chè Huế', vi: 'Điểm 5 - Chè Huế' } }
+      { title: { en: 'First bite: Legendary Bún Bò Huế', vi: 'Món đầu tiên: Bún Bò Huế trứ danh' } },
+      { title: { en: 'Second bite: Steamed Royal Cakes & Nem Lụi', vi: 'Món thứ hai: Bánh bèo, nậm, lọc & Nem lụi' } },
+      { title: { en: 'Market walk: Exploring ingredients and Bánh Khoái', vi: 'Dạo chợ địa phương: Khám phá nguyên liệu và Bánh khoái' } },
+      { title: { en: 'The views: Golden hour at Tam Giang Lagoon', vi: 'Ngắm cảnh: Giờ vàng trên Phá Tam Giang' } },
+      { title: { en: 'Sweet finish: Traditional Chè Huế', vi: 'Kết thúc ngọt ngào: Ly chè Huế thanh mát' } }
     ]
   },
   {
     id: 'hue-cyclo-tour',
     slug: 'hue-cyclo-tour-explore-the-ancient-city-at-a-gentle-pace',
     title: {
-      en: 'Hue Cyclo Tour',
-      vi: 'Tour Xích Lô Huế'
+      en: 'Hue Cyclo Slow Travel Tour',
+      vi: 'Tour Xích Lô Chậm Trải Cố Đô'
     },
     shortDescription: {
-      en: 'Explore the ancient city at a gentle pace on a traditional cyclo. Discover hidden corners of the Imperial Citadel and experience the tranquil local life.',
-      vi: 'Khám phá cố đô với nhịp độ chậm rãi trên chiếc xích lô truyền thống. Tận hưởng vẻ đẹp bình yên và nhịp sống của người dân địa phương.'
+      en: 'There is no better way to feel the soul of Hue than from the seat of a traditional cyclo. Sit back and let our trusted riders pedal you through the ancient streets, sharing smiles and pointing out hidden details you’d miss in a car.',
+      vi: 'Không có cách nào cảm nhận cái hồn của Huế trọn vẹn hơn là ngồi trên chiếc xích lô truyền thống. Hãy ngả lưng thư giãn để các bác tài xích lô hiền lành đưa bạn đi qua những góc phố rêu phong, nơi bạn có thể thấy những nét đẹp bị bỏ lỡ nếu đi bằng ô tô.'
     },
     duration: '2–3 hours',
     transport: {
@@ -196,15 +193,15 @@ export const tours: Tour[] = [
     price: 'From $— USD',
     image: '/photo/hue-incense-sticks-village.jpg',
     highlights: [
-      { en: 'Gentle ride through the ancient city', vi: 'Trải nghiệm xích lô quanh khu phố cổ' },
-      { en: 'Explore local streets and markets', vi: 'Tham quan các con phố và chợ địa phương' },
-      { en: 'Perfect for photography and slow travel', vi: 'Phù hợp để chụp ảnh và đi chậm' }
+      { en: 'Embrace the gentle, unhurried pace of a classic cyclo ride', vi: 'Tận hưởng nhịp điệu chậm rãi, bình yên của chiếc xích lô cổ điển' },
+      { en: 'Glide through tree-lined avenues and bustling local markets', vi: 'Lướt đi dưới những tán cây xanh mát và khu chợ nhộn nhịp' },
+      { en: 'Capture perfect photos from a comfortable, open-air seat', vi: 'Bắt trọn những khoảnh khắc đẹp nhất từ góc nhìn mở vô cùng thoải mái' }
     ],
     itinerary: [
-      { title: { en: 'Hotel Pickup', vi: 'Đón tại khách sạn' } },
-      { title: { en: 'Cyclo ride around the Citadel', vi: 'Đạp xích lô vòng quanh Đại Nội' } },
-      { title: { en: 'Visit local markets', vi: 'Thăm chợ truyền thống' } },
-      { title: { en: 'Drop off', vi: 'Trả khách' } }
+      { title: { en: 'Our friendly cyclo drivers pick you up', vi: 'Bác tài xích lô thân thiện đón bạn tận nơi' } },
+      { title: { en: 'Pedal smoothly around the towering Citadel walls', vi: 'Đạp xe chầm chậm dọc theo những bức tường thành cổ kính' } },
+      { title: { en: 'Immerse in the daily buzz of the local markets', vi: 'Hòa mình vào nhịp sống thường ngày tại các khu chợ địa phương' } },
+      { title: { en: 'Safe return to your starting point', vi: 'Đưa bạn trở về điểm xuất phát một cách an toàn' } }
     ]
   }
 ];
