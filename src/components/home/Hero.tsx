@@ -45,7 +45,7 @@ export default function Hero() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0 bg-[var(--color-night)]">
           <Image
-            src="/photo/danangtohue.jpg"
+            src="/photo/danangtuhue.png"
             alt="Da Nang to Hue Motorbike Tour"
             fill
             priority
