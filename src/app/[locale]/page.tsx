@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Hero from '@/components/home/Hero';
+import ImmersiveExperience from '@/components/home/ImmersiveExperience';
 import QuickIntro from '@/components/home/QuickIntro';
 import FeaturedTours from '@/components/home/FeaturedTours';
 import BrandStatement from '@/components/home/BrandStatement';
@@ -50,6 +51,8 @@ export default async function Home({ params }: Props) {
       <div className="flex-1 flex flex-col w-full -mt-16">
         {/* 1. Hero — full viewport, thum.png */}
         <Hero />
+        {/* 2. Immersive Scroll Expand Effect */}
+        <ImmersiveExperience />
         {/* 3. Quick intro — what we do + photo grid */}
         <QuickIntro />
         {/* 4. Featured tours list */}
