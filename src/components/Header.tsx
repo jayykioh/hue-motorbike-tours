@@ -51,6 +51,12 @@ export default function Header() {
           {/* Logo */}
           <Link
             href={`/${currentLocale}`}
+            onClick={(e) => {
+              if (pathname === `/${currentLocale}` || pathname === `/${currentLocale}/`) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
             className="flex items-center gap-3 shrink-0 hover:opacity-80 transition-opacity focus-visible:outline-2 focus-visible:outline-[var(--color-terracotta)]"
           >
             <Image

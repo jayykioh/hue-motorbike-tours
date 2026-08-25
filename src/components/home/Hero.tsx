@@ -19,6 +19,7 @@ const partnerLogos: LogoItem[] = [
 export default function Hero() {
   const pathname = usePathname();
   const currentLocale = pathname?.startsWith('/vi') ? 'vi' : 'en';
+  const isVi = currentLocale === 'vi';
 
   const t = {
     en: {
@@ -69,16 +70,26 @@ export default function Hero() {
             <p className="text-body-lg opacity-80 max-w-md">
               {lang.description}
             </p>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-6">
-              <Link href={`/${currentLocale}/plan`} className="btn-primary w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-6">
+              <Link href={`/${currentLocale}/plan`} className="btn-primary w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center hover:scale-105 transition-transform shadow-lg shadow-black/20">
                 {lang.primaryCta}
               </Link>
               <Link
                 href={`/${currentLocale}/tours`}
-                className="w-full sm:w-auto text-center px-6 py-3.5 rounded-[var(--radius-pill)] border border-[var(--color-limestone)] border-opacity-30 hover:bg-[var(--color-limestone)] hover:text-[var(--color-ink)] transition-colors font-semibold min-h-[52px] flex items-center justify-center"
+                className="w-full sm:w-auto text-center px-6 py-3.5 rounded-[var(--radius-pill)] border-2 border-[var(--color-limestone)] border-opacity-40 hover:bg-[var(--color-limestone)] hover:text-[var(--color-ink)] transition-colors font-semibold min-h-[52px] flex items-center justify-center backdrop-blur-sm bg-black/10"
               >
                 {lang.secondaryCta}
               </Link>
+            </div>
+            
+            {/* Trust Element */}
+            <div className="mt-4 flex items-center gap-3 opacity-90">
+              <div className="flex items-center text-[#fbbf24] text-lg">
+                ★★★★★
+              </div>
+              <span className="text-sm font-semibold tracking-wide text-white/80">
+                {isVi ? 'Đánh giá 5.0 từ khách hàng quốc tế' : '5.0 Rated by International Travelers'}
+              </span>
             </div>
           </div>
         </div>
