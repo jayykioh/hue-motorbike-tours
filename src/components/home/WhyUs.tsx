@@ -48,13 +48,13 @@ export default function WhyUs() {
   const lang = t[currentLocale];
 
   return (
-    <section className="bg-[var(--color-ink)] py-20 lg:py-32 px-6 text-[var(--color-limestone)]">
+    <section className="bg-[var(--color-ink)] py-24 lg:py-40 px-6 text-[var(--color-limestone)]">
       <div className="max-w-[var(--container-max)] mx-auto">
-        <div className="text-center mb-16 lg:mb-24">
-          <p className="text-small font-semibold tracking-widest uppercase opacity-60 text-[var(--color-sand)] mb-4">
+        <div className="text-center mb-20 lg:mb-32 flex flex-col items-center gap-4">
+          <p className="text-small font-semibold tracking-widest uppercase text-[var(--color-terracotta)]">
             {lang.subtitle}
           </p>
-          <h2 className="text-h3 lg:text-h2 font-display">
+          <h2 className="text-h2 lg:text-[3.5rem] font-display leading-[1.1] tracking-tight">
             {lang.title}
           </h2>
         </div>

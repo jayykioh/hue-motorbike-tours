@@ -25,15 +25,15 @@ export default function BrandStatement() {
   const lang = t[currentLocale];
 
   return (
-    <section className="bg-[var(--color-limestone)] py-20 lg:py-32 px-6">
+    <section className="bg-white py-24 lg:py-40 px-6">
       <div className="max-w-[var(--container-max)] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
         
         {/* Left: Typography */}
         <div className="lg:col-span-7 flex flex-col gap-8">
-          <h2 className="text-h3 lg:text-h2 font-display text-[var(--color-terracotta)] leading-tight max-w-2xl">
-            "{lang.headline}"
+          <h2 className="text-h2 lg:text-[3.5rem] font-display text-[var(--color-ink)] leading-[1.1] max-w-2xl tracking-tight">
+            {lang.headline}
           </h2>
-          <div className="flex flex-col gap-6 text-body-lg text-[var(--color-ink)] opacity-80 max-w-xl">
+          <div className="flex flex-col gap-6 text-body-lg text-[var(--color-ink)]/70 max-w-xl font-medium">
             <p>{lang.paragraph1}</p>
             <p>{lang.paragraph2}</p>
           </div>
@@ -41,12 +41,12 @@ export default function BrandStatement() {
 
         {/* Right: Founder Image */}
         <div className="lg:col-span-5 flex flex-col gap-4">
-          <div className="relative w-full aspect-[3/4] md:aspect-[4/5] rounded-[var(--radius-md)] overflow-hidden bg-[var(--color-sand)]">
+          <div className="relative w-full aspect-[4/5] rounded-[var(--radius-lg)] overflow-hidden bg-[var(--color-limestone)] shadow-2xl shadow-black/5">
             <Image 
               src="https://images.unsplash.com/photo-1542640244-7e672d6cb466?auto=format&fit=crop&q=80&w=600" 
               alt="Mai Anh Tu - Founder"
               fill
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              className="object-cover hover:scale-105 transition-transform duration-1000 ease-[var(--ease-standard)]"
               sizes="(max-width: 1024px) 100vw, 40vw"
             />
           </div>

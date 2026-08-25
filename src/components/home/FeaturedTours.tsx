@@ -30,13 +30,13 @@ export default function FeaturedTours() {
   const lang = t[currentLocale];
 
   return (
-    <section className="bg-[var(--color-limestone)] py-20 lg:py-32 px-6 border-t border-[var(--color-sand)]">
+    <section className="bg-[var(--color-limestone)] py-24 lg:py-40 px-6">
       <div className="max-w-[var(--container-max)] mx-auto">
-        <div className="mb-12 lg:mb-20">
-          <p className="text-small font-semibold tracking-widest uppercase opacity-60 text-[var(--color-ink)] mb-4">
+        <div className="mb-16 lg:mb-24 flex flex-col items-start gap-4">
+          <p className="text-small font-semibold tracking-widest uppercase text-[var(--color-terracotta)]">
             {lang.subtitle}
           </p>
-          <h2 className="text-h3 lg:text-h2 font-display text-[var(--color-ink)]">
+          <h2 className="text-h2 lg:text-[3.5rem] font-display text-[var(--color-ink)] leading-[1.1] tracking-tight">
             {lang.title}
           </h2>
         </div>
@@ -92,6 +92,15 @@ export default function FeaturedTours() {
               </Link>
             );
           })}
+        </div>
+
+        <div className="mt-16 lg:mt-24 flex justify-center">
+          <Link 
+            href={`/${currentLocale}/tours`}
+            className="px-8 py-4 rounded-[var(--radius-pill)] border border-[var(--color-ink)] text-[var(--color-ink)] font-semibold text-body hover:bg-[var(--color-ink)] hover:text-[var(--color-limestone)] transition-colors"
+          >
+            {isVi ? 'Xem Tất Cả Các Tour' : 'Explore All Tours'} &rarr;
+          </Link>
         </div>
       </div>
     </section>

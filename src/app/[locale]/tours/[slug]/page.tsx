@@ -86,14 +86,22 @@ export default async function TourDetailPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="flex-1 flex flex-col">
-        {/* Breadcrumb */}
-        <div className="bg-[var(--color-limestone)] border-b border-[var(--color-sand)] py-4 px-6 mt-16 lg:mt-24">
-          <div className="max-w-[var(--container-max)] mx-auto flex items-center gap-2 text-small uppercase tracking-widest font-semibold opacity-60">
-            <Link href={`/${locale}`} className="hover:text-[var(--color-terracotta)] transition-colors">Home</Link>
-            <span>/</span>
-            <Link href={`/${locale}/tours`} className="hover:text-[var(--color-terracotta)] transition-colors">Tours</Link>
-            <span>/</span>
-            <span className="text-[var(--color-ink)] truncate max-w-[200px] sm:max-w-none">{title}</span>
+        {/* Breadcrumb / Back Navigation */}
+        <div className="bg-[var(--color-limestone)] py-4 px-6 pt-20 lg:pt-24 border-b border-[var(--color-sand)]">
+          <div className="max-w-[var(--container-max)] mx-auto flex items-center gap-4">
+            <Link 
+              href={`/${locale}/tours`} 
+              className="flex items-center gap-2 text-small font-semibold uppercase tracking-widest text-[var(--color-ink)] opacity-60 hover:opacity-100 hover:text-[var(--color-terracotta)] transition-colors group"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-x-1 transition-transform">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+              {isVi ? 'Tất Cả Tour' : 'All Tours'}
+            </Link>
+            <span className="w-px h-4 bg-[var(--color-ink)] opacity-20"></span>
+            <span className="text-small font-semibold tracking-wide text-[var(--color-ink)] truncate opacity-90">
+              {title}
+            </span>
           </div>
         </div>
 

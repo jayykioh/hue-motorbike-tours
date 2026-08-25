@@ -84,7 +84,7 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Header />
-        <main className="flex-1 flex flex-col pt-24 min-h-screen">
+        <main className="flex-1 flex flex-col min-h-screen">
           {children}
         </main>
         <Footer />

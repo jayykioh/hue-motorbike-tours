@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import Hero from '@/components/home/Hero';
-import BrandStatement from '@/components/home/BrandStatement';
+import QuickIntro from '@/components/home/QuickIntro';
 import FeaturedTours from '@/components/home/FeaturedTours';
+import BrandStatement from '@/components/home/BrandStatement';
 import WhyUs from '@/components/home/WhyUs';
+import ContactSection from '@/components/home/ContactSection';
 import FinalCta from '@/components/home/FinalCta';
 
 type Props = {
@@ -17,8 +19,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     : 'Hue Motorbike Tours | Central Vietnam, Slowly';
     
   const description = locale === 'vi'
-    ? 'Khám phá Huế, Đà Nẵng và Hội An với những chuyến đi xe máy mang đậm dấu ấn địa phương.'
-    : 'Curated motorbike journeys through Hue, Da Nang & Hoi An shaped by local knowledge.';
+    ? 'Khám phá Huế và đèo Hải Vân với những chuyến đi xe máy mang đậm dấu ấn địa phương.'
+    : 'Curated motorbike journeys through Hue and the Hai Van Pass shaped by local knowledge.';
 
   return {
     title,
@@ -29,14 +31,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Home({ params }: Props) {
   const { locale } = await params;
   
-  // JSON-LD for TravelAgency
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
     "name": "Hue Motorbike Tours",
     "telephone": "+84862391918",
-    "areaServed": ["Hue", "Da Nang", "Hoi An"],
-    "url": "https://huemotorbiketours.com" // Placeholder for actual domain
+    "areaServed": ["Hue", "Thua Thien Hue"],
+    "url": "https://huemotorbiketours.com"
   };
 
   return (
@@ -45,12 +46,21 @@ export default async function Home({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="flex-1 flex flex-col w-full -mt-24">
-        {/* Negative margin top to allow hero to underlap the transparent header */}
+      {/* Hero underlaps the transparent header — no top padding needed */}
+      <div className="flex-1 flex flex-col w-full -mt-16">
+        {/* 1. Hero — full viewport, thum.png */}
         <Hero />
-        <BrandStatement />
+        {/* 3. Quick intro — what we do + photo grid */}
+        <QuickIntro />
+        {/* 4. Featured tours list */}
         <FeaturedTours />
+        {/* 5. About — Mai Anh Tu story */}
+        <BrandStatement />
+        {/* 6. Why ride with us — 3 pillars */}
         <WhyUs />
+        {/* 7. Contact + Google Maps */}
+        <ContactSection />
+        {/* 8. Final WhatsApp CTA */}
         <FinalCta />
       </div>
     </>
