@@ -290,10 +290,6 @@ export const LogoLoop = React.memo<LogoLoopProps>(
         cx(
           'relative group',
           isVertical ? 'overflow-hidden h-full inline-block' : 'overflow-x-hidden',
-          '[--logoloop-gap:32px]',
-          '[--logoloop-logoHeight:28px]',
-          '[--logoloop-fadeColorAuto:#ffffff]',
-          'dark:[--logoloop-fadeColorAuto:#0b0b0b]',
           scaleOnHover && 'py-[calc(var(--logoloop-logoHeight)*0.1)]',
           className
         ),
@@ -390,7 +386,6 @@ export const LogoLoop = React.memo<LogoLoopProps>(
           <li
             className={cx(
               'flex-none text-[length:var(--logoloop-logoHeight)] leading-[1]',
-              isVertical ? 'mb-[var(--logoloop-gap)]' : 'mr-[var(--logoloop-gap)]',
               scaleOnHover && 'overflow-visible group/item'
             )}
             key={key}
@@ -407,7 +402,12 @@ export const LogoLoop = React.memo<LogoLoopProps>(
       () =>
         Array.from({ length: copyCount }, (_, copyIndex) => (
           <ul
-            className={cx('flex items-center', isVertical && 'flex-col')}
+            className={cx(
+              'flex items-center shrink-0',
+              isVertical
+                ? 'flex-col gap-[var(--logoloop-gap)] pb-[var(--logoloop-gap)]'
+                : 'flex-row gap-[var(--logoloop-gap)] pr-[var(--logoloop-gap)]'
+            )}
             key={`copy-${copyIndex}`}
             role="list"
             aria-hidden={copyIndex > 0}
