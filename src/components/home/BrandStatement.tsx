@@ -41,7 +41,7 @@ export default function BrandStatement() {
 
         {/* Right: Founder Image — appears first on mobile */}
         <div className="lg:col-span-5 flex flex-col gap-3 order-1 lg:order-2">
-          <div className="relative w-full aspect-[4/5] rounded-[var(--radius-lg)] overflow-hidden bg-[var(--color-limestone)] shadow-xl shadow-black/8">
+          <div className="relative w-full aspect-[3/2] sm:aspect-[4/5] rounded-[var(--radius-lg)] overflow-hidden bg-[var(--color-limestone)] shadow-xl shadow-black/8">
             <Image 
               src="/photo/thumbnail.jpg" 
               alt="Mai Anh Tu - Founder of Hue Motorbike Tours"

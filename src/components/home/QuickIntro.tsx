@@ -46,14 +46,14 @@ export default function QuickIntro() {
           </div>
           <Link
             href={`/${currentLocale}/tours`}
-            className="mt-2 self-start text-body font-semibold text-[var(--color-ink)] border-b-2 border-[var(--color-terracotta)] pb-0.5 hover:text-[var(--color-terracotta)] transition-colors"
+            className="btn-primary mt-2 w-full sm:w-auto justify-center text-base"
           >
             {lang.cta}
           </Link>
         </div>
 
         {/* Right: Illustrative Image */}
-        <div className="relative w-full aspect-[4/3] lg:aspect-square rounded-[var(--radius-lg)] overflow-hidden shadow-2xl shadow-black/5 order-1 lg:order-2">
+        <div className="relative w-full aspect-[3/2] sm:aspect-[4/3] lg:aspect-square rounded-[var(--radius-lg)] overflow-hidden shadow-2xl shadow-black/5 order-1 lg:order-2">
           <Image 
             src="/photo/hue-imperal-city.jpg" 
             alt="Hue Imperial City" 

@@ -42,7 +42,7 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative w-full h-[85vh] min-h-[600px] flex items-end pb-16 sm:pb-24 px-5 sm:px-6 overflow-hidden">
+      <section className="relative w-full h-[85vh] min-h-[600px] flex items-end pb-20 sm:pb-24 px-5 sm:px-6 overflow-hidden" style={{paddingBottom: 'max(5rem, env(safe-area-inset-bottom, 0px) + 3rem)'}}>
         {/* Background Image */}
         <div className="absolute inset-0 z-0 bg-[var(--color-night)]">
           <Image
@@ -50,6 +50,7 @@ export default function Hero() {
             alt="Hue Motorbike Tours"
             fill
             priority
+            loading="eager"
             className="object-cover opacity-80"
             sizes="100vw"
           />
@@ -60,7 +61,7 @@ export default function Hero() {
 
         {/* Content */}
         <div className="relative z-20 max-w-[var(--container-max)] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
-          <div className="lg:col-span-8 xl:col-span-6 flex flex-col gap-6 text-[var(--color-limestone)]">
+          <div className="lg:col-span-8 xl:col-span-6 flex flex-col gap-4 sm:gap-6 text-[var(--color-limestone)]">
             <p className="whitespace-pre-line text-small font-semibold tracking-widest uppercase opacity-80">
               {lang.subtitle}
             </p>
@@ -70,26 +71,41 @@ export default function Hero() {
             <p className="text-body-lg opacity-80 max-w-md">
               {lang.description}
             </p>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-6">
-              <Link href={`/${currentLocale}/plan`} className="btn-primary w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center hover:scale-105 transition-transform shadow-lg shadow-black/20">
+            {/* CTA Group */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-4">
+              <Link
+                href={`/${currentLocale}/plan`}
+                className="btn-primary w-full sm:w-auto text-center justify-center"
+              >
                 {lang.primaryCta}
               </Link>
               <Link
                 href={`/${currentLocale}/tours`}
-                className="w-full sm:w-auto text-center px-6 py-3.5 rounded-[var(--radius-pill)] border-2 border-[var(--color-limestone)] border-opacity-40 hover:bg-[var(--color-limestone)] hover:text-[var(--color-ink)] transition-colors font-semibold min-h-[52px] flex items-center justify-center backdrop-blur-sm bg-black/10"
+                className="w-full sm:w-auto text-center px-8 py-3.5 rounded-[var(--radius-pill)] border-2 border-white/60 text-white font-bold text-base hover:bg-white hover:text-[var(--color-ink)] transition-colors min-h-[56px] flex items-center justify-center backdrop-blur-sm bg-white/10"
               >
                 {lang.secondaryCta}
               </Link>
             </div>
-            
-            {/* Trust Element */}
-            <div className="mt-4 flex items-center gap-3 opacity-90">
-              <div className="flex items-center text-[#fbbf24] text-lg">
-                ★★★★★
+
+            {/* Social Proof — Urgency + Trust */}
+            <div className="mt-5 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+              {/* Availability dot */}
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                </span>
+                <span className="text-[0.8rem] font-semibold text-white/75 tracking-wide uppercase">
+                  {isVi ? 'Đang nhận đặt lịch' : 'Now Accepting Bookings'}
+                </span>
               </div>
-              <span className="text-sm font-semibold tracking-wide text-white/80">
-                {isVi ? 'Đánh giá 5.0 từ khách hàng quốc tế' : '5.0 Rated by International Travelers'}
-              </span>
+              {/* Stars */}
+              <div className="flex items-center gap-2">
+                <span className="text-[#fbbf24] text-base leading-none tracking-tight">★★★★★</span>
+                <span className="text-[0.8rem] font-semibold text-white/75">
+                  {isVi ? '5.0 · Khách quốc tế đánh giá' : '5.0 · Rated by International Guests'}
+                </span>
+              </div>
             </div>
           </div>
         </div>

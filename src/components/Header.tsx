@@ -135,7 +135,7 @@ export default function Header() {
               </Link>
             </div>
             <button
-              className="p-2 text-[var(--color-limestone)] focus-visible:outline-2 focus-visible:outline-[var(--color-terracotta)]"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center text-[var(--color-limestone)] focus-visible:outline-2 focus-visible:outline-[var(--color-terracotta)] cursor-pointer"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}

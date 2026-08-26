@@ -123,13 +123,19 @@ export default function FeaturedTours() {
           })}
         </div>
 
-        <div className="mt-16 flex justify-center">
-          <Link 
+        <div className="mt-16 flex flex-col items-center gap-4">
+          <Link
             href={`/${currentLocale}/tours`}
-            className="w-full sm:w-auto text-center px-8 py-4 sm:py-5 rounded-[var(--radius-pill)] border-2 border-[var(--color-ink)] text-[var(--color-ink)] font-bold text-lg hover:bg-[var(--color-ink)] hover:text-[var(--color-limestone)] transition-colors"
+            className="btn-primary w-full sm:w-auto justify-center text-base sm:text-lg px-10"
           >
             {lang.viewAll}
+            <svg className="w-5 h-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </Link>
+          <p className="text-[0.8rem] font-semibold text-[var(--color-ink)]/45 tracking-wide uppercase">
+            {isVi ? `${tours.length} lịch trình · Tất cả đều có thể tùy chỉnh` : `${tours.length} Itineraries · All Fully Customizable`}
+          </p>
         </div>
       </div>
     </section>

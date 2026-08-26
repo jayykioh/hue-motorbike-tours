@@ -50,7 +50,7 @@ export default function WhyUs() {
   return (
     <section className="bg-[var(--color-ink)] py-16 lg:py-40 px-5 sm:px-6 text-[var(--color-limestone)]">
       <div className="max-w-[var(--container-max)] mx-auto">
-        <div className="text-center mb-20 lg:mb-32 flex flex-col items-center gap-4">
+        <div className="text-center mb-12 lg:mb-28 flex flex-col items-center gap-4">
           <p className="text-small font-semibold tracking-widest uppercase text-[var(--color-terracotta)]">
             {lang.subtitle}
           </p>
@@ -59,16 +59,16 @@ export default function WhyUs() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-16">
           {lang.points.map((point, idx) => (
-            <div key={idx} className="flex flex-col gap-4 text-center items-center">
-              <div className="w-12 h-12 rounded-full bg-[var(--color-terracotta)] flex items-center justify-center text-[var(--color-limestone)] font-display text-h4 mb-2">
+            <div key={idx} className="flex flex-col gap-4 text-center items-center p-6 sm:p-0 rounded-[var(--radius-md)] sm:rounded-none bg-white/5 sm:bg-transparent">
+              <div className="w-12 h-12 rounded-full bg-[var(--color-terracotta)] flex items-center justify-center text-[var(--color-limestone)] font-display text-h4 mb-2 shrink-0">
                 {idx + 1}
               </div>
-              <h3 className="text-h4 font-display text-[var(--color-sand)]">
+              <h3 className="text-xl sm:text-h4 font-display text-[var(--color-sand)]">
                 {point.title}
               </h3>
-              <p className="text-body opacity-80 leading-relaxed max-w-sm">
+              <p className="text-base text-[var(--color-limestone)]/75 leading-relaxed max-w-sm">
                 {point.desc}
               </p>
             </div>
