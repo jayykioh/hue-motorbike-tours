@@ -8,6 +8,8 @@ import WhyUs from '@/components/home/WhyUs';
 import Testimonials from '@/components/home/Testimonials';
 import ContactSection from '@/components/home/ContactSection';
 import FinalCta from '@/components/home/FinalCta';
+import MeetExpert from '@/components/home/MeetExpert';
+import FaqHome from '@/components/home/FaqHome';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -129,8 +131,12 @@ export default async function Home({ params }: Props) {
         <BrandStatement />
         {/* 6. Why ride with us — 3 pillars */}
         <WhyUs />
+        {/* E-E-A-T Enhancement: Meet the Founder */}
+        <MeetExpert locale={locale} />
         {/* 7. Testimonials — social proof + SEO reviews */}
         <Testimonials />
+        {/* E-E-A-T Enhancement: AI Citation FAQ */}
+        <FaqHome locale={locale} />
         {/* 8. Contact + Google Maps */}
         <ContactSection />
         {/* 9. Final WhatsApp CTA */}
