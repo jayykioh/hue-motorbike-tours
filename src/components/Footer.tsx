@@ -14,6 +14,7 @@ export default function Footer() {
       company: "Company",
       contact: "Contact",
       language: "Language",
+      partner: "Also by Tu",
       rights: "© 2026 Hue Motorbike Tours. All rights reserved.",
       description: "Premium motorbike tours and authentic local experiences in Hue, Vietnam.",
       links: {
@@ -23,6 +24,8 @@ export default function Footer() {
         about: "About Us",
         journal: "Journal",
         contact: "Contact",
+        hoian: "Hoi An Motorbike Tours",
+        danang: "Da Nang & Hoi An Tours",
       }
     },
     vi: {
@@ -30,6 +33,7 @@ export default function Footer() {
       company: "Công ty",
       contact: "Liên hệ",
       language: "Ngôn ngữ",
+      partner: "Cũng bởi Tú",
       rights: "© 2026 Hue Motorbike Tours. Mọi quyền được bảo lưu.",
       description: "Trải nghiệm tour xe máy cao cấp và văn hóa địa phương đích thực tại Huế, Việt Nam.",
       links: {
@@ -39,6 +43,8 @@ export default function Footer() {
         about: "Về Chúng Tôi",
         journal: "Nhật Ký",
         contact: "Liên Hệ",
+        hoian: "Tour Xe Máy Hội An",
+        danang: "Tour Đà Nẵng & Hội An",
       }
     }
   };
@@ -106,6 +112,33 @@ export default function Footer() {
               </h4>
               <nav className="flex flex-col gap-4">
                 <Link href={`/${currentLocale}/tours`} className="text-body hover:text-[var(--color-terracotta)] transition-colors w-fit">{lang.tours}</Link>
+              </nav>
+            </div>
+
+            {/* Sister Sites — same owner, different destinations */}
+            <div className="flex flex-col gap-6">
+              <h4 className="font-semibold text-small uppercase tracking-widest text-[var(--color-terracotta)]">
+                {lang.partner}
+              </h4>
+              <nav className="flex flex-col gap-4">
+                <a
+                  href="https://hoianmotorbike.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-body hover:text-[var(--color-terracotta)] transition-colors w-fit flex items-center gap-1.5"
+                >
+                  {lang.links.hoian}
+                  <svg className="w-3 h-3 opacity-50 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                </a>
+                <a
+                  href="https://dananghoiantour.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-body hover:text-[var(--color-terracotta)] transition-colors w-fit flex items-center gap-1.5"
+                >
+                  {lang.links.danang}
+                  <svg className="w-3 h-3 opacity-50 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                </a>
               </nav>
             </div>
 

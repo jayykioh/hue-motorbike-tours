@@ -123,14 +123,23 @@ const jsonLd = {
   "areaServed": ["Hue", "Thua Thien Hue", "Da Nang", "Hoi An", "Quang Tri"],
   "founder": {
     "@type": "Person",
-    "name": "Mai Anh Tu"
+    "name": "Mai Anh Tu",
+    "jobTitle": "Founder & Head Easy Rider Guide",
+    "knowsAbout": ["Hue Motorbike Tours", "Hoi An Tours", "Da Nang Tours", "Central Vietnam Travel", "Easy Rider Vietnam"],
+    "sameAs": [
+      "https://hoianmotorbike.com",
+      "https://dananghoiantour.com",
+      "https://huebiketour.com"
+    ]
   },
   "priceRange": "$$",
   "currenciesAccepted": "USD, VND",
   "paymentAccepted": "Cash, Bank Transfer",
   "sameAs": [
     "https://www.facebook.com/Vietnamonmotorbike",
-    "https://www.tripadvisor.com/Attraction_Review-g293926-d12453921-Reviews-Trider_Adventure_Motorbike_Tours-Hue_Thua_Thien_Hue_Province.html"
+    "https://www.tripadvisor.com/Attraction_Review-g293926-d12453921-Reviews-Trider_Adventure_Motorbike_Tours-Hue_Thua_Thien_Hue_Province.html",
+    "https://hoianmotorbike.com",
+    "https://dananghoiantour.com"
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",

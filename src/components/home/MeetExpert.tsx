@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 
 type Props = {
   locale: string;
@@ -53,7 +53,34 @@ export default function MeetExpert({ locale }: Props) {
               ))}
             </div>
 
-            <div className="pt-6">
+            {/* Sister site network */}
+            <div className="flex flex-col gap-3 pt-2 border-t border-white/10 mt-2">
+              <p className="text-xs font-bold tracking-widest uppercase text-[var(--color-terracotta)]">
+                {isVi ? "Mạng lưới Tour" : "Tour Network"}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="https://hoianmotorbike.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-[var(--color-terracotta)]/40 transition-all text-sm font-semibold text-[var(--color-sand)]/80 hover:text-white"
+                >
+                  <svg className="w-3.5 h-3.5 text-[var(--color-terracotta)] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                  {isVi ? "Tour Xe Máy Hội An" : "Hoi An Motorbike Tours"}
+                </a>
+                <a
+                  href="https://dananghoiantour.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-[var(--color-terracotta)]/40 transition-all text-sm font-semibold text-[var(--color-sand)]/80 hover:text-white"
+                >
+                  <svg className="w-3.5 h-3.5 text-[var(--color-terracotta)] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                  {isVi ? "Tour Đà Nẵng & Hội An" : "Da Nang & Hoi An Tours"}
+                </a>
+              </div>
+            </div>
+
+            <div className="pt-4">
               <p className="font-display text-3xl text-white/90 italic">{t.signature}</p>
             </div>
           </div>

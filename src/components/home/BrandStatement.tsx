@@ -12,12 +12,22 @@ export default function BrandStatement() {
       headline: "You won't find the real Vietnam looking through a bus window.",
       paragraph1: "I'm Mai Anh Tu, founder of Hue Motorbike Tours. For over a decade, my team and I have led hue motorbike tours showing travelers the hidden side of Central Vietnam. We don't just drive — we share the stories, the secret food spots, and the vibrant culture of our home.",
       paragraph2: "Your safety is our absolute priority on every hue bike tour. We use well-maintained bikes, provide high-quality safety gear, and ride at a pace that lets you truly soak in the scenery. Whether it's your first easy rider hue experience or you're a seasoned rider, you're in safe, expert hands.",
+      paragraph3: "Travelling beyond Hue? My team also runs ",
+      hoianLink: "Hoi An motorbike tours",
+      paragraph3mid: " and ",
+      danangLink: "Da Nang & Hoi An day tours",
+      paragraph3end: " — so we can take care of your entire Central Vietnam adventure, city to city.",
       imageCaption: "Mai Anh Tu — Founder & Head Guide",
     },
     vi: {
       headline: "Việt Nam thực sự không nằm sau khung cửa kính xe buýt.",
       paragraph1: "Chào bạn, mình là Mai Anh Tú. Hơn 10 năm qua, đội ngũ của mình đã dẫn đường cho du khách khám phá một miền Trung rất khác. Chúng mình không chỉ là tài xế, mà còn là những người kể chuyện, đưa bạn đến những quán ăn bí mật và trải nghiệm văn hóa bản địa chân thực nhất.",
       paragraph2: "Sự an toàn của bạn luôn được đặt lên hàng đầu. Toàn bộ xe đều được bảo dưỡng kỹ lưỡng, trang bị đồ bảo hộ chất lượng cao và di chuyển với tốc độ vừa phải để bạn tha hồ ngắm cảnh. Dù bạn lần đầu ngồi xe máy hay đã quá quen thuộc, bạn luôn được đảm bảo an toàn tuyệt đối.",
+      paragraph3: "Đi xa hơn Huế? Đội mình cũng vận hành ",
+      hoianLink: "tour xe máy Hội An",
+      paragraph3mid: " và ",
+      danangLink: "tour Đà Nẵng & Hội An",
+      paragraph3end: " — để chăm sóc trọn vẹn hành trình miền Trung của bạn từ thành phố này đến thành phố khác.",
       imageCaption: "Mai Anh Tú — Người sáng lập",
     }
   };
@@ -36,6 +46,27 @@ export default function BrandStatement() {
           <div className="flex flex-col gap-5 text-body text-[var(--color-ink)]/70 max-w-xl">
             <p className="leading-relaxed">{lang.paragraph1}</p>
             <p className="leading-relaxed">{lang.paragraph2}</p>
+            <p className="leading-relaxed">
+              {lang.paragraph3}
+              <a
+                href="https://hoianmotorbike.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--color-terracotta)] font-semibold hover:underline"
+              >
+                {lang.hoianLink}
+              </a>
+              {lang.paragraph3mid}
+              <a
+                href="https://dananghoiantour.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--color-terracotta)] font-semibold hover:underline"
+              >
+                {lang.danangLink}
+              </a>
+              {lang.paragraph3end}
+            </p>
           </div>
         </div>
 
