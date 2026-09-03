@@ -1,7 +1,8 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { WHATSAPP_BOOK_URL } from "@/lib/whatsapp";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -63,10 +64,21 @@ export default function Footer() {
             <p className="text-body-lg opacity-90 leading-relaxed font-semibold">
               {lang.description}
             </p>
+            {/* NAP block — visible to crawlers for local SEO */}
+            <address className="not-italic flex flex-col gap-1 text-small text-[var(--color-limestone)]/70">
+              <span className="font-semibold text-[var(--color-limestone)]/90">Hue Motorbike Tours</span>
+              <span>Hue City, Thua Thien Hue Province, Vietnam</span>
+              <a
+                href="tel:+84862391918"
+                className="hover:text-[var(--color-terracotta)] transition-colors font-semibold"
+              >
+                +84 862 391 918
+              </a>
+            </address>
             <div className="flex gap-4 items-center">
-              <a 
-                href="https://wa.me/84862391918" 
-                target="_blank" 
+              <a
+                href={WHATSAPP_BOOK_URL}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary mt-4"
               >
@@ -93,9 +105,7 @@ export default function Footer() {
                 {lang.company}
               </h4>
               <nav className="flex flex-col gap-4">
-                <Link href={`/${currentLocale}/about`} className="text-body hover:text-[var(--color-terracotta)] transition-colors w-fit">{lang.links.about}</Link>
-                <Link href={`/${currentLocale}/journal`} className="text-body hover:text-[var(--color-terracotta)] transition-colors w-fit">{lang.links.journal}</Link>
-                <Link href={`/${currentLocale}/contact`} className="text-body hover:text-[var(--color-terracotta)] transition-colors w-fit">{lang.links.contact}</Link>
+                <Link href={`/${currentLocale}/tours`} className="text-body hover:text-[var(--color-terracotta)] transition-colors w-fit">{lang.tours}</Link>
               </nav>
             </div>
 

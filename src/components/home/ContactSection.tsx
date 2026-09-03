@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { WHATSAPP_BOOK_URL } from "@/lib/whatsapp";
 
 export default function ContactSection() {
   const pathname = usePathname();
@@ -47,7 +48,7 @@ export default function ContactSection() {
             <div className="flex flex-col gap-2">
               <span className="text-small font-semibold uppercase tracking-widest text-[var(--color-ink)]/50">WhatsApp</span>
               <a
-                href="https://wa.me/84862391918?text=Hi"
+                href={WHATSAPP_BOOK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-body-lg font-semibold text-[var(--color-ink)] hover:text-[var(--color-terracotta)] transition-colors"
@@ -105,7 +106,7 @@ export default function ContactSection() {
 
             {/* CTA button */}
             <a
-              href="https://wa.me/84862391918?text=Hi"
+              href={WHATSAPP_BOOK_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary self-start mt-2"

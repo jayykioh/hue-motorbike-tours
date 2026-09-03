@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useMemo } from "react";
 import Link from "next/link";
@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { MapPin, Mountain, Waves, Compass, Sun, Camera, Map } from "lucide-react";
 import LogoLoop, { LogoItem } from "@/components/ui/LogoLoop";
+import { WHATSAPP_PLAN_URL } from "@/lib/whatsapp";
 
 interface RouteMilestone {
   title: { en: string; vi: string };
@@ -130,12 +131,14 @@ export default function Hero() {
 
             {/* CTA Group */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mt-3">
-              <Link
-                href={`/${currentLocale}/plan`}
+              <a
+                href={WHATSAPP_PLAN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary w-full sm:w-auto text-center justify-center text-base sm:text-lg"
               >
                 {lang.primaryCta}
-              </Link>
+              </a>
               <Link
                 href={`/${currentLocale}/tours`}
                 className="w-full sm:w-auto text-center px-8 py-3.5 rounded-[var(--radius-pill)] border-2 border-white/60 text-white font-bold text-base hover:bg-white hover:text-[var(--color-ink)] transition-colors min-h-[56px] flex items-center justify-center backdrop-blur-sm bg-white/10"

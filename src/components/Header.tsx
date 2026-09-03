@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { WHATSAPP_PLAN_URL } from "@/lib/whatsapp";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,8 +30,6 @@ export default function Header() {
 
   const navLinks = [
     { label: currentLocale === 'vi' ? 'Các Tour' : 'Tours', href: `/${currentLocale}/tours` },
-    { label: currentLocale === 'vi' ? 'Điểm đến' : 'Destinations', href: `/${currentLocale}/destinations` },
-    { label: currentLocale === 'vi' ? 'Nhật ký' : 'Journal', href: `/${currentLocale}/journal` },
   ];
 
   const isHomePage = pathname === '/en' || pathname === '/vi' || pathname === '/';
@@ -109,12 +108,14 @@ export default function Header() {
                 EN
               </Link>
             </div>
-            <Link
-              href={`/${currentLocale}/plan`}
+            <a
+              href={WHATSAPP_PLAN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-small font-semibold px-5 py-2 rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] text-white hover:bg-[color-mix(in_srgb,var(--color-terracotta)_85%,black)] transition-colors"
             >
               {currentLocale === 'vi' ? 'Lên kế hoạch' : 'Plan Trip'}
-            </Link>
+            </a>
           </div>
 
           {/* Mobile: right side — locale + hamburger */}
@@ -172,13 +173,15 @@ export default function Header() {
         </nav>
 
         <div className="mt-auto border-t border-white/10 pt-8">
-          <Link
-            href={`/${currentLocale}/plan`}
+          <a
+            href={WHATSAPP_PLAN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setIsMobileMenuOpen(false)}
             className="btn-primary w-full text-center py-4 block"
           >
             {currentLocale === 'vi' ? 'Lên kế hoạch chuyến đi →' : 'Plan a Trip →'}
-          </Link>
+          </a>
         </div>
       </div>
     </>

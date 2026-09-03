@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Instrument_Serif, Manrope } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -98,10 +98,28 @@ const jsonLd = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 16.4637,
-    "longitude": 107.5910
+    "latitude": 16.46370,
+    "longitude": 107.59100
   },
-  "openingHours": "Mo-Su 07:00-21:00",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday", "Tuesday", "Wednesday", "Thursday",
+        "Friday", "Saturday", "Sunday"
+      ],
+      "opens": "07:00",
+      "closes": "21:00"
+    }
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+84862391918",
+    "contactType": "customer service",
+    "availableLanguage": ["English", "Vietnamese"],
+    "contactOption": "TollFree",
+    "areaServed": "VN"
+  },
   "areaServed": ["Hue", "Thua Thien Hue", "Da Nang", "Hoi An", "Quang Tri"],
   "founder": {
     "@type": "Person",
