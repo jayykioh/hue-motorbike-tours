@@ -57,6 +57,9 @@ export const metadata: Metadata = {
     title: "Hue Motorbike Tour & Easy Rider Hue | #1 Local Guide",
     description: "Best hue motorbike tour with local easy rider guides. Hai Van Pass, Imperial City, Food Tour & more. Book on WhatsApp.",
   },
+  verification: {
+    google: '_UFGjgDoCo5QghP8c2ZnF1cXde3XkWuuet3YcH7eORI',
+  },
   robots: {
     index: true,
     follow: true,
