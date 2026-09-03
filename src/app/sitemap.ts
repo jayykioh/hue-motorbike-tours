@@ -1,6 +1,7 @@
 ﻿import { MetadataRoute } from 'next';
 import { tours } from '@/data/tours';
 import { programmaticRoutes } from '@/data/routes';
+import { comparisons } from '@/data/comparisons';
 
 const BASE_URL = 'https://huebiketour.com';
 const LOCALES = ['en', 'vi'] as const;
@@ -45,5 +46,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }))
     );
 
-  return [...homePages, ...tourListPages, ...tourDetailPages, ...programmaticRoutePages];
+  // Comparison SEO pages per locale
+  const comparisonPages: MetadataRoute.Sitemap = comparisons
+    .flatMap((comp) =>
+      LOCALES.map((locale) => ({
+        url: `${BASE_URL}/${locale}/comparisons/${comp.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+      }))
+    );
+
+  return [...homePages, ...tourListPages, ...tourDetailPages, ...programmaticRoutePages, ...comparisonPages];
 }
