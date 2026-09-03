@@ -1,7 +1,7 @@
-import { MetadataRoute } from 'next';
+﻿import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://huemotorbiketour.com';
+  const baseUrl = 'https://huebiketour.com';
   return {
     rules: {
       userAgent: '*',

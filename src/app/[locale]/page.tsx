@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import Hero from '@/components/home/Hero';
 import ImmersiveExperience from '@/components/home/ImmersiveExperience';
 import QuickIntro from '@/components/home/QuickIntro';
@@ -17,19 +17,48 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   
   const title = locale === 'vi' 
-    ? 'Hue Motorbike Tours | Trải nghiệm du lịch miền Trung chân thực' 
-    : 'Hue Motorbike Tours | Authentic Guided Tours in Hue, Vietnam';
+    ? 'Tour Xe Máy Huế | Easy Rider Hue - Hướng Dẫn Viên Địa Phương Số 1' 
+    : 'Hue Motorbike Tour & Easy Rider Hue | #1 Local Guide in Central Vietnam';
     
   const description = locale === 'vi'
-    ? 'Khám phá Huế, Đèo Hải Vân và Hội An với những hướng dẫn viên địa phương. Tour xe máy, ẩm thực bản địa và di sản văn hóa. Đánh giá 5 sao từ khách quốc tế.'
-    : 'Explore Hue, Hai Van Pass, and Hoi An with expert local guides. Motorbike tours, authentic food experiences, and UNESCO heritage sites. 5-star rated by international travelers.';
+    ? 'Đặt tour xe máy Huế tốt nhất với hướng dẫn viên Easy Rider địa phương. Khám phá Huế, đèo Hải Vân & Hội An trên hue bike tour. Đánh giá 5 sao. Đặt qua WhatsApp.'
+    : 'Book the best hue motorbike tour with expert easy rider guides. Explore Hue Imperial City, Hai Van Pass & Hoi An. Authentic motorbike tour in hue — 5-star rated. WhatsApp booking.';
+
+  const keywords = locale === 'vi' 
+    ? ['tour xe máy Huế', 'easy rider Huế', 'đèo Hải Vân xe máy', 'du lịch Huế', 'tour Huế', 'hướng dẫn viên Huế']
+    : [
+        'hue motorbike tour',
+        'easy rider hue tour',
+        'motorbike tour in hue',
+        'hue bike tour',
+        'tour in hue',
+        'hue easy rider',
+        'easy rider hue',
+        'hai van pass motorbike tour',
+        'hue to hoi an motorbike',
+        'hue food tour',
+        'dmz tour hue',
+        'central vietnam motorbike tour',
+        'hue imperial city tour',
+        'huebiketour',
+      ];
 
   return {
     title,
     description,
-    keywords: locale === 'vi' 
-      ? ['tour Huế', 'xe máy Huế', 'đèo Hải Vân', 'du lịch miền Trung']
-      : ['Hue tour', 'Hai Van Pass motorbike', 'Hue travel', 'Vietnam motorbike tour', 'Hue food tour', 'DMZ tour', 'Central Vietnam travel'],
+    keywords,
+    alternates: {
+      canonical: `https://huebiketour.com/${locale}`,
+      languages: {
+        'en': 'https://huebiketour.com/en',
+        'vi': 'https://huebiketour.com/vi',
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://huebiketour.com/${locale}`,
+    },
   };
 }
 
@@ -41,10 +70,10 @@ export default async function Home({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
     "name": "Hue Motorbike Tours",
-    "description": "Expert-guided motorbike tours through Hue, the Hai Van Pass, and Central Vietnam. Local food experiences, UNESCO heritage sites, and authentic cultural immersion.",
-    "telephone": "+84899215366",
-    "email": "info@huemotorbiketours.com",
-    "url": "https://huemotorbiketours.com",
+    "description": "Expert easy rider hue tour guides for motorbike tours through Hue Imperial City, the Hai Van Pass, and Central Vietnam. Local food experiences, UNESCO heritage sites, and authentic cultural immersion.",
+    "telephone": "+84862391918",
+    "email": "info.hoianmotorbike@gmail.com",
+    "url": "https://huebiketour.com",
     "areaServed": ["Hue", "Thua Thien Hue", "Da Nang", "Hoi An", "Quang Tri"],
     "founder": {
       "@type": "Person",
@@ -110,4 +139,3 @@ export default async function Home({ params }: Props) {
     </>
   );
 }
-

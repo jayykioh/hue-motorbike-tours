@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -82,9 +82,9 @@ export default function Footer() {
                 {lang.tours}
               </h4>
               <nav className="flex flex-col gap-4">
-                <Link href={`/${currentLocale}/tours/hue-motorbike-tour`} className="text-body hover:text-[var(--color-terracotta)] transition-colors w-fit">{lang.links.tour1}</Link>
-                <Link href={`/${currentLocale}/tours/imperial-city`} className="text-body hover:text-[var(--color-terracotta)] transition-colors w-fit">{lang.links.tour2}</Link>
-                <Link href={`/${currentLocale}/tours/dmz-tour`} className="text-body hover:text-[var(--color-terracotta)] transition-colors w-fit">{lang.links.tour3}</Link>
+                <Link href={`/${currentLocale}/tours/hue-to-hoi-an-via-hai-van-pass`} className="text-body hover:text-[var(--color-terracotta)] transition-colors w-fit">{lang.links.tour1}</Link>
+                <Link href={`/${currentLocale}/tours/hue-imperial-city-tour`} className="text-body hover:text-[var(--color-terracotta)] transition-colors w-fit">{lang.links.tour2}</Link>
+                <Link href={`/${currentLocale}/tours/hue-dmz-tour`} className="text-body hover:text-[var(--color-terracotta)] transition-colors w-fit">{lang.links.tour3}</Link>
               </nav>
             </div>
 

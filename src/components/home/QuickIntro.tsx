@@ -12,9 +12,9 @@ export default function QuickIntro() {
   const t = {
     en: {
       eyebrow: "DISCOVER HUE",
-      headline: "Step into the soul of Vietnam's ancient capital.",
-      paragraph1: "Hue was once the imperial heart of Vietnam. Today, it remains a city of quiet poetry, where royal tombs hide in pine forests and life moves at the gentle pace of the Perfume River.",
-      paragraph2: "Forget the crowded buses and rushed schedules. We guide you through the real Hue. You will taste authentic local dishes, ride along hidden village roads, and experience the profound beauty of Central Vietnam in complete safety and comfort.",
+      headline: "The best motorbike tours in Hue start right here.",
+      paragraph1: "Hue was once the imperial heart of Vietnam — and our hue motorbike tours take you into the heart of it. This ancient city remains a place of quiet poetry, where royal tombs hide in pine forests and life moves at the pace of the Perfume River.",
+      paragraph2: "Forget crowded buses and rushed schedules. Our motorbike tour in hue puts you on the back of a bike with a local easy rider guide. Taste authentic dishes, ride hidden village roads, and experience Central Vietnam the way locals do — in complete safety.",
       cta: "Explore Our Tours →",
     },
     vi: {
@@ -56,7 +56,7 @@ export default function QuickIntro() {
         <div className="relative w-full aspect-[3/2] sm:aspect-[4/3] lg:aspect-square rounded-[var(--radius-lg)] overflow-hidden shadow-2xl shadow-black/5 order-1 lg:order-2">
           <Image 
             src="/photo/hue-imperal-city.jpg" 
-            alt="Hue Imperial City" 
+            alt="Hue Imperial City - Starting point for the best hue motorbike tour" 
             fill 
             className="object-cover hover:scale-105 transition-transform duration-1000 ease-[var(--ease-standard)]"
             sizes="(max-width: 1024px) 100vw, 50vw"

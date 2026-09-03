@@ -12,16 +12,16 @@ export default function WhyUs() {
       title: "Why ride with us?",
       points: [
         {
-          title: "Local Knowledge",
-          desc: "We know the roads that aren't on Google Maps. The ones with the best views and the least traffic."
+          title: "Expert Hue Easy Rider Guides",
+          desc: "Our easy rider hue guides know routes no Google Map shows — backroads with the best views, the freshest food stalls, and zero tourist crowds."
         },
         {
-          title: "Safety First",
-          desc: "Maintained bikes, experienced riders, and routes chosen for safety as much as scenery."
+          title: "Safest Motorbike Tour in Hue",
+          desc: "Every hue bike tour uses well-maintained motorbikes, full safety gear, and experienced riders who know every bend of every road."
         },
         {
-          title: "Cultural Immersion",
-          desc: "We stop for real local food, village life, and historical context—not just photo ops."
+          title: "Authentic Hue Cultural Experience",
+          desc: "We stop for real local food, royal tomb stories, and village life — not just photo ops. A hue motorbike tour that goes beyond the surface."
         }
       ]
     },

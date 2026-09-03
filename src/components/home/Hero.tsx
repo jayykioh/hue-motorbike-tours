@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo } from "react";
 import Link from "next/link";
@@ -58,9 +58,9 @@ export default function Hero() {
 
   const t = {
     en: {
-      subtitle: "CENTRAL VIETNAM · Hue → Hai Van → Hoi An",
-      title: "Take the scenic way.",
-      description: "Curated journeys through Hue, Da Nang & Hoi An, shaped by local knowledge, good food, and the roads worth slowing down for.",
+      subtitle: "HUE MOTORBIKE TOUR · Hai Van Pass · Easy Rider Experience",
+      title: "Discover Hue on a Motorbike.",
+      description: "The best hue motorbike tour & easy rider hue experience. Explore Imperial City, Hai Van Pass & Hoi An with expert local guides — at your pace, on roads no tourist bus ever takes.",
       primaryCta: "Plan My Trip →",
       secondaryCta: "Explore Tours",
       nowBooking: "Now Accepting Bookings",
@@ -102,7 +102,7 @@ export default function Hero() {
         <div className="absolute inset-0 z-0 bg-[var(--color-night)]">
           <Image
             src="/photo/thumbnail.jpg"
-            alt="Hue Motorbike Tours"
+            alt="Hue Motorbike Tour - Easy Rider on Hai Van Pass, Central Vietnam"
             fill
             priority
             loading="eager"

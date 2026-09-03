@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { usePathname } from "next/navigation";
 
@@ -10,8 +10,8 @@ export default function FinalCta() {
   const t = {
     en: {
       subtitle: "START YOUR JOURNEY",
-      title: "Ready to ride the real Hue?",
-      description: "Message us on WhatsApp. We'll craft the perfect route based on your dates, pace, and what you want to experience — no scripts, no tourist traps.",
+      title: "Ready for the best hue motorbike tour?",
+      description: "Message us on WhatsApp to book your hue bike tour or easy rider hue experience. We craft the perfect motorbike tour in hue based on your dates, pace, and interests — no scripts, no tourist traps.",
       buttonText: "Chat on WhatsApp",
       availability: "Currently accepting bookings",
       badges: ["No Hidden Fees", "Free Cancellation", "Book Now, Pay Later"],
@@ -60,7 +60,7 @@ export default function FinalCta() {
 
         {/* WhatsApp CTA */}
         <a
-          href="https://wa.me/84899215366?text=Hi%20I%27d%20like%20to%20plan%20a%20trip"
+          href="https://wa.me/84862391918?text=Hi%20I%27d%20like%20to%20plan%20a%20trip"
           target="_blank"
           rel="noopener noreferrer"
           className="btn-whatsapp w-full sm:w-auto"

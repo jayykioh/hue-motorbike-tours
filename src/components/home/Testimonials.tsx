@@ -142,12 +142,12 @@ export default function Testimonials() {
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
 
   const t = {
-    eyebrow: isVi ? "ĐÁNH GIÁ THỰC TẾ" : "VERIFIED TRAVELER REVIEWS",
+    eyebrow: isVi ? "ĐÁNH GIÁ THỰC TẾ" : "HUE MOTORBIKE TOUR REVIEWS",
     title: isVi
       ? "Trải nghiệm chân thực từ những vị khách quý"
-      : "Real stories from people who took the ride",
+      : "What travelers say about our hue motorbike tours",
     googleRatingText: isVi ? "Đánh giá xuất sắc 5.0 trên Google Maps" : "Excellent 5.0 on Google Reviews",
-    reviewCountNotice: isVi ? "Dựa trên hơn 80 đánh giá từ du khách quốc tế" : "Based on 80+ verified traveler reviews",
+    reviewCountNotice: isVi ? "Dựa trên hơn 80 đánh giá từ du khách quốc tế" : "Based on 80+ verified reviews of our hue motorbike tours",
     filterAll: isVi ? "Tất cả đánh giá" : "All Reviews",
     filterHaiVan: isVi ? "Đèo Hải Vân" : "Hai Van Pass",
     filterFood: isVi ? "Ẩm thực đường phố" : "Food Tours",

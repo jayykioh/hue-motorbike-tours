@@ -1,4 +1,4 @@
-export type ItineraryItem = {
+﻿export type ItineraryItem = {
   title: { en: string; vi: string };
   description?: { en: string; vi: string };
 };
@@ -52,7 +52,7 @@ export const tours: Tour[] = [
     },
     price: 'From $70 USD',
     image: '/photo/haivanpass.jpg',
-    whatsappLink: 'https://wa.me/84899215366?text=Hello!%20I%27d%20like%20to%20book:%20Hue%20to%20Hoi%20An%20via%20Hai%20Van%20Pass%20%E2%80%93%20Scenic%20Transfer',
+    whatsappLink: 'https://wa.me/84862391918?text=Hello!%20I%27d%20like%20to%20book:%20Hue%20to%20Hoi%20An%20via%20Hai%20Van%20Pass%20%E2%80%93%20Scenic%20Transfer',
     highlights: [
       { en: 'Escape the crowds and travel scenic coastal backroads', vi: 'Tránh xa đám đông để tận hưởng những cung đường ven biển vắng vẻ' },
       { en: 'Conquer the legendary curves of Hai Van Pass', vi: 'Chinh phục những khúc cua ngoạn mục của Đèo Hải Vân' },
@@ -116,7 +116,7 @@ export const tours: Tour[] = [
     },
     price: 'From $65 USD',
     image: '/photo/hue-kien-trung-palace.jpg',
-    whatsappLink: 'https://wa.me/84899215366?text=Hello!%20I%27d%20like%20to%20book:%20Hue%20Imperial%20City%20Tour%20%E2%80%93%20Discover%20Vietnam%E2%80%99s%20Royal%20Heritage',
+    whatsappLink: 'https://wa.me/84862391918?text=Hello!%20I%27d%20like%20to%20book:%20Hue%20Imperial%20City%20Tour%20%E2%80%93%20Discover%20Vietnam%E2%80%99s%20Royal%20Heritage',
     highlights: [
       { en: 'Explore the UNESCO-listed Imperial Citadel and Forbidden Purple City', vi: 'Khám phá Đại Nội và Tử Cấm Thành được UNESCO công nhận là Di sản Thế giới' },
       { en: 'Marvel at Khai Dinh Tomb — a breathtaking blend of Eastern and Western architecture', vi: 'Chiêm ngưỡng Lăng Khải Định — sự kết hợp độc đáo của kiến trúc Đông và Tây' },
@@ -175,7 +175,7 @@ export const tours: Tour[] = [
     },
     price: 'From $70 USD',
     image: '/photo/f06819e96f07b159e8167.jpg',
-    whatsappLink: 'https://wa.me/84899215366?text=Hello!%20I%27d%20like%20to%20book:%20Hue%20DMZ%20Tour%20%E2%80%93%20Vinh%20Moc%20Tunnels%2C%20Hien%20Luong%20Bridge%20%26%20Quang%20Tri%20Citadel',
+    whatsappLink: 'https://wa.me/84862391918?text=Hello!%20I%27d%20like%20to%20book:%20Hue%20DMZ%20Tour%20%E2%80%93%20Vinh%20Moc%20Tunnels%2C%20Hien%20Luong%20Bridge%20%26%20Quang%20Tri%20Citadel',
     highlights: [
       { en: 'Walk deep into the historic Vinh Moc Tunnels — one of Vietnam\'s most preserved underground villages', vi: 'Đi bộ sâu vào Địa Đạo Vịnh Mốc lịch sử — một trong những làng ngầm được bảo tồn tốt nhất Việt Nam' },
       { en: 'Stand exactly on the 17th Parallel at the iconic Hien Luong Bridge', vi: 'Đứng ngay trên Vĩ Tuyến 17 tại cây cầu biểu tượng Hiền Lương' },
@@ -230,7 +230,7 @@ export const tours: Tour[] = [
     },
     price: 'From $35 USD',
     image: '/photo/huefoodtour.jpg',
-    whatsappLink: 'https://wa.me/84899215366?text=Hello!%20I%27d%20like%20to%20book:%20%F0%9F%8C%9F%20Hue%20Food%20Tour%20%26%20Sunset%20at%20Tam%20Giang%20Lagoon',
+    whatsappLink: 'https://wa.me/84862391918?text=Hello!%20I%27d%20like%20to%20book:%20%F0%9F%8C%9F%20Hue%20Food%20Tour%20%26%20Sunset%20at%20Tam%20Giang%20Lagoon',
     highlights: [
       { en: 'Ride safely through vibrant streets with a knowledgeable local guide', vi: 'Di chuyển an toàn qua những con phố sôi động cùng hướng dẫn viên địa phương am hiểu' },
       { en: 'Taste iconic Bún Bò Huế, Royal Cakes, Nem Lụi, and more', vi: 'Thưởng thức Bún Bò Huế nổi tiếng, Bánh bèo nậm lọc, Nem Lụi và nhiều món khác' },
@@ -292,7 +292,7 @@ export const tours: Tour[] = [
     },
     price: 'From $18 USD',
     image: '/photo/hue-incense-sticks-village.jpg',
-    whatsappLink: 'https://wa.me/84899215366?text=Hello!%20I%27d%20like%20to%20book:%20Hue%20Cyclo%20Tour%20%E2%80%93%20Explore%20the%20Ancient%20City%20at%20a%20Gentle%20Pace',
+    whatsappLink: 'https://wa.me/84862391918?text=Hello!%20I%27d%20like%20to%20book:%20Hue%20Cyclo%20Tour%20%E2%80%93%20Explore%20the%20Ancient%20City%20at%20a%20Gentle%20Pace',
     highlights: [
       { en: 'Ride a traditional Hue cyclo with your own personal driver', vi: 'Ngồi xích lô truyền thống Huế cùng bác tài riêng của bạn' },
       { en: 'Cross the iconic Truong Tien Bridge, designed by Gustave Eiffel', vi: 'Băng qua cầu Trường Tiền biểu tượng, do Gustave Eiffel thiết kế' },

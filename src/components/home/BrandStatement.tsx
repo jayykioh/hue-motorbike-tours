@@ -10,8 +10,8 @@ export default function BrandStatement() {
   const t = {
     en: {
       headline: "You won't find the real Vietnam looking through a bus window.",
-      paragraph1: "I'm Mai Anh Tu. For over a decade, my team and I have been showing travelers the hidden side of Central Vietnam. We don't just drive; we share the stories, the secret food spots, and the vibrant culture of our home.",
-      paragraph2: "Your safety is our absolute priority. We use well-maintained bikes, provide high-quality safety gear, and ride at a pace that lets you truly take in the scenery. Whether it's your first time on a motorbike or you're a seasoned rider, you're in safe, experienced hands.",
+      paragraph1: "I'm Mai Anh Tu, founder of Hue Motorbike Tours. For over a decade, my team and I have led hue motorbike tours showing travelers the hidden side of Central Vietnam. We don't just drive — we share the stories, the secret food spots, and the vibrant culture of our home.",
+      paragraph2: "Your safety is our absolute priority on every hue bike tour. We use well-maintained bikes, provide high-quality safety gear, and ride at a pace that lets you truly soak in the scenery. Whether it's your first easy rider hue experience or you're a seasoned rider, you're in safe, expert hands.",
       imageCaption: "Mai Anh Tu — Founder & Head Guide",
     },
     vi: {

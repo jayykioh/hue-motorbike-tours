@@ -9,12 +9,12 @@ export default function ImmersiveExperience() {
 
   const t = {
     en: {
-      title: "Your Easy Rider Awaits",
+      title: "Your Hue Easy Rider Awaits",
       scrollHint: "Scroll to discover",
       overlay: {
-        headline: "Ride behind a local. See the real thing.",
-        body: "Our experienced Easy Riders carry you safely through Hue's royal tombs, the DMZ, Hai Van Pass, Lang Co Beach, Thien Mu Pagoda and beyond — at your pace, on roads no tour bus ever takes.",
-        tags: ["Imperial Citadel", "Hai Van Pass", "Lang Co Beach", "Thien Mu Pagoda", "Tam Giang Lagoon", "DMZ Tunnels"],
+        headline: "Ride behind an easy rider hue guide. See the real thing.",
+        body: "Our experienced easy rider hue guides carry you safely through hue motorbike tour routes — royal tombs, the DMZ, Hai Van Pass, Lang Co Beach, Thien Mu Pagoda and beyond. The most authentic motorbike tour in hue — at your pace, on roads no tourist bus ever takes.",
+        tags: ["Easy Rider Tour", "Imperial Citadel", "Hai Van Pass", "Lang Co Beach", "Thien Mu Pagoda", "Tam Giang Lagoon", "Hue Food Tour", "DMZ Tunnels"],
       }
     },
     vi: {
@@ -34,7 +34,7 @@ export default function ImmersiveExperience() {
     <section className="bg-white w-full">
       <ScrollExpand
         src="/photo/immersive.jpg"
-        alt="Easy Rider Hue Motorbike Tours"
+        alt="Easy Rider Hue - Motorbike tour in Hue on scenic backroads"
         title={lang.title}
         scrollHint={lang.scrollHint}
         startWidth={42}

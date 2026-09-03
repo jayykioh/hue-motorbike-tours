@@ -13,7 +13,7 @@ export default function FeaturedTours() {
   const t = {
     en: {
       subtitle: "OUR JOURNEYS",
-      title: "Featured Tours",
+      title: "Best Hue Motorbike Tours",
       viewTour: "Explore Itinerary",
       duration: "Duration",
       transport: "Transport",

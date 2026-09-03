@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Instrument_Serif, Manrope } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -18,15 +18,34 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://huemotorbiketours.com'),
-  title: 'Hue Motorbike Tours | Authentic Local Experiences in Central Vietnam',
-  description: 'Explore Hue like a local. Premium motorbike tours, food experiences, and heritage journeys through the Imperial City, Tam Giang Lagoon, and the DMZ.',
+  metadataBase: new URL('https://huebiketour.com'),
+  title: 'Hue Motorbike Tour & Easy Rider Hue | #1 Local Guide in Central Vietnam',
+  description: 'Book the best hue motorbike tour with expert easy rider guides. Explore Hue, Hai Van Pass & Hoi An on a hue bike tour. 5-star rated. WhatsApp booking available.',
+  keywords: [
+    'hue motorbike tour',
+    'easy rider hue tour',
+    'motorbike tour in hue',
+    'hue bike tour',
+    'tour in hue',
+    'hue easy rider',
+    'easy rider hue',
+    'hai van pass motorbike',
+    'hue to hoi an motorbike',
+    'hue food tour',
+    'dmz tour hue',
+    'central vietnam motorbike tour',
+    'hue imperial city tour',
+    'hue travel guide',
+    'huebiketour',
+    'Vietnam motorbike tour',
+    'Hue guided tour',
+  ],
   openGraph: {
-    title: 'Hue Motorbike Tours | Authentic Local Experiences',
-    description: 'Explore Hue like a local. Premium motorbike tours and food experiences.',
-    url: 'https://huemotorbiketours.com',
+    title: 'Hue Motorbike Tour & Easy Rider Hue | Best Local Guide',
+    description: 'Experience the real Hue on a motorbike. Expert easy rider guides, authentic food stops, and UNESCO heritage sites. Book via WhatsApp today.',
+    url: 'https://huebiketour.com',
     siteName: 'Hue Motorbike Tours',
-    images: [{ url: '/og-home.webp', width: 1200, height: 630 }],
+    images: [{ url: '/og-home.webp', width: 1200, height: 630, alt: 'Hue Motorbike Tour - Easy Rider Central Vietnam' }],
     locale: 'en_US',
     type: 'website',
   },
@@ -35,8 +54,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hue Motorbike Tours | Authentic Local Experiences in Central Vietnam",
-    description: "Explore Hue like a local. Premium motorbike tours, food experiences, and heritage journeys.",
+    title: "Hue Motorbike Tour & Easy Rider Hue | #1 Local Guide",
+    description: "Best hue motorbike tour with local easy rider guides. Hai Van Pass, Imperial City, Food Tour & more. Book on WhatsApp.",
   },
   robots: {
     index: true,
@@ -50,21 +69,57 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://huemotorbiketours.com",
+    canonical: "https://huebiketour.com/en",
+    languages: {
+      'en': 'https://huebiketour.com/en',
+      'vi': 'https://huebiketour.com/vi',
+      'x-default': 'https://huebiketour.com/en',
+    },
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "TravelAgency",
+  "@type": ["TravelAgency", "LocalBusiness"],
   "name": "Hue Motorbike Tours",
+  "alternateName": ["Hue Bike Tour", "Easy Rider Hue", "huebiketour.com"],
+  "description": "Expert-guided motorbike tours through Hue, Hai Van Pass, and Central Vietnam. Easy Rider hue tour, local food tours, UNESCO heritage sites, and DMZ tours.",
   "telephone": "+84862391918",
-  "areaServed": ["Hue", "Thua Thien Hue"],
-  "description": "Premium motorbike tours and authentic local experiences in Hue, Vietnam.",
-  "url": "https://huemotorbiketours.com",
+  "email": "info.hoianmotorbike@gmail.com",
+  "url": "https://huebiketour.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Hue",
+    "addressRegion": "Thua Thien Hue",
+    "addressCountry": "VN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 16.4637,
+    "longitude": 107.5910
+  },
+  "openingHours": "Mo-Su 07:00-21:00",
+  "areaServed": ["Hue", "Thua Thien Hue", "Da Nang", "Hoi An", "Quang Tri"],
   "founder": {
     "@type": "Person",
     "name": "Mai Anh Tu"
+  },
+  "priceRange": "$$",
+  "currenciesAccepted": "USD, VND",
+  "paymentAccepted": "Cash, Bank Transfer",
+  "sameAs": [
+    "https://www.facebook.com/Vietnamonmotorbike",
+    "https://www.tripadvisor.com/Attraction_Review-g293926-d12453921-Reviews-Trider_Adventure_Motorbike_Tours-Hue_Thua_Thien_Hue_Province.html"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Hue Motorbike Tour Packages",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "TouristTrip", "name": "Hue to Hoi An via Hai Van Pass Motorbike Tour", "url": "https://huebiketour.com/en/tours/hue-to-hoi-an-via-hai-van-pass" } },
+      { "@type": "Offer", "itemOffered": { "@type": "TouristTrip", "name": "Hue Imperial City Motorbike Tour", "url": "https://huebiketour.com/en/tours/hue-imperial-city-tour" } },
+      { "@type": "Offer", "itemOffered": { "@type": "TouristTrip", "name": "Hue DMZ Historical Tour by Motorbike", "url": "https://huebiketour.com/en/tours/hue-dmz-tour" } },
+      { "@type": "Offer", "itemOffered": { "@type": "TouristTrip", "name": "Hue Food Tour and Tam Giang Sunset", "url": "https://huebiketour.com/en/tours/hue-food-tour-tam-giang-sunset" } }
+    ]
   }
 };
 
