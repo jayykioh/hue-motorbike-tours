@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Hero from '@/components/home/Hero';
 import ImmersiveExperience from '@/components/home/ImmersiveExperience';
 import QuickIntro from '@/components/home/QuickIntro';
@@ -106,7 +106,7 @@ export default async function Home({ params }: Props) {
         "datePublished": "2024-12-20",
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
         "reviewBody": "I'm a seasoned traveller and rarely leave reviews, but this deserves one. The team's local knowledge is extraordinary. Deeply authentic.",
-        "publisher": { "@type": "Organization", "name": "TripAdvisor" }
+        "publisher": { "@type": "Organization", "name": "Google" }
       }
     ]
   };

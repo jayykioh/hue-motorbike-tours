@@ -8,95 +8,131 @@ export default function MeetExpert({ locale }: Props) {
   const isVi = locale === "vi";
 
   const t = {
+    eyebrow: isVi ? "NGƯỜI DẪN ĐƯỜNG BẢN ĐỊA" : "MEET YOUR LEAD EASY RIDER",
     title: isVi ? "Chuyên Gia Địa Phương Của Bạn" : "Meet Your Local Expert",
     subtitle: isVi 
-      ? "Người sáng lập Hue Bike Tour với 15+ năm kinh nghiệm" 
-      : "Founder of Hue Bike Tour & 15+ Year Veteran Easy Rider",
+      ? "Người sáng lập Hue Bike Tour với hơn 15 năm rong ruổi khắp các cung đèo miền Trung." 
+      : "Founder of Hue Bike Tour & 15+ year veteran Easy Rider across Central Vietnam.",
     bio: isVi 
-      ? "Xin chào, tôi là Tú. Sau hơn một thập kỷ rong ruổi trên mọi nẻo đường đèo từ Huế đến Hội An, tôi thành lập Hue Bike Tour với một sứ mệnh duy nhất: Mang đến cho bạn một trải nghiệm Việt Nam chân thực nhất. Chúng tôi không đi theo những lối mòn công nghiệp. Chúng tôi đưa bạn khám phá những đầm phá hoang sơ, những ngôi làng ẩn mình và những con đèo hùng vĩ nhất miền Trung."
-      : "Hi, I'm Tu. After more than a decade of navigating the stunning mountain passes from Hue to Hoi An, I founded Hue Bike Tour with a single mission: To give you the most authentic Vietnamese experience. We don't do industrial tourism. We take you to pristine lagoons, hidden villages, and the most majestic mountain passes in Central Vietnam.",
-    credentials: isVi 
-      ? ["15+ Năm Kinh Nghiệm", "Lái Xe An Toàn", "Am Hiểu Văn Hóa"] 
-      : ["15+ Years Experience", "Safety Certified", "Cultural Expert"],
-    signature: "Tu Le"
+      ? "Xin chào, tôi là Tú. Sau hơn một thập kỷ rong ruổi trên mọi nẻo đường đèo từ Huế đến Hội An, tôi thành lập Hue Bike Tour với một sứ mệnh duy nhất: mang đến cho bạn trải nghiệm miền Trung nguyên bản nhất. Chúng tôi không đi theo những lối mòn du lịch công nghiệp. Chúng tôi đưa bạn khám phá những đầm phá hoang sơ, những ngôi làng ẩn mình và những khúc cua hùng vĩ nhất theo nhịp độ của riêng bạn."
+      : "Hi, I'm Tu. After more than a decade navigating the mountain passes from Hue to Hoi An, I founded Hue Bike Tour with a single mission: to give you an authentic, unhurried Vietnamese experience. We don't do mass bus tours. We take you to serene coastal lagoons, tucked-away villages, and sweeping mountain roads — safely, and at your own pace.",
+    statYears: isVi ? "Năm dẫn tour đèo" : "Years guiding passes",
+    statLocal: isVi ? "Tài xế bản địa Huế" : "Native local riders",
+    statRating: isVi ? "Đánh giá Google Maps" : "Google Maps rating",
+    partnerLabel: isVi ? "Tuyến liên kết:" : "Partner routes:",
+    partnerHoiAn: isVi ? "Tour Xe Máy Hội An" : "Hoi An Motorbike Tours",
+    partnerDaNang: isVi ? "Tour Đà Nẵng & Hội An" : "Da Nang & Hoi An Tours",
+    caption: isVi ? "Mai Anh Tú cùng du khách trên hành trình đèo Hải Vân" : "Mai Anh Tu with travelers along the Hai Van Pass route",
+    role: isVi ? "Người sáng lập & Hướng dẫn viên trưởng" : "Founder & Lead Easy Rider",
   };
 
   return (
-    <section className="py-20 md:py-32 bg-[var(--color-ink)] text-[var(--color-sand)] overflow-hidden">
-      <div className="max-w-[var(--container-max)] mx-auto px-6 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <section className="py-20 md:py-32 bg-[var(--color-limestone)] text-[var(--color-ink)] border-t border-[var(--color-sand)] overflow-hidden">
+      <div className="max-w-[var(--container-max)] mx-auto px-5 sm:px-6 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Text Content */}
-          <div className="flex flex-col gap-8 order-2 lg:order-1">
-            <div className="flex flex-col gap-4">
-              <span className="text-[var(--color-terracotta)] font-bold tracking-widest uppercase text-sm">
-                {isVi ? "Về Chúng Tôi" : "Who We Are"}
-              </span>
-              <h2 className="font-display text-h2 lg:text-h1 leading-tight text-white">
+          <div className="lg:col-span-7 flex flex-col gap-6 sm:gap-8 order-2 lg:order-1">
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[var(--color-terracotta)]" />
+                <p className="text-[0.8rem] font-bold tracking-[0.25em] uppercase text-[var(--color-terracotta)]">
+                  {t.eyebrow}
+                </p>
+              </div>
+              <h2 className="font-display text-[2.2rem] sm:text-[2.8rem] lg:text-[3.2rem] leading-[1.05] tracking-tight text-[var(--color-ink)]">
                 {t.title}
               </h2>
-              <h3 className="text-body-lg text-[var(--color-sand)]/70 border-l-2 border-[var(--color-terracotta)] pl-4">
+              <p className="text-base sm:text-body-lg text-[var(--color-ink)]/75 border-l-2 border-[var(--color-terracotta)] pl-4 font-body leading-relaxed mt-1">
                 {t.subtitle}
-              </h3>
+              </p>
             </div>
             
-            <p className="text-body leading-relaxed text-[var(--color-sand)]/90">
+            <p className="text-base sm:text-[1.05rem] leading-relaxed text-[var(--color-ink)]/80 font-body">
               {t.bio}
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-4">
-              {t.credentials.map((cred, i) => (
-                <div key={i} className="flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 border border-white/10">
-                  <span className="text-[var(--color-terracotta)] text-lg">✓</span>
-                  <span className="text-sm font-semibold">{cred}</span>
-                </div>
-              ))}
+            {/* Editorial Credentials Grid */}
+            <div className="grid grid-cols-3 gap-4 pt-4 pb-4 border-y border-[var(--color-sand)]">
+              <div>
+                <span className="font-display text-3xl sm:text-4xl text-[var(--color-ink)] font-bold block leading-none">15+</span>
+                <span className="text-xs sm:text-small text-[var(--color-ink)]/65 font-medium mt-1.5 block">
+                  {t.statYears}
+                </span>
+              </div>
+              <div>
+                <span className="font-display text-3xl sm:text-4xl text-[var(--color-ink)] font-bold block leading-none">100%</span>
+                <span className="text-xs sm:text-small text-[var(--color-ink)]/65 font-medium mt-1.5 block">
+                  {t.statLocal}
+                </span>
+              </div>
+              <div>
+                <span className="font-display text-3xl sm:text-4xl text-[var(--color-terracotta)] font-bold block leading-none">5.0 ★</span>
+                <span className="text-xs sm:text-small text-[var(--color-ink)]/65 font-medium mt-1.5 block">
+                  {t.statRating}
+                </span>
+              </div>
             </div>
 
-            {/* Sister site network */}
-            <div className="flex flex-col gap-3 pt-2 border-t border-white/10 mt-2">
-              <p className="text-xs font-bold tracking-widest uppercase text-[var(--color-terracotta)]">
-                {isVi ? "Mạng lưới Tour" : "Tour Network"}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3">
+            {/* Sign-off & Sister sites */}
+            <div className="flex flex-col gap-4 pt-1">
+              <div className="flex items-center justify-between">
+                <div className="flex flex-col">
+                  <span className="font-display text-2xl sm:text-3xl text-[var(--color-ink)] font-semibold tracking-tight">
+                    Mai Anh Tú
+                  </span>
+                  <span className="text-xs font-semibold text-[var(--color-terracotta)] tracking-wider uppercase mt-0.5">
+                    {t.role}
+                  </span>
+                </div>
+                <span className="font-mono text-xs uppercase tracking-wider text-[var(--color-ink)]/40">
+                  Huế · Việt Nam
+                </span>
+              </div>
+
+              {/* Partner Routes */}
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-[var(--color-ink)]/60 pt-2">
+                <span className="font-semibold uppercase tracking-wider text-[var(--color-ink)]/50">
+                  {t.partnerLabel}
+                </span>
                 <a
                   href="https://hoianmotorbike.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-[var(--color-terracotta)]/40 transition-all text-sm font-semibold text-[var(--color-sand)]/80 hover:text-white"
+                  className="font-semibold text-[var(--color-river)] hover:text-[var(--color-terracotta)] hover:underline inline-flex items-center gap-1 transition-colors"
                 >
-                  <svg className="w-3.5 h-3.5 text-[var(--color-terracotta)] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                  {isVi ? "Tour Xe Máy Hội An" : "Hoi An Motorbike Tours"}
+                  {t.partnerHoiAn} →
                 </a>
+                <span className="text-[var(--color-sand)]">·</span>
                 <a
                   href="https://dananghoiantour.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-[var(--color-terracotta)]/40 transition-all text-sm font-semibold text-[var(--color-sand)]/80 hover:text-white"
+                  className="font-semibold text-[var(--color-river)] hover:text-[var(--color-terracotta)] hover:underline inline-flex items-center gap-1 transition-colors"
                 >
-                  <svg className="w-3.5 h-3.5 text-[var(--color-terracotta)] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                  {isVi ? "Tour Đà Nẵng & Hội An" : "Da Nang & Hoi An Tours"}
+                  {t.partnerDaNang} →
                 </a>
               </div>
             </div>
 
-            <div className="pt-4">
-              <p className="font-display text-3xl text-white/90 italic">{t.signature}</p>
-            </div>
           </div>
 
-          {/* Image */}
-          <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden order-1 lg:order-2">
-            <Image
-              src="/images/gallery/IMG_3962.jpg"
-              alt="Tu - Founder of Hue Motorbike Tours"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-            {/* Subtle overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/50 to-transparent" />
-          </div>
+          {/* Image Column */}
+          <figure className="lg:col-span-5 flex flex-col gap-3 order-1 lg:order-2">
+            <div className="relative aspect-[4/5] w-full rounded-[var(--radius-lg)] overflow-hidden border border-[var(--color-sand)] shadow-xl shadow-black/8 bg-[var(--color-sand)]">
+              <Image
+                src="/photo/maianhtu-momentswithcustomer.jpg"
+                alt="Mai Anh Tu - Founder and lead easy rider guide of Hue Motorbike Tours"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+            </div>
+            <figcaption className="text-xs text-[var(--color-ink)]/60 flex items-center justify-between px-1">
+              <span>{t.caption}</span>
+              <span className="font-mono text-[10px] uppercase text-[var(--color-ink)]/40 tracking-wider">Field Note · 2024</span>
+            </figcaption>
+          </figure>
 
         </div>
       </div>

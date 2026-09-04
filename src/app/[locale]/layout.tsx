@@ -71,8 +71,11 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  // NOTE: Do NOT set alternates.canonical here in layout.
+  // Each page's generateMetadata must set its own canonical URL.
+  // A layout-level canonical bleeds into all child routes and overrides
+  // them, causing Google to treat all tour pages as duplicates of the homepage.
   alternates: {
-    canonical: "https://huebiketour.com/en",
     languages: {
       'en': 'https://huebiketour.com/en',
       'vi': 'https://huebiketour.com/vi',

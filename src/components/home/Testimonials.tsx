@@ -10,7 +10,7 @@ type Review = {
   location: string;
   avatar: string;
   badge: { en: string; vi: string };
-  platform: "google" | "tripadvisor";
+  platform: "google";
   tour: { en: string; vi: string };
   category: "all" | "haivan" | "food" | "city";
   date: { en: string; vi: string };
@@ -36,7 +36,11 @@ const reviewsData: Review[] = [
       en: "Honestly the highlight of our 3 weeks in Vietnam. We were hesitant about doing the pass on motorbikes with our heavy luggage, but Tu tied everything down securely and drove so smoothly. The stop at Lap An lagoon for fresh coconut and the mountain curves at the top were breathtaking. No tourist rush at all.",
       vi: "Thực sự là điểm sáng lớn nhất trong 3 tuần du lịch Việt Nam của chúng tôi. Ban đầu tụi mình hơi lo về việc đi xe máy qua đèo kèm hành lý cồng kềnh, nhưng anh Tú đã chằng đồ rất chắc chắn và lái xe cực kỳ êm ái. Điểm dừng ở đầm Lập An uống nước dừa tươi và ngắm cảnh đèo hùng vĩ trên đỉnh đèo thật sự tuyệt đẹp.",
     },
-    photos: ["/photo/haivanpass-customerfeedback.jpg", "/photo/haivanpass-customerfeedback2.jpg"],
+    photos: [
+      "/photo/haivanpass-customerfeedback.jpg",
+      "/photo/hoiantohue-pictureofeasyriderandcustomer.jpg",
+      "/photo/haivanpass-customerfeedback2.jpg",
+    ],
     helpfulCount: 19,
   },
   {
@@ -44,8 +48,8 @@ const reviewsData: Review[] = [
     name: "Marc Hoffmann",
     location: "Munich, Germany",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
-    badge: { en: "Verified Traveler", vi: "Du khách đã xác thực" },
-    platform: "tripadvisor",
+    badge: { en: "Local Guide · 42 reviews", vi: "Local Guide · 42 đánh giá" },
+    platform: "google",
     tour: { en: "Hue Street Food Discovery", vi: "Khám phá ẩm thực đường phố Huế" },
     category: "food",
     date: { en: "1 month ago", vi: "1 tháng trước" },
@@ -54,7 +58,11 @@ const reviewsData: Review[] = [
       en: "Forget standard tourist restaurant lists, this was the real deal. We rode through quiet neighborhood alleys and sat on small stools eating hot banh khoai and fresh nem lui right by the charcoal grills. Tu explained every single ingredient and local custom with so much pride. A genuine culinary adventure.",
       vi: "Không giống các nhà hàng du lịch thông thường, đây là trải nghiệm ẩm thực đường phố thực thụ. Chúng tôi len lỏi vào các con hẻm yên tĩnh, ngồi ghế nhỏ ăn bánh khoái nóng giòn và nem lụi thơm phức ngay cạnh bếp than hồng. Anh Tú giải thích từng món ăn và câu chuyện địa phương với niềm tự hào sâu sắc.",
     },
-    photos: ["/photo/huefoodtour1.jpg", "/photo/huefoodtour2.jpg"],
+    photos: [
+      "/photo/banh-nam-hue-food.jpg",
+      "/photo/huefoodtour1.jpg",
+      "/photo/huefoodtour2.jpg",
+    ],
     helpfulCount: 14,
   },
   {
@@ -62,7 +70,7 @@ const reviewsData: Review[] = [
     name: "Elena Rostova",
     location: "Prague, Czech Republic",
     avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80",
-    badge: { en: "Local Guide · 19 reviews", vi: "Local Guide · 19 đánh giá" },
+    badge: { en: "Local Guide · Level 5 (19 reviews)", vi: "Local Guide · Cấp 5 (19 đánh giá)" },
     platform: "google",
     tour: { en: "Imperial City & Royal Tombs", vi: "Đại Nội và Lăng tẩm Hoàng gia" },
     category: "city",
@@ -72,6 +80,10 @@ const reviewsData: Review[] = [
       en: "Taking the motorbike around Hue instead of being trapped on a big tour bus was the best decision we made. We reached the quiet countryside tombs early in the morning before any crowds arrived. The riders drove carefully, provided clean quality helmets, and made us feel safe throughout the journey.",
       vi: "Đi xe máy vòng quanh Huế thay vì ngồi trên xe buýt du lịch đông đúc là quyết định sáng suốt nhất của chúng tôi. Chúng tôi đến các lăng tẩm yên bình từ sáng sớm trước khi có đông khách. Các anh lái xe rất cẩn thận, chuẩn bị mũ bảo hiểm sạch sẽ và luôn đảm bảo sự an tâm suốt chuyến đi.",
     },
+    photos: [
+      "/photo/visithue-tomb.jpg",
+      "/photo/hothuytien-abondandedwaterpark.jpg",
+    ],
     helpfulCount: 8,
   },
   {
@@ -79,18 +91,64 @@ const reviewsData: Review[] = [
     name: "David & Sarah Miller",
     location: "London, United Kingdom",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
-    badge: { en: "Verified Traveler", vi: "Du khách đã xác thực" },
+    badge: { en: "Local Guide · 28 reviews", vi: "Local Guide · 28 đánh giá" },
     platform: "google",
     tour: { en: "Hue to Hoi An Coastal Route", vi: "Cung đường ven biển Huế đến Hội An" },
     category: "haivan",
     date: { en: "September 2024", vi: "Tháng 9, 2024" },
     rating: 5,
     content: {
-      en: "We booked the private car and easy rider combination for our family. My parents sat comfortably in the air conditioned car while my partner and I rode on the bikes behind. The view over Lang Co beach and the coastal fishing villages was pure magic. Highly recommend to everyone visiting Central Vietnam.",
-      vi: "Gia đình chúng tôi đặt kết hợp cả ô tô riêng và xe máy. Bố mẹ ngồi thoải mái trong xe có điều hòa mát mẻ, còn hai vợ chồng mình chạy xe máy ngay phía sau. Khung cảnh bãi biển Lăng Cô và các làng chài ven biển đẹp như trong tranh. Rất khuyên các bạn nên thử khi đến miền Trung.",
+      en: "We booked the private car and easy rider combination for our family. My parents sat comfortably in the air conditioned car while my partner and I rode on the bikes behind. The panoramic view from the summit of Hai Van Pass and stopping by Dragon Bridge was pure magic. Highly recommend to everyone visiting Central Vietnam.",
+      vi: "Gia đình chúng tôi đặt kết hợp cả ô tô riêng và xe máy. Bố mẹ ngồi thoải mái trong xe có điều hòa mát mẻ, còn hai vợ chồng mình chạy xe máy ngay phía sau. Khung cảnh nhìn từ đỉnh đèo Hải Vân và điểm dừng tại Cầu Rồng thật sự như tranh vẽ. Rất khuyên các bạn nên thử khi đến miền Trung.",
     },
-    photos: ["/photo/haivanpass.jpg"],
+    photos: [
+      "/photo/hai-van-pass-from the top.jpg",
+      "/photo/dragon-bridge-in-da-nang.jpeg",
+      "/photo/haivanpass.jpg",
+    ],
     helpfulCount: 23,
+  },
+  {
+    id: "review-5",
+    name: "Sophie & Julien Laurent",
+    location: "Lyon, France",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80",
+    badge: { en: "Local Guide · Level 6 (52 reviews)", vi: "Local Guide · Cấp 6 (52 đánh giá)" },
+    platform: "google",
+    tour: { en: "Hue Food Tour & Tam Giang Sunset", vi: "Food Tour Xe Máy & Hoàng Hôn Phá Tam Giang" },
+    category: "food",
+    date: { en: "August 2024", vi: "Tháng 8, 2024" },
+    rating: 5,
+    content: {
+      en: "The food tour was beyond exceptional. Mai Anh Tu took us to hidden family stalls serving authentic bánh nậm, crispy bánh khoái, and hearty Cao Lầu. Watching the golden sunset at Tam Giang lagoon with a cold drink was a memory of a lifetime.",
+      vi: "Tour ẩm thực vượt xa mong đợi của chúng tôi. Anh Tú đưa tụi mình đến những quán gia truyền với món bánh nậm thơm lừng, bánh khoái giòn rụm và tô Cao Lầu đậm đà. Ngắm hoàng hôn nhuộm vàng trên phá Tam Giang thật sự là trải nghiệm nhớ mãi không quên.",
+    },
+    photos: [
+      "/photo/cao-lau-hoianfood.jpg",
+      "/photo/huefoodtour.jpg",
+    ],
+    helpfulCount: 16,
+  },
+  {
+    id: "review-6",
+    name: "Tobias Becker",
+    location: "Berlin, Germany",
+    avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&auto=format&fit=crop&q=80",
+    badge: { en: "Verified Google Review", vi: "Đánh giá xác thực trên Google" },
+    platform: "google",
+    tour: { en: "Hue Imperial Citadel & Hidden Gems", vi: "Đại Nội Huế & Điểm Đến Ẩn Mình" },
+    category: "city",
+    date: { en: "July 2024", vi: "Tháng 7, 2024" },
+    rating: 5,
+    content: {
+      en: "Visiting Kien Trung Palace and the abandoned waterpark with the giant dragon sculpture was an unforgettable adventure. Traveling by motorbike gave us complete freedom, and the guide's storytelling about Hue's history was brilliant.",
+      vi: "Tham quan Điện Kiến Trung lộng lẫy và công viên nước bỏ hoang với tượng rồng khổng lồ là một chuyến phiêu lưu không thể nào quên. Đi xe máy mang lại sự tự do tuyệt đối, và những câu chuyện lịch sử của anh hướng dẫn viên rất cuốn hút.",
+    },
+    photos: [
+      "/photo/hothuytien-abondandedwaterpark.jpg",
+      "/photo/hue-kien-trung-palace.jpg",
+    ],
+    helpfulCount: 11,
   },
 ];
 
@@ -112,12 +170,6 @@ const GoogleIcon = () => (
       fill="#EA4335"
       d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
     />
-  </svg>
-);
-
-const TripAdvisorIcon = () => (
-  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="#00AA6C">
-    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12c0-5.523-4.477-10-10-10z"/>
   </svg>
 );
 
@@ -179,7 +231,7 @@ export default function Testimonials() {
             </h2>
           </div>
 
-          {/* Google & TripAdvisor Aggregate Trust Card */}
+          {/* Google Verified Reviews Aggregate Trust Card */}
           <div className="bg-white rounded-[var(--radius-lg)] p-5 sm:p-6 border border-[var(--color-sand)] shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-5 shrink-0">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-[#F8FAFC] border border-gray-100 flex items-center justify-center shadow-inner">
@@ -198,9 +250,14 @@ export default function Testimonials() {
 
             <div className="hidden sm:block h-10 w-px bg-[var(--color-sand)]" />
 
-            <div className="flex items-center gap-2 text-xs text-[var(--color-ink)]/70">
-              <TripAdvisorIcon />
-              <span>{t.reviewCountNotice}</span>
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-[#16a34a]">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>{isVi ? "100% Đánh giá thật đã xác thực" : "100% Verified Google Reviews"}</span>
+              </div>
+              <span className="text-xs text-[var(--color-ink)]/60">{t.reviewCountNotice}</span>
             </div>
           </div>
         </div>
@@ -258,15 +315,9 @@ export default function Testimonials() {
                         <span className="font-semibold text-base text-[var(--color-ink)] leading-tight">
                           {review.name}
                         </span>
-                        {review.platform === "google" ? (
-                          <span title="Google Verified Review">
-                            <GoogleIcon />
-                          </span>
-                        ) : (
-                          <span title="TripAdvisor Verified Review">
-                            <TripAdvisorIcon />
-                          </span>
-                        )}
+                        <span title={isVi ? "Đánh giá Google đã xác thực" : "Verified Google Review"}>
+                          <GoogleIcon />
+                        </span>
                       </div>
                       <span className="text-xs text-[var(--color-ink)]/55">
                         {review.location}
@@ -332,8 +383,11 @@ export default function Testimonials() {
                   <span>{t.helpfulText} ({review.helpfulCount})</span>
                 </div>
 
-                <span className="font-semibold text-[var(--color-river)] hover:underline cursor-pointer">
-                  {review.platform === "google" ? "Google Maps" : "TripAdvisor"}
+                <span className="font-semibold text-[var(--color-river)] hover:underline cursor-pointer flex items-center gap-1">
+                  <span>Google Maps</span>
+                  <svg className="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
                 </span>
               </div>
             </article>

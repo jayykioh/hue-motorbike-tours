@@ -15,6 +15,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: locale === 'vi' 
       ? 'Khám phá tất cả các hành trình xe máy qua Huế, Đà Nẵng và Hội An.' 
       : 'Explore all our curated motorbike journeys through Hue, Da Nang and Hoi An.',
+    alternates: {
+      canonical: `https://huebiketour.com/${locale}/tours`,
+      languages: {
+        'en': 'https://huebiketour.com/en/tours',
+        'vi': 'https://huebiketour.com/vi/tours',
+      },
+    },
+    openGraph: {
+      title: locale === 'vi' ? 'Tất Cả Các Tour | Hue Motorbike Tours' : 'All Tours | Hue Motorbike Tours',
+      description: locale === 'vi' 
+        ? 'Khám phá tất cả các hành trình xe máy qua Huế, Đà Nẵng và Hội An.' 
+        : 'Explore all our curated motorbike journeys through Hue, Da Nang and Hoi An.',
+      url: `https://huebiketour.com/${locale}/tours`,
+      siteName: 'Hue Motorbike Tours',
+    },
   };
 }
 

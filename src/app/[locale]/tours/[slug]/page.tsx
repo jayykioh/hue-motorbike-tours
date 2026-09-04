@@ -30,10 +30,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = locale === 'vi' ? tour.title.vi : tour.title.en;
   const description = locale === 'vi' ? tour.shortDescription.vi : tour.shortDescription.en;
+  const canonicalUrl = `https://huebiketour.com/${locale}/tours/${slug}`;
+  const ogImage = tour.image.startsWith('/') ? `https://huebiketour.com${tour.image}` : tour.image;
 
   return {
     title: `${title} | Hue Motorbike Tours`,
     description: description,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        'en': `https://huebiketour.com/en/tours/${slug}`,
+        'vi': `https://huebiketour.com/vi/tours/${slug}`,
+      },
+    },
+    openGraph: {
+      title: `${title} | Hue Motorbike Tours`,
+      description,
+      url: canonicalUrl,
+      siteName: 'Hue Motorbike Tours',
+      images: [{ url: ogImage, width: 1200, height: 800, alt: title }],
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} | Hue Motorbike Tours`,
+      description,
+    },
   };
 }
 
@@ -71,19 +93,41 @@ export default async function TourDetailPage({ params }: Props) {
     optionalAddons: isVi ? 'Tuỳ chọn thêm' : 'Optional Add-ons',
   };
 
-  const whatsappHref = tour.whatsappLink ?? `https://wa.me/84899215366?text=Hi%20I%20am%20interested%20in%20${encodeURIComponent(title)}`;
+  const whatsappHref = tour.whatsappLink ?? `https://wa.me/84862391918?text=Hi%20I%20am%20interested%20in%20${encodeURIComponent(title)}`;
 
-  // JSON-LD for TouristTrip
+  // JSON-LD for TouristTrip + BreadcrumbList
+  const canonicalUrl = `https://huebiketour.com/${locale}/tours/${slug}`;
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
     "name": title,
     "description": description,
+    "url": canonicalUrl,
+    "image": tour.image.startsWith('/') ? `https://huebiketour.com${tour.image}` : tour.image,
     "provider": {
       "@type": "TravelAgency",
       "name": "Hue Motorbike Tours",
-      "telephone": "+84899215366"
+      "telephone": "+84862391918",
+      "url": "https://huebiketour.com"
+    },
+    "offers": {
+      "@type": "Offer",
+      "name": title,
+      "description": tour.price,
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": canonicalUrl
     }
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `https://huebiketour.com/${locale}` },
+      { "@type": "ListItem", "position": 2, "name": isVi ? "Tất cả tour" : "All Tours", "item": `https://huebiketour.com/${locale}/tours` },
+      { "@type": "ListItem", "position": 3, "name": title, "item": canonicalUrl }
+    ]
   };
 
   return (
@@ -91,6 +135,10 @@ export default async function TourDetailPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <div className="flex-1 flex flex-col">
         {/* Breadcrumb / Back Navigation */}

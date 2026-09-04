@@ -29,7 +29,7 @@ export default function QuickIntro() {
   const lang = t[currentLocale];
 
   return (
-    <section className="bg-white py-16 lg:py-28 px-5 sm:px-6">
+    <section className="bg-white py-16 lg:py-28 px-5 sm:px-6 overflow-hidden">
       <div className="max-w-[var(--container-max)] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         
         {/* Left: Text Content */}
@@ -53,15 +53,21 @@ export default function QuickIntro() {
         </div>
 
         {/* Right: Illustrative Image */}
-        <div className="relative w-full aspect-[3/2] sm:aspect-[4/3] lg:aspect-square rounded-[var(--radius-lg)] overflow-hidden shadow-2xl shadow-black/5 order-1 lg:order-2">
-          <Image 
-            src="/photo/hue-imperal-city.jpg" 
-            alt="Hue Imperial City - Starting point for the best hue motorbike tour" 
-            fill 
-            className="object-cover hover:scale-105 transition-transform duration-1000 ease-[var(--ease-standard)]"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
-        </div>
+        <figure className="flex flex-col gap-3 order-1 lg:order-2">
+          <div className="relative w-full aspect-[4/3] lg:aspect-[5/4] rounded-[var(--radius-lg)] overflow-hidden shadow-xl shadow-black/6 border border-[var(--color-sand)] bg-[var(--color-sand)] group">
+            <Image 
+              src="/photo/hue-imperal-city.jpg" 
+              alt="Hue Imperial City - Starting point for the best hue motorbike tour" 
+              fill 
+              className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[var(--ease-standard)]"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
+          <figcaption className="text-xs text-[var(--color-ink)]/55 flex items-center justify-between px-1">
+            <span>{currentLocale === 'vi' ? "Đại Nội Huế — Điểm xuất phát của những chuyến đi nguyên bản" : "Hue Imperial Citadel — UNESCO World Heritage Site"}</span>
+            <span className="font-mono text-[10px] uppercase text-[var(--color-ink)]/40 tracking-wider">Cố Đô Huế</span>
+          </figcaption>
+        </figure>
 
       </div>
     </section>

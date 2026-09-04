@@ -1,4 +1,4 @@
-﻿import type { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 type Props = {
   locale: string;
@@ -58,33 +58,69 @@ export default function FaqHome({ locale }: Props) {
   };
 
   return (
-    <section className="py-20 md:py-32 bg-white">
+    <section className="py-20 md:py-32 bg-white border-t border-[var(--color-sand)]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="max-w-4xl mx-auto px-6 w-full flex flex-col gap-12">
-        <div className="text-center flex flex-col gap-4">
-          <h2 className="font-display text-h2 text-[var(--color-ink)]">
-            {isVi ? "Câu Hỏi Thường Gặp" : "Frequently Asked Questions"}
+      <div className="max-w-[var(--container-max)] mx-auto px-5 sm:px-6 w-full flex flex-col gap-12 lg:gap-16">
+        
+        {/* Header */}
+        <div className="flex flex-col items-center text-center gap-3 max-w-2xl mx-auto">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[var(--color-terracotta)]" />
+            <p className="text-[0.8rem] font-bold tracking-[0.25em] uppercase text-[var(--color-terracotta)]">
+              {isVi ? "GIẢI ĐÁP THẮC MẮC" : "FREQUENTLY ASKED QUESTIONS"}
+            </p>
+          </div>
+          <h2 className="font-display text-[2.2rem] sm:text-[2.8rem] lg:text-[3.2rem] text-[var(--color-ink)] leading-[1.05] tracking-tight">
+            {isVi ? "Những điều bạn cần biết" : "Everything you need to know"}
           </h2>
-          <p className="text-body-lg text-[var(--color-ink)]/70">
-            {isVi ? "Mọi thông tin bạn cần biết trước khi khởi hành." : "Everything you need to know before hitting the road."}
+          <p className="text-base sm:text-body-lg text-[var(--color-ink)]/70 font-body leading-relaxed">
+            {isVi 
+              ? "Minh bạch và rõ ràng. Mọi giải đáp trước khi bạn bước lên xe cùng chúng tôi." 
+              : "Clear answers before hitting the road. No surprises, no hidden catches."}
           </p>
         </div>
 
-        <div className="flex flex-col gap-6">
+        {/* 2-Column FAQ Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-[var(--color-sand)]/30 rounded-2xl p-6 md:p-8 border border-[var(--color-sand)]">
-              <h3 className="font-bold text-lg md:text-xl text-[var(--color-ink)] mb-3">
+            <div
+              key={index}
+              className="bg-[var(--color-limestone)] rounded-[var(--radius-lg)] p-6 sm:p-8 border border-[var(--color-sand)] flex flex-col gap-3.5 hover:border-[var(--color-ink)]/20 transition-all"
+            >
+              <div className="flex items-center gap-2">
+                <span className="font-mono text-xs font-bold text-[var(--color-terracotta)] tracking-wider">
+                  0{index + 1}
+                </span>
+                <span className="w-1 h-1 rounded-full bg-[var(--color-sand)]" />
+              </div>
+              <h3 className="font-display text-xl sm:text-2xl text-[var(--color-ink)] leading-snug font-semibold">
                 {faq.q}
               </h3>
-              <p className="text-body text-[var(--color-ink)]/80 leading-relaxed">
+              <p className="text-sm sm:text-base text-[var(--color-ink)]/75 leading-relaxed font-body">
                 {faq.a}
               </p>
             </div>
           ))}
         </div>
+
+        {/* Footer help note */}
+        <div className="text-center pt-2">
+          <p className="text-sm text-[var(--color-ink)]/65 font-body">
+            {isVi ? "Còn câu hỏi chưa được giải đáp? " : "Still have a question? "}
+            <a
+              href="https://wa.me/84862391918?text=Hi!%20I%20have%20a%20question%20about%20your%20tours"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-[var(--color-terracotta)] hover:underline ml-1"
+            >
+              {isVi ? "Nhắn tin hỏi chúng tôi qua WhatsApp →" : "Chat with us directly on WhatsApp →"}
+            </a>
+          </p>
+        </div>
+
       </div>
     </section>
   );
