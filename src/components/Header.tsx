@@ -30,6 +30,7 @@ export default function Header() {
 
   const navLinks = [
     { label: currentLocale === 'vi' ? 'Các Tour' : 'Tours', href: `/${currentLocale}/tours` },
+    { label: currentLocale === 'vi' ? 'Về Huế' : 'About Hue', href: `/${currentLocale}/about-hue` },
   ];
 
   const isHomePage = pathname === '/en' || pathname === '/vi' || pathname === '/';

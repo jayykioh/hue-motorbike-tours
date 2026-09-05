@@ -44,12 +44,20 @@ export default function QuickIntro() {
             <p className="leading-relaxed">{lang.paragraph1}</p>
             <p className="leading-relaxed">{lang.paragraph2}</p>
           </div>
-          <Link
-            href={`/${currentLocale}/tours`}
-            className="btn-primary mt-2 w-full sm:w-auto justify-center text-base"
-          >
-            {lang.cta}
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-3 mt-2">
+            <Link
+              href={`/${currentLocale}/tours`}
+              className="btn-primary flex-1 sm:flex-none justify-center text-base"
+            >
+              {lang.cta}
+            </Link>
+            <Link
+              href={`/${currentLocale}/about-hue`}
+              className="flex-1 sm:flex-none justify-center text-base inline-flex items-center gap-2 min-h-[56px] px-8 rounded-[var(--radius-pill)] border-2 border-[var(--color-ink)] text-[var(--color-ink)] font-bold hover:bg-[var(--color-ink)] hover:text-[var(--color-limestone)] transition-all duration-200"
+            >
+              {currentLocale === 'vi' ? 'Tìm Hiểu Về Huế →' : 'Discover Hue →'}
+            </Link>
+          </div>
         </div>
 
         {/* Right: Illustrative Image */}

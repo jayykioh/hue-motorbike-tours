@@ -1,4 +1,4 @@
-﻿import { MetadataRoute } from 'next';
+import { MetadataRoute } from 'next';
 import { tours } from '@/data/tours';
 import { programmaticRoutes } from '@/data/routes';
 import { comparisons } from '@/data/comparisons';
@@ -57,5 +57,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }))
     );
 
-  return [...homePages, ...tourListPages, ...tourDetailPages, ...programmaticRoutePages, ...comparisonPages];
+  // About Hue destination guide pages per locale
+  const aboutHuePages: MetadataRoute.Sitemap = LOCALES.map((locale) => ({
+    url: `${BASE_URL}/${locale}/about-hue`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.9,
+  }));
+
+  return [...homePages, ...tourListPages, ...aboutHuePages, ...tourDetailPages, ...programmaticRoutePages, ...comparisonPages];
 }
