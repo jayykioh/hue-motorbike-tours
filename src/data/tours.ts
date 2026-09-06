@@ -1,4 +1,4 @@
-﻿export type ItineraryItem = {
+export type ItineraryItem = {
   title: { en: string; vi: string };
   description?: { en: string; vi: string };
 };
@@ -22,6 +22,7 @@ export type Tour = {
   transport: { en: string; vi: string };
   price: string;
   image: string;
+  ogImage?: string;
   highlights: { en: string; vi: string }[];
   itinerary: ItineraryItem[];
   faq?: FAQItem[];
@@ -38,7 +39,7 @@ export const tours: Tour[] = [
     id: 'hue-to-hoi-an-via-hai-van-pass',
     slug: 'hue-to-hoi-an-via-hai-van-pass',
     title: {
-      en: 'Hue to Hoi An via Hai Van Pass',
+      en: 'Hue to Hoi An Motorbike Tour with Luggage via Hai Van Pass',
       vi: 'Huế đi Hội An qua đèo Hải Vân'
     },
     shortDescription: {
@@ -52,6 +53,7 @@ export const tours: Tour[] = [
     },
     price: 'From $70 USD',
     image: '/photo/haivanpass.jpg',
+    ogImage: '/photo/haivanpass.jpg',
     whatsappLink: 'https://wa.me/84862391918?text=Hello!%20I%27d%20like%20to%20book:%20Hue%20to%20Hoi%20An%20via%20Hai%20Van%20Pass%20%E2%80%93%20Scenic%20Transfer',
     highlights: [
       { en: 'Escape the crowds and travel scenic coastal backroads', vi: 'Tránh xa đám đông để tận hưởng những cung đường ven biển vắng vẻ' },
@@ -102,7 +104,7 @@ export const tours: Tour[] = [
     id: 'hue-imperial-city-tour',
     slug: 'hue-imperial-city-tour',
     title: {
-      en: 'Hue Imperial City Tour',
+      en: 'Private Car & Family Motorbike Tour: Hue Imperial City',
       vi: 'Tour Khám Phá Đại Nội Huế'
     },
     shortDescription: {
@@ -116,6 +118,7 @@ export const tours: Tour[] = [
     },
     price: 'From $65 USD',
     image: '/photo/hue-kien-trung-palace.jpg',
+    ogImage: '/photo/hue-kien-trung-palace.jpg',
     whatsappLink: 'https://wa.me/84862391918?text=Hello!%20I%27d%20like%20to%20book:%20Hue%20Imperial%20City%20Tour%20%E2%80%93%20Discover%20Vietnam%E2%80%99s%20Royal%20Heritage',
     highlights: [
       { en: 'Explore the UNESCO-listed Imperial Citadel and Forbidden Purple City', vi: 'Khám phá Đại Nội và Tử Cấm Thành được UNESCO công nhận là Di sản Thế giới' },
@@ -161,7 +164,7 @@ export const tours: Tour[] = [
     id: 'hue-dmz-tour',
     slug: 'hue-dmz-tour',
     title: {
-      en: 'Hue DMZ Historical Tour',
+      en: 'Hue DMZ Tour: Vinh Moc Tunnels & Quang Tri Citadel',
       vi: 'Tour Lịch Sử Khu Phi Quân Sự (DMZ)'
     },
     shortDescription: {
@@ -327,6 +330,56 @@ export const tours: Tour[] = [
       { question: { en: 'Is the cyclo tour suitable for elderly travelers?', vi: 'Tour xích lô có phù hợp với người cao tuổi không?' }, answer: { en: 'Absolutely. The cyclo is comfortable, gentle, and requires no physical exertion from the passenger. You simply sit back and enjoy the ride.', vi: 'Hoàn toàn phù hợp. Xích lô thoải mái, nhẹ nhàng và không đòi hỏi hành khách phải gắng sức. Bạn chỉ cần ngồi thoải mái và tận hưởng chuyến đi.' } },
       { question: { en: 'How many people can ride in one cyclo?', vi: 'Mỗi xe xích lô chở được bao nhiêu người?' }, answer: { en: 'Each cyclo comfortably seats one adult, or one adult with a small child. For couples, we use two cyclos side by side so you can enjoy the experience together.', vi: 'Mỗi xe xích lô thoải mái cho một người lớn, hoặc một người lớn kèm một trẻ nhỏ. Với các cặp đôi, chúng mình dùng hai xe đi cạnh nhau để bạn có thể cùng nhau tận hưởng trải nghiệm.' } },
       { question: { en: 'Can we customize the route?', vi: 'Chúng tôi có thể tùy chỉnh lộ trình không?' }, answer: { en: 'Yes! The itinerary is just a suggestion. Let us know if there are specific places you\'d like to visit and we\'ll do our best to include them.', vi: 'Có! Lịch trình chỉ là gợi ý. Hãy cho chúng mình biết nếu có những nơi cụ thể bạn muốn đến và chúng mình sẽ cố gắng đưa vào lộ trình.' } }
+    ]
+  },
+  {
+    id: 'hue-abandoned-water-park-tour',
+    slug: 'hue-abandoned-water-park-tour',
+    title: {
+      en: 'Hue Abandoned Water Park (Ho Thuy Tien) Tour by Motorbike',
+      vi: 'Khám Phá Công Viên Nước Bỏ Hoang Hồ Thủy Tiên Bằng Xe Máy'
+    },
+    shortDescription: {
+      en: 'Explore the eerie beauty of Ho Thuy Tien, Hue\'s famous abandoned water park. Ride through scenic pine forests to discover the iconic dragon aquarium reclaimed by jungle.',
+      vi: 'Khám phá vẻ đẹp kỳ bí của Hồ Thủy Tiên, công viên nước bỏ hoang nổi tiếng ở Huế. Chạy xe qua đồi thông tuyệt đẹp để tìm đến thủy cung rồng biểu tượng đang bị thiên nhiên xâm chiếm.'
+    },
+    duration: 'Half day',
+    transport: {
+      en: 'Motorbike',
+      vi: 'Xe máy'
+    },
+    price: 'From $25 USD',
+    image: '/photo/haivanpass.jpg',
+    ogImage: '/photo/haivanpass.jpg',
+    whatsappLink: 'https://wa.me/84862391918?text=Hello!%20I%27d%20like%20to%20book:%20Hue%20Abandoned%20Water%20Park%20Tour',
+    highlights: [
+      { en: 'Venture inside the towering, jungle-reclaimed dragon aquarium', vi: 'Khám phá bên trong thủy cung rồng khổng lồ đang bị thiên nhiên chiếm lĩnh' },
+      { en: 'Capture surreal, eerie photos of the abandoned amphitheater and slides', vi: 'Chụp những bức ảnh siêu thực, ma mị của nhà hát và cầu trượt bỏ hoang' },
+      { en: 'Ride a motorbike through cool, scenic pine forests', vi: 'Chạy xe máy qua những đồi thông mát mẻ, tuyệt đẹp' },
+      { en: 'Combine with an optional visit to Vong Canh Hill or Thien Mu Pagoda', vi: 'Kết hợp tham quan Đồi Vọng Cảnh hoặc Chùa Thiên Mụ (tuỳ chọn)' }
+    ],
+    itinerary: [
+      { title: { en: 'Pickup in Hue', vi: 'Đón tại Huế' }, description: { en: 'Our local rider will pick you up from your hotel.', vi: 'Tài xế địa phương của chúng mình sẽ đón bạn tại khách sạn.' } },
+      { title: { en: 'Thien An Pine Forest', vi: 'Rừng Thông Thiên An' }, description: { en: 'Enjoy a refreshing ride up the winding roads of Thien An Hill, surrounded by thick pine forests.', vi: 'Tận hưởng chuyến đi mát mẻ lên những con đường ngoằn ngoèo của đồi Thiên An, bao quanh bởi rừng thông dày.' } },
+      { title: { en: 'Ho Thuy Tien (Abandoned Water Park)', vi: 'Hồ Thủy Tiên' }, description: { en: 'Spend ample time exploring the dragon head, the abandoned stadium, and the eerie water slides.', vi: 'Dành nhiều thời gian khám phá đầu rồng, sân vận động bỏ hoang và các cầu trượt nước kỳ bí.' } },
+      { title: { en: 'Vong Canh Hill (Optional)', vi: 'Đồi Vọng Cảnh (Tuỳ chọn)' }, description: { en: 'Stop for a panoramic view of the Perfume River.', vi: 'Dừng chân ngắm toàn cảnh Sông Hương.' } },
+      { title: { en: 'Return to Hue', vi: 'Trở về Huế' } }
+    ],
+    inclusions: [
+      { en: 'Experienced local rider/guide', vi: 'Tài xế/hướng dẫn viên địa phương kinh nghiệm' },
+      { en: 'Quality helmet and rain poncho (if needed)', vi: 'Mũ bảo hiểm chất lượng và áo mưa (nếu cần)' },
+      { en: 'Hotel pickup and drop-off', vi: 'Đón và trả tại khách sạn' }
+    ],
+    exclusions: [
+      { en: 'Any unofficial entrance fees or parking fees at the site', vi: 'Các khoản phí vào cửa không chính thức hoặc phí giữ xe tại điểm' },
+      { en: 'Personal expenses', vi: 'Chi phí cá nhân' }
+    ],
+    whyBookWithUs: [
+      { en: 'Our guides know exactly how to access the site and show you the best photo spots', vi: 'Hướng dẫn viên biết chính xác cách vào khu vực và chỉ cho bạn những góc chụp đẹp nhất' },
+      { en: 'Safe, confident riders for the hilly, forested roads', vi: 'Tài xế lái xe an toàn, tự tin trên những con đường đồi dốc, rừng rậm' }
+    ],
+    faq: [
+      { question: { en: 'Is it legal/safe to enter?', vi: 'Vào đó có hợp pháp/an toàn không?' }, answer: { en: 'The park is officially closed, but it remains a hugely popular spot for explorers. The paths are generally safe, but we advise wearing closed-toe shoes and stepping carefully around broken glass or overgrown areas.', vi: 'Công viên đã chính thức đóng cửa nhưng vẫn là điểm đến cực kỳ phổ biến cho người thích khám phá. Đường đi nhìn chung an toàn, nhưng chúng mình khuyên nên đi giày bít mũi và bước cẩn thận quanh những khu vực kính vỡ hoặc cỏ rậm.' } }
     ]
   }
 ];
