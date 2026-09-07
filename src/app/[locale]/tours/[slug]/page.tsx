@@ -130,6 +130,19 @@ export default async function TourDetailPage({ params }: Props) {
     ]
   };
 
+  const faqJsonLd = tour.faq ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": tour.faq.map((q) => ({
+      "@type": "Question",
+      "name": isVi ? q.question.vi : q.question.en,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": isVi ? q.answer.vi : q.answer.en
+      }
+    }))
+  } : null;
+
   return (
     <>
       <script
@@ -140,6 +153,12 @@ export default async function TourDetailPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <div className="flex-1 flex flex-col">
         {/* Breadcrumb / Back Navigation */}
         <div className="bg-[var(--color-limestone)] py-4 px-6 pt-20 lg:pt-24 border-b border-[var(--color-sand)]">
@@ -349,16 +368,19 @@ export default async function TourDetailPage({ params }: Props) {
               {tour.faq && tour.faq.length > 0 && (
                 <div className="flex flex-col gap-8 pt-8 border-t border-[var(--color-sand)]">
                   <h2 className="text-h3 font-display text-[var(--color-ink)]">{strings.faq}</h2>
-                  <div className="flex flex-col gap-8">
+                  <div className="flex flex-col gap-4">
                     {tour.faq.map((q, idx) => (
-                      <div key={idx} className="flex flex-col gap-2 pb-8 border-b border-[var(--color-sand)] last:border-none last:pb-0">
-                        <h4 className="text-body font-semibold text-[var(--color-ink)]">
+                      <details key={idx} className="group border-b border-[var(--color-sand)] pb-4 last:border-none last:pb-0">
+                        <summary className="flex items-center justify-between cursor-pointer list-none text-body font-semibold text-[var(--color-ink)] hover:text-[var(--color-terracotta)] transition-colors">
                           {isVi ? q.question.vi : q.question.en}
-                        </h4>
-                        <p className="text-body text-[var(--color-ink)] opacity-70 leading-relaxed">
+                          <span className="text-[var(--color-terracotta)] transition-transform duration-300 group-open:rotate-180">
+                            ▼
+                          </span>
+                        </summary>
+                        <p className="mt-4 text-body text-[var(--color-ink)] opacity-70 leading-relaxed">
                           {isVi ? q.answer.vi : q.answer.en}
                         </p>
-                      </div>
+                      </details>
                     ))}
                   </div>
                 </div>
