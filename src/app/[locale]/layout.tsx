@@ -91,7 +91,7 @@ const jsonLd = {
   "alternateName": ["Hue Bike Tour", "Easy Rider Hue", "huebiketour.com"],
   "description": "Expert-guided motorbike tours through Hue, Hai Van Pass, and Central Vietnam. Easy Rider hue tour, local food tours, UNESCO heritage sites, and DMZ tours.",
   "telephone": "+84862391918",
-  "email": "info.hoianmotorbike@gmail.com",
+  "email": "info@huebiketour.com",
   "url": "https://huebiketour.com",
   "address": {
     "@type": "PostalAddress",
@@ -140,7 +140,6 @@ const jsonLd = {
   "paymentAccepted": "Cash, Bank Transfer",
   "sameAs": [
     "https://www.facebook.com/Vietnamonmotorbike",
-    "https://www.tripadvisor.com/Attraction_Review-g293926-d12453921-Reviews-Trider_Adventure_Motorbike_Tours-Hue_Thua_Thien_Hue_Province.html",
     "https://hoianmotorbike.com",
     "https://dananghoiantour.com"
   ],

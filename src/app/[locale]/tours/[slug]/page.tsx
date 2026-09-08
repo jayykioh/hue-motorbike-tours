@@ -41,6 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       languages: {
         'en': `https://huebiketour.com/en/tours/${slug}`,
         'vi': `https://huebiketour.com/vi/tours/${slug}`,
+        'x-default': `https://huebiketour.com/en/tours/${slug}`,
       },
     },
     openGraph: {

@@ -54,6 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       languages: {
         'en': 'https://huebiketour.com/en',
         'vi': 'https://huebiketour.com/vi',
+        'x-default': 'https://huebiketour.com/en',
       },
     },
     openGraph: {
@@ -74,7 +75,7 @@ export default async function Home({ params }: Props) {
     "name": "Hue Motorbike Tours",
     "description": "Expert easy rider hue tour guides for motorbike tours through Hue Imperial City, the Hai Van Pass, and Central Vietnam. Local food experiences, UNESCO heritage sites, and authentic cultural immersion.",
     "telephone": "+84862391918",
-    "email": "info.hoianmotorbike@gmail.com",
+    "email": "info@huebiketour.com",
     "url": "https://huebiketour.com",
     "areaServed": ["Hue", "Thua Thien Hue", "Da Nang", "Hoi An", "Quang Tri"],
     "founder": {

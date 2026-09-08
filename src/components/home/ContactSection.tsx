@@ -72,10 +72,10 @@ export default function ContactSection() {
                 Email
               </span>
               <a
-                href="mailto:info.hoianmotorbike@gmail.com"
+                href="mailto:info@huebiketour.com"
                 className="text-body font-semibold text-[var(--color-ink)] hover:text-[var(--color-terracotta)] transition-colors"
               >
-                info.hoianmotorbike@gmail.com
+                info@huebiketour.com
               </a>
             </div>
 
@@ -92,14 +92,6 @@ export default function ContactSection() {
                   className="text-body font-semibold text-[var(--color-ink)] hover:text-[var(--color-terracotta)] transition-colors"
                 >
                   Facebook
-                </a>
-                <a
-                  href="https://www.tripadvisor.com/Attraction_Review-g293926-d12453921-Reviews-Trider_Adventure_Motorbike_Tours-Hue_Thua_Thien_Hue_Province.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-body font-semibold text-[var(--color-ink)] hover:text-[var(--color-terracotta)] transition-colors"
-                >
-                  TripAdvisor
                 </a>
               </div>
             </div>
