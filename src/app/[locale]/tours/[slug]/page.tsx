@@ -3,6 +3,7 @@ import { tours, getTourBySlug } from '@/data/tours';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { LightboxProvider, ClickableImage, type LightboxItem } from '@/components/tours/ImageLightbox';
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -173,8 +174,51 @@ export default async function TourDetailPage({ params }: Props) {
     }))
   } : null;
 
+  // Assemble all photos on the page for seamless lightbox navigation
+  const allTourPhotos: LightboxItem[] = [];
+
+  // 1. Hero photo
+  const heroPhotoIndex = allTourPhotos.length;
+  allTourPhotos.push({
+    url: tour.image,
+    alt: imageAlt,
+    title: title,
+    description: description,
+    tag: isVi ? 'Toàn Cảnh Tour' : 'Tour Overview',
+  });
+
+  // 2. Itinerary photos
+  const itineraryPhotoIndices: Record<number, number> = {};
+  tour.itinerary.forEach((item, idx) => {
+    if (item.image) {
+      itineraryPhotoIndices[idx] = allTourPhotos.length;
+      allTourPhotos.push({
+        url: item.image,
+        alt: (isVi ? item.imageAlt?.vi : item.imageAlt?.en) ?? (isVi ? item.title.vi : item.title.en),
+        title: isVi ? item.title.vi : item.title.en,
+        description: isVi ? item.description?.vi : item.description?.en,
+        tag: isVi ? `Điểm Dừng ${idx + 1}` : `Stop ${idx + 1}`,
+      });
+    }
+  });
+
+  // 3. Gallery photos
+  const galleryPhotoIndices: Record<number, number> = {};
+  if (tour.gallery) {
+    tour.gallery.forEach((img, gIdx) => {
+      galleryPhotoIndices[gIdx] = allTourPhotos.length;
+      allTourPhotos.push({
+        url: img.url,
+        alt: isVi ? img.alt.vi : img.alt.en,
+        title: (isVi ? img.caption?.vi : img.caption?.en) ?? (isVi ? img.alt.vi : img.alt.en),
+        description: isVi ? img.caption?.vi : img.caption?.en,
+        tag: isVi ? 'Hình Ảnh Thực Tế' : 'Authentic Sights',
+      });
+    });
+  }
+
   return (
-    <>
+    <LightboxProvider locale={locale}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -229,16 +273,23 @@ export default async function TourDetailPage({ params }: Props) {
 
             {/* Right Image */}
             <div className="lg:col-span-7">
-              <div className="relative aspect-[4/3] bg-[var(--color-sand)] rounded-[var(--radius-lg)] w-full overflow-hidden">
-                <Image
-                  src={tour.image}
-                  alt={imageAlt}
-                  fill
-                  priority
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                />
-              </div>
+              <ClickableImage
+                items={allTourPhotos}
+                index={heroPhotoIndex}
+                buttonLabel={isVi ? 'Phóng to ảnh & chi tiết' : 'Click for full details'}
+                className="rounded-[var(--radius-lg)] w-full shadow-sm"
+              >
+                <div className="relative aspect-[4/3] bg-[var(--color-sand)] rounded-[var(--radius-lg)] w-full overflow-hidden">
+                  <Image
+                    src={tour.image}
+                    alt={imageAlt}
+                    fill
+                    priority
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                  />
+                </div>
+              </ClickableImage>
             </div>
           </div>
         </section>
@@ -324,15 +375,22 @@ export default async function TourDetailPage({ params }: Props) {
                         </p>
                       )}
                       {item.image && (
-                        <div className="mt-4 relative aspect-[16/9] w-full max-w-xl rounded-[var(--radius-md)] overflow-hidden bg-[var(--color-sand)] shadow-sm">
-                          <Image
-                            src={item.image}
-                            alt={(isVi ? item.imageAlt?.vi : item.imageAlt?.en) ?? (isVi ? item.title.vi : item.title.en)}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, 600px"
-                          />
-                        </div>
+                        <ClickableImage
+                          items={allTourPhotos}
+                          index={itineraryPhotoIndices[idx] ?? 0}
+                          buttonLabel={isVi ? 'Xem chi tiết điểm dừng' : 'View milestone details'}
+                          className="mt-4 rounded-[var(--radius-md)] w-full max-w-xl shadow-sm"
+                        >
+                          <div className="relative aspect-[16/9] w-full rounded-[var(--radius-md)] overflow-hidden bg-[var(--color-sand)]">
+                            <Image
+                              src={item.image}
+                              alt={(isVi ? item.imageAlt?.vi : item.imageAlt?.en) ?? (isVi ? item.title.vi : item.title.en)}
+                              fill
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
+                              sizes="(max-width: 768px) 100vw, 600px"
+                            />
+                          </div>
+                        </ClickableImage>
                       )}
                     </div>
                   ))}
@@ -354,15 +412,22 @@ export default async function TourDetailPage({ params }: Props) {
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {tour.gallery.map((img, gIdx) => (
                       <figure key={gIdx} className="group relative rounded-[var(--radius-md)] overflow-hidden bg-[var(--color-sand)] flex flex-col shadow-sm border border-[var(--color-sand)]">
-                        <div className="relative aspect-[4/3] w-full overflow-hidden">
-                          <Image
-                            src={img.url}
-                            alt={isVi ? img.alt.vi : img.alt.en}
-                            fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-105"
-                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          />
-                        </div>
+                        <ClickableImage
+                          items={allTourPhotos}
+                          index={galleryPhotoIndices[gIdx] ?? 0}
+                          buttonLabel={isVi ? 'Phóng to ảnh & chi tiết' : 'View full details'}
+                          className="w-full"
+                        >
+                          <div className="relative aspect-[4/3] w-full overflow-hidden">
+                            <Image
+                              src={img.url}
+                              alt={isVi ? img.alt.vi : img.alt.en}
+                              fill
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
+                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            />
+                          </div>
+                        </ClickableImage>
                         {img.caption && (
                           <figcaption className="p-3 text-small text-[var(--color-ink)] opacity-80 bg-[var(--color-sand)]">
                             {isVi ? img.caption.vi : img.caption.en}
@@ -550,6 +615,6 @@ export default async function TourDetailPage({ params }: Props) {
         </section>
 
       </div>
-    </>
+    </LightboxProvider>
   );
 }
