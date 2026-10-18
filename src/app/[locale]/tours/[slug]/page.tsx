@@ -28,14 +28,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
-  const title = locale === 'vi' ? tour.title.vi : tour.title.en;
-  const description = locale === 'vi' ? tour.shortDescription.vi : tour.shortDescription.en;
+  const localizedSeo = locale === 'vi' ? tour.seo?.vi : tour.seo?.en;
+  const title = localizedSeo?.title ?? (locale === 'vi' ? tour.title.vi : tour.title.en);
+  const description = localizedSeo?.description ?? (locale === 'vi' ? tour.shortDescription.vi : tour.shortDescription.en);
   const canonicalUrl = `https://huebiketour.com/${locale}/tours/${slug}`;
-  const ogImage = tour.image.startsWith('/') ? `https://huebiketour.com${tour.image}` : tour.image;
+  const ogImagePath = tour.ogImage ?? tour.image;
+  const ogImage = ogImagePath.startsWith('/') ? `https://huebiketour.com${ogImagePath}` : ogImagePath;
+  const imageAlt = (locale === 'vi' ? tour.imageAlt?.vi : tour.imageAlt?.en) ?? title;
+  const metadataTitle = localizedSeo?.title ?? `${title} | Hue Motorbike Tours`;
 
   return {
-    title: `${title} | Hue Motorbike Tours`,
-    description: description,
+    title: metadataTitle,
+    description,
+    keywords: localizedSeo?.keywords,
     alternates: {
       canonical: canonicalUrl,
       languages: {
@@ -45,17 +50,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     openGraph: {
-      title: `${title} | Hue Motorbike Tours`,
+      title: metadataTitle,
       description,
       url: canonicalUrl,
       siteName: 'Hue Motorbike Tours',
-      images: [{ url: ogImage, width: 1200, height: 800, alt: title }],
+      locale: locale === 'vi' ? 'vi_VN' : 'en_US',
+      images: [{ url: ogImage, alt: imageAlt, ...tour.ogImageDimensions }],
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${title} | Hue Motorbike Tours`,
+      title: metadataTitle,
       description,
+      images: [ogImage],
     },
   };
 }
@@ -72,9 +79,14 @@ export default async function TourDetailPage({ params }: Props) {
   const title = isVi ? tour.title.vi : tour.title.en;
   const description = isVi ? tour.shortDescription.vi : tour.shortDescription.en;
   const transportText = isVi ? tour.transport.vi : tour.transport.en;
+  const departureText = (isVi ? tour.departure?.vi : tour.departure?.en) ?? (isVi ? 'Huế' : 'Hue');
+  const priceCaption = (isVi ? tour.priceCaption?.vi : tour.priceCaption?.en) ?? (isVi ? 'Giá từ' : 'Starting from');
+  const priceText = (isVi ? tour.priceLabel?.vi : tour.priceLabel?.en) ?? tour.price;
+  const imageAlt = (isVi ? tour.imageAlt?.vi : tour.imageAlt?.en) ?? title;
+  const bookingCta = (isVi ? tour.bookingCta?.vi : tour.bookingCta?.en);
 
   const strings = {
-    bookThisTour: isVi ? 'Đặt Tour Ngay' : 'Book This Tour',
+    bookThisTour: bookingCta ?? (isVi ? 'Đặt Tour Ngay' : 'Book This Tour'),
     duration: isVi ? 'Thời Gian' : 'Duration',
     start: isVi ? 'Khởi Hành' : 'Start',
     transport: isVi ? 'Di Chuyển' : 'Transport',
@@ -92,6 +104,9 @@ export default async function TourDetailPage({ params }: Props) {
     included: isVi ? 'Bao gồm' : 'What\'s Included',
     notIncluded: isVi ? 'Không bao gồm' : 'Not Included',
     optionalAddons: isVi ? 'Tuỳ chọn thêm' : 'Optional Add-ons',
+    gallery: isVi ? 'Hình Ảnh Thực Tế & Khách Hàng' : 'Tour Gallery & Real Moments',
+    gallerySub: isVi ? 'Hình ảnh chân thực từ quần thể di tích Đại Nội, chùa chiền, làng nghề và những khoảnh khắc đáng nhớ cùng du khách.' : 'Authentic photos from the Imperial Citadel, royal heritage landmarks, craft villages, and memorable moments with our travelers.',
+    insiderTips: isVi ? 'Kinh Nghiệm & Lưu Ý Tham Quan' : 'Insider Tips from Local Guides',
   };
 
   const whatsappHref = tour.whatsappLink ?? `https://wa.me/84862391918?text=Hi%20I%20am%20interested%20in%20${encodeURIComponent(title)}`;
@@ -111,14 +126,28 @@ export default async function TourDetailPage({ params }: Props) {
       "telephone": "+84862391918",
       "url": "https://huebiketour.com"
     },
-    "offers": {
+    "touristType": ["Cultural tourists", "Families", "History enthusiasts", "Sightseeing"],
+    "itinerary": {
+      "@type": "ItemList",
+      "numberOfItems": tour.itinerary.length,
+      "itemListElement": tour.itinerary.map((item, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "TouristAttraction",
+          "name": isVi ? item.title.vi : item.title.en,
+          ...(item.description ? { "description": isVi ? item.description.vi : item.description.en } : {})
+        }
+      }))
+    },
+    ...(!tour.priceIsQuote ? { "offers": {
       "@type": "Offer",
       "name": title,
       "description": tour.price,
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock",
       "url": canonicalUrl
-    }
+    } } : {})
   };
 
   const breadcrumbJsonLd = {
@@ -194,7 +223,7 @@ export default async function TourDetailPage({ params }: Props) {
                 <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="btn-primary w-full sm:w-auto">
                   {strings.bookThisTour} →
                 </a>
-                <span className="text-body font-semibold">{tour.price}</span>
+                    <span className="text-body font-semibold">{priceText}</span>
               </div>
             </div>
 
@@ -203,7 +232,7 @@ export default async function TourDetailPage({ params }: Props) {
               <div className="relative aspect-[4/3] bg-[var(--color-sand)] rounded-[var(--radius-lg)] w-full overflow-hidden">
                 <Image
                   src={tour.image}
-                  alt={title}
+                  alt={imageAlt}
                   fill
                   priority
                   className="object-cover"
@@ -223,7 +252,7 @@ export default async function TourDetailPage({ params }: Props) {
             </div>
             <div className="flex flex-col gap-1">
               <span className="text-small font-semibold uppercase tracking-widest opacity-60">{strings.start}</span>
-              <span className="text-body font-semibold">Hue</span>
+                    <span className="text-body font-semibold">{departureText}</span>
             </div>
             <div className="flex flex-col gap-1">
               <span className="text-small font-semibold uppercase tracking-widest opacity-60">{strings.transport}</span>
@@ -294,10 +323,56 @@ export default async function TourDetailPage({ params }: Props) {
                           {isVi ? item.description.vi : item.description.en}
                         </p>
                       )}
+                      {item.image && (
+                        <div className="mt-4 relative aspect-[16/9] w-full max-w-xl rounded-[var(--radius-md)] overflow-hidden bg-[var(--color-sand)] shadow-sm">
+                          <Image
+                            src={item.image}
+                            alt={(isVi ? item.imageAlt?.vi : item.imageAlt?.en) ?? (isVi ? item.title.vi : item.title.en)}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 600px"
+                          />
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
               </div>
+
+              {/* Photo Gallery / Real Moments */}
+              {tour.gallery && tour.gallery.length > 0 && (
+                <div className="flex flex-col gap-6 pt-8 border-t border-[var(--color-sand)]">
+                  <div className="flex flex-col gap-2">
+                    <span className="text-small font-semibold uppercase tracking-widest text-[var(--color-terracotta)]">
+                      {isVi ? 'HÌNH ẢNH THỰC TẾ' : 'AUTHENTIC SIGHTS & TRAVELERS'}
+                    </span>
+                    <h2 className="text-h3 font-display text-[var(--color-ink)]">{strings.gallery}</h2>
+                    <p className="text-body text-[var(--color-ink)] opacity-70 leading-relaxed">
+                      {strings.gallerySub}
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {tour.gallery.map((img, gIdx) => (
+                      <figure key={gIdx} className="group relative rounded-[var(--radius-md)] overflow-hidden bg-[var(--color-sand)] flex flex-col shadow-sm border border-[var(--color-sand)]">
+                        <div className="relative aspect-[4/3] w-full overflow-hidden">
+                          <Image
+                            src={img.url}
+                            alt={isVi ? img.alt.vi : img.alt.en}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          />
+                        </div>
+                        {img.caption && (
+                          <figcaption className="p-3 text-small text-[var(--color-ink)] opacity-80 bg-[var(--color-sand)]">
+                            {isVi ? img.caption.vi : img.caption.en}
+                          </figcaption>
+                        )}
+                      </figure>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Inclusions & Exclusions */}
               {(tour.inclusions || tour.exclusions) && (
@@ -348,6 +423,31 @@ export default async function TourDetailPage({ params }: Props) {
                 </div>
               )}
 
+              {/* Insider Tips / Practical Local Advice */}
+              {tour.insiderTips && tour.insiderTips.length > 0 && (
+                <div className="flex flex-col gap-6 pt-8 border-t border-[var(--color-sand)]">
+                  <div className="flex flex-col gap-2">
+                    <span className="text-small font-semibold uppercase tracking-widest text-[var(--color-terracotta)]">
+                      {isVi ? 'LƯU Ý THAM QUAN' : 'PRACTICAL TRAVEL TIPS'}
+                    </span>
+                    <h2 className="text-h3 font-display text-[var(--color-ink)]">{strings.insiderTips}</h2>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {tour.insiderTips.map((tip, tIdx) => (
+                      <div key={tIdx} className="p-5 rounded-[var(--radius-md)] bg-[var(--color-sand)] flex flex-col gap-2 border border-[var(--color-limestone)]">
+                        <h3 className="text-body font-semibold text-[var(--color-ink)] flex items-center gap-2">
+                          <span className="text-[var(--color-terracotta)]">💡</span>
+                          {isVi ? tip.title.vi : tip.title.en}
+                        </h3>
+                        <p className="text-body text-[var(--color-ink)] opacity-75 text-sm leading-relaxed">
+                          {isVi ? tip.content.vi : tip.content.en}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Why Book With Us */}
               {tour.whyBookWithUs && tour.whyBookWithUs.length > 0 && (
                 <div className="flex flex-col gap-6 pt-8 border-t border-[var(--color-sand)]">
@@ -363,6 +463,23 @@ export default async function TourDetailPage({ params }: Props) {
                     ))}
                   </ul>
                 </div>
+              )}
+
+              {tour.relatedGuide && (
+                <aside className="bg-[var(--color-sand)] rounded-[var(--radius-md)] p-6 sm:p-8 flex flex-col gap-3">
+                  <h2 className="text-h4 font-display text-[var(--color-ink)]">
+                    {isVi ? tour.relatedGuide.title.vi : tour.relatedGuide.title.en}
+                  </h2>
+                  <p className="text-body text-[var(--color-ink)] opacity-75 leading-relaxed">
+                    {isVi ? tour.relatedGuide.description.vi : tour.relatedGuide.description.en}
+                  </p>
+                  <Link
+                    href={`/${locale}${tour.relatedGuide.href}`}
+                    className="text-body font-semibold text-[var(--color-terracotta)] hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-terracotta)]"
+                  >
+                    {isVi ? 'Đọc cẩm nang Huế' : 'Read the Hue travel guide'} →
+                  </Link>
+                </aside>
               )}
 
               {/* FAQ */}
@@ -395,8 +512,8 @@ export default async function TourDetailPage({ params }: Props) {
                 {/* Booking CTA card */}
                 <div className="bg-[var(--color-sand)] p-8 rounded-[var(--radius-md)] flex flex-col gap-6">
                   <div>
-                    <p className="text-small font-semibold uppercase tracking-widest text-[var(--color-terracotta)] mb-2">{isVi ? 'Giá từ' : 'Starting from'}</p>
-                    <p className="text-h3 font-display text-[var(--color-ink)]">{tour.price}</p>
+                    <p className="text-small font-semibold uppercase tracking-widest text-[var(--color-terracotta)] mb-2">{priceCaption}</p>
+                    <p className="text-h3 font-display text-[var(--color-ink)]">{priceText}</p>
                   </div>
                   <a
                     href={whatsappHref}

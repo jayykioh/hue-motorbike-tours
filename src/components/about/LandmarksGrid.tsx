@@ -7,6 +7,7 @@ type Landmark = {
   image: string;
   alt: string;
   highlight: string;
+  href?: string;
 };
 
 export default function LandmarksGrid({ locale }: { locale: string }) {
@@ -14,7 +15,7 @@ export default function LandmarksGrid({ locale }: { locale: string }) {
 
   const t = {
     eyebrow: isVi ? "ĐỊA ĐIỂM NỔI BẬT" : "MUST-SEE LANDMARKS",
-    title: isVi ? "6 Địa Điểm Không Thể\nBỏ Qua Khi Đến Huế" : "6 Places You Cannot\nLeave Hue Without Seeing",
+    title: isVi ? "7 Địa Điểm Không Thể\nBỏ Qua Khi Đến Huế" : "7 Places You Cannot\nLeave Hue Without Seeing",
     subtitle: isVi
       ? "Từ những công trình hoàng gia ngàn năm đến đầm phá hoang sơ, Huế là một bộ sưu tập những kiệt tác tự nhiên và nhân tạo."
       : "From millennia-old royal monuments to untouched lagoons, Hue is a collection of natural and human masterpieces.",
@@ -85,6 +86,17 @@ export default function LandmarksGrid({ locale }: { locale: string }) {
       alt: "Colorful incense sticks at Thuy Xuan Incense Village in Hue",
       highlight: isVi ? "Làng nghề 700 năm tuổi" : "700-year-old craft village",
     },
+    {
+      name: isVi ? "Công Viên Bỏ Hoang Hồ Thuỷ Tiên" : "Ho Thuy Tien Water Park",
+      tag: t.hiddenGem,
+      desc: isVi
+        ? "Công viên nước bỏ hoang ma mị và nổi tiếng bậc nhất thế giới. Nơi thiên nhiên xâm chiếm những bức tượng rồng khổng lồ, tạo nên không gian tuyệt đẹp cho người yêu thích khám phá."
+        : "One of the most famous and eerie abandoned water parks in the world. Reclaimed by nature, the giant dragon structures offer a breathtaking space for urban explorers.",
+      image: "/photo/haivanpass.jpg",
+      alt: "Ho Thuy Tien abandoned water park dragon statue in Hue",
+      highlight: isVi ? "Địa điểm khám phá ma mị" : "Eerie Urban Exploration",
+      href: `/${locale}/about-hue/ho-thuy-tien`,
+    }
   ];
 
   return (
@@ -108,11 +120,14 @@ export default function LandmarksGrid({ locale }: { locale: string }) {
 
         {/* Landmarks grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {landmarks.map((lm, i) => (
-            <article
-              key={i}
-              className="group flex flex-col bg-[var(--color-limestone)] rounded-[var(--radius-lg)] overflow-hidden border border-[var(--color-sand)] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-default"
-            >
+          {landmarks.map((lm, i) => {
+            const CardWrapper = lm.href ? "a" : "div";
+            return (
+              <CardWrapper
+                href={lm.href}
+                key={i}
+                className="group flex flex-col bg-[var(--color-limestone)] rounded-[var(--radius-lg)] overflow-hidden border border-[var(--color-sand)] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+              >
               {/* Image */}
               <div className="relative aspect-[4/3] overflow-hidden bg-[var(--color-sand)]">
                 <Image
@@ -145,8 +160,9 @@ export default function LandmarksGrid({ locale }: { locale: string }) {
                   </span>
                 </div>
               </div>
-            </article>
-          ))}
+              </CardWrapper>
+            );
+          })}
         </div>
       </div>
     </section>

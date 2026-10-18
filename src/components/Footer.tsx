@@ -21,6 +21,7 @@ export default function Footer() {
         tour1: "Hue Motorbike Tour",
         tour2: "Hue Imperial City",
         tour3: "DMZ Tour",
+        licenses: "Licenses & Legal",
         about: "About Us",
         journal: "Journal",
         contact: "Contact",
@@ -40,6 +41,7 @@ export default function Footer() {
         tour1: "Tour Xe Máy Huế",
         tour2: "Đại Nội Huế",
         tour3: "Tour DMZ",
+        licenses: "Giấy Phép & Pháp Lý",
         about: "Về Chúng Tôi",
         journal: "Nhật Ký",
         contact: "Liên Hệ",
@@ -112,6 +114,7 @@ export default function Footer() {
               </h4>
               <nav className="flex flex-col gap-4">
                 <Link href={`/${currentLocale}/tours`} className="text-body hover:text-[var(--color-terracotta)] transition-colors w-fit">{lang.tours}</Link>
+                <Link href={`/${currentLocale}/licenses`} className="text-body hover:text-[var(--color-terracotta)] transition-colors w-fit">{lang.links.licenses}</Link>
               </nav>
             </div>
 

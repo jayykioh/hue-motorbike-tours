@@ -1,6 +1,8 @@
 export type ItineraryItem = {
   title: { en: string; vi: string };
   description?: { en: string; vi: string };
+  image?: string;
+  imageAlt?: { en: string; vi: string };
 };
 
 export type FAQItem = {
@@ -13,6 +15,17 @@ export type TransportOption = {
   description: { en: string; vi: string };
 };
 
+export type TourGalleryItem = {
+  url: string;
+  alt: { en: string; vi: string };
+  caption?: { en: string; vi: string };
+};
+
+export type InsiderTip = {
+  title: { en: string; vi: string };
+  content: { en: string; vi: string };
+};
+
 export type Tour = {
   id: string;
   slug: string;
@@ -21,8 +34,24 @@ export type Tour = {
   duration: string;
   transport: { en: string; vi: string };
   price: string;
+  priceCaption?: { en: string; vi: string };
+  priceLabel?: { en: string; vi: string };
+  priceIsQuote?: boolean;
+  bookingCta?: { en: string; vi: string };
+  seo?: {
+    en: { title: string; description: string; keywords: string[] };
+    vi: { title: string; description: string; keywords: string[] };
+  };
   image: string;
   ogImage?: string;
+  ogImageDimensions?: { width: number; height: number };
+  imageAlt?: { en: string; vi: string };
+  departure?: { en: string; vi: string };
+  relatedGuide?: {
+    href: string;
+    title: { en: string; vi: string };
+    description: { en: string; vi: string };
+  };
   highlights: { en: string; vi: string }[];
   itinerary: ItineraryItem[];
   faq?: FAQItem[];
@@ -32,6 +61,8 @@ export type Tour = {
   exclusions?: { en: string; vi: string }[];
   transportOptions?: TransportOption[];
   optionalAddons?: { en: string; vi: string }[];
+  gallery?: TourGalleryItem[];
+  insiderTips?: InsiderTip[];
 };
 
 export const tours: Tour[] = [
@@ -104,12 +135,12 @@ export const tours: Tour[] = [
     id: 'hue-imperial-city-tour',
     slug: 'hue-imperial-city-tour',
     title: {
-      en: 'Private Car & Family Motorbike Tour: Hue Imperial City',
-      vi: 'Tour Khám Phá Đại Nội Huế'
+      en: 'Hue Imperial City Tour: Citadel, Royal Tombs & Pagoda',
+      vi: 'Tour Khám Phá Đại Nội Huế & Lăng Tẩm Triều Nguyễn'
     },
     shortDescription: {
-      en: 'Leave the guidebooks behind and step into the real history of Vietnam\'s last royal dynasty. We guide you through the Imperial Citadel, royal tombs, and Thien Mu Pagoda — sharing the deep stories behind the walls that most tourists never hear.',
-      vi: 'Hãy cất sách hướng dẫn đi và bước vào trang sử có thật của triều đại phong kiến cuối cùng. Chúng mình sẽ kể cho bạn nghe những câu chuyện chưa từng được tiết lộ đằng sau những bức tường của Đại Nội và các lăng tẩm hoàng gia.'
+      en: 'Step inside the 143-year imperial capital of Vietnam’s Nguyen Dynasty. Explore the UNESCO-listed Imperial Citadel & Forbidden Purple City, marvel at Khai Dinh’s mosaic palace, visit peaceful 400-year-old Thien Mu Pagoda, and discover vibrant Thuy Xuan Incense Village. Travel comfortably with our licensed local guides by private car or authentic motorbike.',
+      vi: 'Bước vào trái tim kinh đô phong kiến 143 năm của triều Nguyễn. Khám phá Hoàng Thành & Tử Cấm Thành được UNESCO công nhận, chiêm ngưỡng nghệ thuật khảm sành sứ Lăng Khải Định, viếng chùa Thiên Mụ 400 năm tuổi và trải nghiệm làng hương Thủy Xuân cùng hướng dẫn viên bản địa Huế. Lựa chọn linh hoạt giữa ô tô riêng mát mẻ hoặc xe máy đậm chất phiêu lưu.'
     },
     duration: '7–8 hours',
     transport: {
@@ -117,24 +148,178 @@ export const tours: Tour[] = [
       vi: 'Xe ô tô riêng hoặc Xe máy'
     },
     price: 'From $65 USD',
+    priceCaption: {
+      en: 'Tour price per person',
+      vi: 'Giá tour trọn gói'
+    },
+    priceLabel: {
+      en: 'From $65 USD',
+      vi: 'Từ $65 USD (~1.650.000 VNĐ)'
+    },
+    bookingCta: {
+      en: 'Book Imperial City Tour',
+      vi: 'Đặt Tour Đại Nội Ngay'
+    },
+    departure: {
+      en: 'Hue City Center (Hotel Pickup)',
+      vi: 'Đón tại khách sạn trung tâm Huế'
+    },
+    seo: {
+      en: {
+        title: 'Hue Imperial City Tour | Citadel, Royal Tombs & Thien Mu Pagoda',
+        description: 'Comprehensive Hue Imperial City full-day tour. Discover the Forbidden Purple City, Kien Trung Palace, Khai Dinh Tomb & Thien Mu Pagoda with local guides by private car or motorbike.',
+        keywords: [
+          'Hue Imperial City tour',
+          'Hue Citadel tour',
+          'Forbidden Purple City Hue',
+          'Khai Dinh Tomb tour',
+          'Thien Mu Pagoda tour',
+          'Hue private car tour',
+          'Hue motorbike tour'
+        ]
+      },
+      vi: {
+        title: 'Tour Đại Nội Huế 1 Ngày | Hoàng Thành, Lăng Tẩm & Chùa Thiên Mụ',
+        description: 'Tour khám phá Đại Nội Huế trọn gói 1 ngày. Tham quan Tử Cấm Thành, cung Kiến Trung, lăng Khải Định, chùa Thiên Mụ và làng hương cùng hướng dẫn viên bản địa. Đi xe ô tô riêng hoặc xe máy.',
+        keywords: [
+          'tour đại nội huế',
+          'tour hoàng thành huế',
+          'tour huế 1 ngày',
+          'tham quan lăng tẩm huế',
+          'tour lăng khải định',
+          'giá vé đại nội huế 2026',
+          'tour xe máy đại nội huế'
+        ]
+      }
+    },
     image: '/photo/hue-kien-trung-palace.jpg',
-    ogImage: '/photo/hue-kien-trung-palace.jpg',
+    ogImage: '/photo/hue-imperial-city-tour-og.jpg',
+    ogImageDimensions: { width: 1200, height: 630 },
+    imageAlt: {
+      en: 'Hue Imperial City Meridian Gate and royal palaces in central Vietnam',
+      vi: 'Cổng Ngọ Môn và quần thể Đại Nội Hoàng Cung Huế'
+    },
     whatsappLink: 'https://wa.me/84862391918?text=Hello!%20I%27d%20like%20to%20book:%20Hue%20Imperial%20City%20Tour%20%E2%80%93%20Discover%20Vietnam%E2%80%99s%20Royal%20Heritage',
+    relatedGuide: {
+      href: '/about-hue',
+      title: {
+        en: 'Hue Cultural Travel Guide',
+        vi: 'Cẩm nang khám phá Huế'
+      },
+      description: {
+        en: 'Explore the full story behind Hue royal heritage, culinary traditions, and hidden gems.',
+        vi: 'Tìm hiểu sâu hơn về lịch sử triều Nguyễn, ẩm thực cung đình và các điểm đến đặc sắc tại Huế.'
+      }
+    },
     highlights: [
-      { en: 'Explore the UNESCO-listed Imperial Citadel and Forbidden Purple City', vi: 'Khám phá Đại Nội và Tử Cấm Thành được UNESCO công nhận là Di sản Thế giới' },
-      { en: 'Marvel at Khai Dinh Tomb — a breathtaking blend of Eastern and Western architecture', vi: 'Chiêm ngưỡng Lăng Khải Định — sự kết hợp độc đáo của kiến trúc Đông và Tây' },
-      { en: 'Experience the serene beauty of Thien Mu Pagoda on the Perfume River', vi: 'Cảm nhận vẻ đẹp thanh tịnh của Chùa Thiên Mụ bên bờ sông Hương' },
-      { en: 'Savor an authentic Hue lunch at a local restaurant', vi: 'Thưởng thức bữa trưa đậm đà hương vị Huế tại nhà hàng địa phương' },
-      { en: 'Customize your afternoon — abandoned waterpark, scenic hills, or cultural villages', vi: 'Tự do thiết kế lịch trình buổi chiều — công viên nước bỏ hoang, đồi ngắm cảnh, làng nghề truyền thống' }
+      { en: 'Walk through Ngo Mon Gate and explore the newly restored Kien Trung Palace inside the Forbidden Purple City', vi: 'Bước qua Cổng Ngọ Môn và chiêm ngưỡng Điện Kiến Trung vừa được phục dựng tráng lệ trong Tử Cấm Thành' },
+      { en: 'Learn the uncensored royal secrets, court politics, and daily lives of Vietnam\'s 13 Nguyen Emperors', vi: 'Lắng nghe những thâm cung bí sử chân thực, nghi lễ triều đình và đời sống của 13 vị vua triều Nguyễn' },
+      { en: 'Marvel at Khai Dinh Tomb’s breathtaking mosaic interior crafted from millions of porcelain and glass shards', vi: 'Kinh ngạc trước nghệ thuật khảm sành sứ độc nhất vô nhị từ hàng triệu mảnh sứ và thủy tinh tại Lăng Khải Định' },
+      { en: 'Visit peaceful 400-year-old Thien Mu Pagoda overlooking the poetic Perfume River', vi: 'Viếng thăm Chùa Thiên Mụ hơn 400 năm tuổi soi bóng tĩnh lặng xuống dòng sông Hương thơ mộng' },
+      { en: 'Savor authentic royal & street cuisine specialties like Bún Bò Huế, Bánh Bèo, Nậm, Lọc', vi: 'Thưởng thức bữa trưa đặc sản Huế đậm vị: Bún bò Huế, bộ ba bánh Bèo - Nậm - Lọc, Nem lụi' },
+      { en: 'Immerse in Thuy Xuan Incense Village with vibrant rainbow bamboo incense sticks and craft making', vi: 'Check-in rực rỡ tại Làng hương Thủy Xuân 700 năm tuổi và tự tay trải nghiệm se que hương truyền thống' }
     ],
     itinerary: [
-      { title: { en: 'Hotel pickup in Hue', vi: 'Xe đón bạn tận nơi tại khách sạn' } },
-      { title: { en: 'Imperial Citadel & Forbidden Purple City', vi: 'Đại Nội & Tử Cấm Thành' }, description: { en: 'Walk through palaces, temples, and royal courtyards. Hear the stories of the Nguyen Dynasty from our knowledgeable guide.', vi: 'Rảo bước qua các cung điện, đền đài và sân chầu. Lắng nghe câu chuyện về triều Nguyễn từ hướng dẫn viên am hiểu của chúng mình.' } },
-      { title: { en: 'Thien Mu Pagoda', vi: 'Chùa Thiên Mụ' }, description: { en: 'Hue\'s oldest pagoda, standing peacefully on the banks of the Perfume River since 1601.', vi: 'Ngôi chùa lâu đời nhất Huế, đứng yên bình bên bờ sông Hương từ năm 1601.' } },
-      { title: { en: 'Lunch at a local restaurant', vi: 'Ăn trưa tại nhà hàng địa phương' }, description: { en: 'Enjoy authentic Hue cuisine — specialties like bún bò Huế, bánh khoái, and more.', vi: 'Thưởng thức ẩm thực Huế chính gốc — các đặc sản như bún bò Huế, bánh khoái và nhiều món khác.' } },
-      { title: { en: 'Khai Dinh Tomb', vi: 'Lăng Khải Định' }, description: { en: 'Marvel at the unique architecture blending Eastern and Western influences — a bold statement of power and artistry.', vi: 'Chiêm ngưỡng kiến trúc độc đáo kết hợp phong cách Đông và Tây — một tuyên ngôn táo bạo về quyền lực và nghệ thuật.' } },
-      { title: { en: 'Flexible afternoon stops (your choice)', vi: 'Các điểm dừng buổi chiều tự chọn' }, description: { en: 'Choose from: the abandoned waterpark, Vong Canh Hill, traditional incense village, Thanh Toan Bridge, or other royal tombs.', vi: 'Lựa chọn từ: công viên nước bỏ hoang, Đồi Vọng Cảnh, làng làm hương truyền thống, Cầu Thanh Toàn, hoặc các lăng tẩm khác.' } },
-      { title: { en: 'Return to your hotel', vi: 'Trở về khách sạn' } }
+      {
+        title: { en: '8:00 AM – Hotel pickup & Imperial Citadel orientation', vi: '8:00 – Đón tại khách sạn & giới thiệu tổng quan' },
+        description: {
+          en: 'Your friendly guide and driver meet you at your Hue hotel. We begin with a brief historical overview of the Nguyen Dynasty (1802–1945) before heading to the ancient Imperial Citadel.',
+          vi: 'Hướng dẫn viên và tài xế đón bạn tại khách sạn ở trung tâm Huế. Xe khởi hành qua những con phố rợp bóng cây cổ thụ, giới thiệu khái quát về kinh đô triều Nguyễn trước khi đến Hoàng Thành.'
+        }
+      },
+      {
+        title: { en: '8:30 AM – The Imperial Citadel (Đại Nội) & Forbidden Purple City', vi: '8:30 – Quần thể Đại Nội & Tử Cấm Thành Huế' },
+        description: {
+          en: 'Step through the grand Ngo Mon (Meridian Gate) where emperor decrees were once announced. Walk across the Golden Waters Bridge to Thai Hoa Palace (Hall of Supreme Harmony), the Ancestral Temple (The Mieu) housing the Nine Dynastic Urns, and the masterfully restored Kien Trung Palace. Hear gripping stories of royal concubines, power struggles, and French colonial treaties.',
+          vi: 'Bước qua Cổng Ngọ Môn uy nghiêm nơi từng diễn ra các lễ truyền ngôi và đọc sắc chiếu. Đi qua Cầu Trung Đạo tới Điện Thái Hòa, Thế Miếu với Cửu Đỉnh đúc đồng tinh xảo, và Điện Kiến Trung vừa khánh thành. Hướng dẫn viên chia sẻ những câu chuyện lịch sử chân thực, nghi lễ hoàng cung và ý nghĩa phong thủy của từng công trình.'
+        },
+        image: '/photo/hue-imperial-city/dai-noi.jpg',
+        imageAlt: { en: 'Meridian Gate Ngo Mon at Hue Imperial Citadel', vi: 'Cổng Ngọ Môn Đại Nội Huế' }
+      },
+      {
+        title: { en: '11:00 AM – Historic Thien Mu Pagoda by the Perfume River', vi: '11:00 – Chùa Thiên Mụ & Dòng Sông Hương' },
+        description: {
+          en: 'Perched on Ha Khe hill since 1601, Hue’s oldest pagoda features the iconic octagonal 7-storey Phuoc Duyen Tower. See the vintage Austin motor vehicle that carried monk Thich Quang Duc to Saigon in 1963, and enjoy serene panoramic river views.',
+          vi: 'Tọa lạc trên đồi Hà Khê từ năm 1601, chùa Thiên Mụ là biểu tượng tâm linh lâu đời nhất xứ Huế với Tháp Phước Duyên 7 tầng hình bát giác. Chiêm ngưỡng chiếc xe Austin lịch sử gắn liền với Bồ tát Thích Quảng Đức và ngắm trọn khúc quanh sông Hương êm đềm.'
+        },
+        image: '/photo/hue-imperial-city/thien-mu-pagoda.jpg',
+        imageAlt: { en: 'Thien Mu Pagoda 7-storey tower in Hue', vi: 'Tháp Phước Duyên chùa Thiên Mụ Huế' }
+      },
+      {
+        title: { en: '12:15 PM – Authentic Hue culinary feast at a local eatery', vi: '12:15 – Bữa trưa ẩm thực đặc sản Huế chính gốc' },
+        description: {
+          en: 'Taste the distinctive flavors of Hue’s culinary capital at a hand-picked local restaurant. Enjoy authentic Bún Bò Huế (spicy lemongrass beef noodle soup), freshly steamed royal savory rice cakes (Bánh Bèo, Nậm, Lọc), and lemongrass-grilled pork skewers (Nem Lụi). Vegetarian and dietary options available upon request.',
+          vi: 'Thưởng thức bữa trưa đậm chất cố đô tại quán ăn truyền thống được người dân địa phương yêu thích: Bún bò Huế cay nồng thơm lừng sả ớt, bộ ba bánh hoàng cung (Bánh bèo chén, Bánh nậm, Bánh lọc) và Nem lụi nướng chấm nước tương gia truyền. Có thực đơn chay theo yêu cầu.'
+        },
+        image: '/photo/banh-nam-hue-food.jpg',
+        imageAlt: { en: 'Authentic Hue steamed cakes and local delicacies', vi: 'Bánh nậm và các món ngon đặc sản Huế' }
+      },
+      {
+        title: { en: '1:30 PM – Khai Dinh Royal Tomb (Ung Lang)', vi: '13:30 – Lăng Khải Định (Ứng Lăng) tuyệt tác sành sứ' },
+        description: {
+          en: 'Climb the dragon-carved staircase on Chau Chu mountain to enter Khai Dinh Tomb — the most extravagant royal mausoleum in Vietnam. Admire the breathtaking Thien Dinh Palace walls and ceilings covered in intricate mosaics crafted from broken porcelain bowls and beer bottles, blending Gothic, Baroque, and traditional Vietnamese art.',
+          vi: 'Băng qua các bậc tam cấp chạm khắc rồng trên triền núi Châu Chữ để bước vào Lăng Khải Định — lăng tẩm hoàng gia kỳ công và đắt giá bậc nhất. Chiêm ngưỡng Cung Thiên Định với trần tranh "Cửu Long Ẩn Vân" và các bức phù điêu khảm sành sứ, thủy tinh hoa lệ giao thoa giữa nghệ thuật Pháp và Việt.'
+        },
+        image: '/photo/visithue-tomb.jpg',
+        imageAlt: { en: 'Intricate royal architecture of Khai Dinh Tomb in Hue', vi: 'Kiến trúc lăng tẩm hoàng gia triều Nguyễn tại Huế' }
+      },
+      {
+        title: { en: '3:00 PM – Thuy Xuan Incense Village & Craft Making', vi: '15:00 – Làng hương Thủy Xuân 700 năm tuổi' },
+        description: {
+          en: 'Stroll through vibrant rainbow-colored displays of traditional incense sticks. Learn the ancient 700-year technique of blending agarwood, cinnamon, and herbal scents, and try rolling your own incense stick alongside friendly local artisans.',
+          vi: 'Dạo bước giữa những bó hương đủ sắc màu xòe bung như những đóa hoa rực rỡ dưới nắng. Tìm hiểu kỹ thuật làm hương gia truyền 700 năm từ trầm hương, quế và thảo mộc tự nhiên, đồng thời thử tay se que hương lưu niệm cùng các nghệ nhân.'
+        },
+        image: '/photo/hue-imperial-city/incense-village.jpg',
+        imageAlt: { en: 'Colorful incense bundles at Thuy Xuan Incense Village in Hue', vi: 'Làng làm hương Thủy Xuân rực rỡ sắc màu tại Huế' }
+      },
+      {
+        title: { en: '4:00 PM – Flexible Choice: Abandoned Water Park or Vong Canh Hill', vi: '16:00 – Điểm dừng tự chọn: Hồ Thủy Tiên hoặc Đồi Vọng Cảnh' },
+        description: {
+          en: 'Choose your afternoon highlight: venture into the surreal Ho Thuy Tien Abandoned Water Park to photograph the iconic lakeside giant dragon statue, or relax on pine-shaded Vong Canh Hill with breathtaking panoramic views of the Perfume River at golden hour.',
+          vi: 'Tự do chọn điểm dừng theo sở thích: Khám phá bức tượng rồng khổng lồ ma mị tại Công viên nước bỏ hoang Hồ Thủy Tiên, hoặc thư thái ngắm khúc quanh sông Hương trong ánh chiều tà từ Đồi Vọng Cảnh bạt ngàn thông reo.'
+        },
+        image: '/photo/hothuytien-abondandedwaterpark.jpg',
+        imageAlt: { en: 'Giant dragon structure at Ho Thuy Tien abandoned water park in Hue', vi: 'Tượng rồng công viên nước bỏ hoang Hồ Thủy Tiên Huế' }
+      },
+      {
+        title: { en: '4:45 PM – Safe return to your hotel & Hue nightlife tips', vi: '16:45 – Trở về khách sạn an toàn & gợi ý buổi tối' },
+        description: {
+          en: 'We drive you safely back to your hotel in Hue city center. Your guide shares insider recommendations for evening strolls along the Perfume River wooden bridge, royal salt coffee shops, and night market treats.',
+          vi: 'Xe đưa bạn về khách sạn an toàn tại trung tâm thành phố Huế. Hướng dẫn viên chia sẻ thêm danh sách quán cà phê muối nức tiếng, phố đi bộ cầu gỗ lim sông Hương và các điểm ăn tối hấp dẫn.'
+        }
+      }
+    ],
+    gallery: [
+      {
+        url: '/photo/hue-imperial-city/dai-noi.jpg',
+        alt: { en: 'Meridian Gate of Hue Citadel', vi: 'Cổng Ngọ Môn Đại Nội' },
+        caption: { en: 'Ngo Mon Meridian Gate - Royal entrance to the Forbidden Purple City', vi: 'Cổng Ngọ Môn - Lối vào chính diện Hoàng Thành Huế' }
+      },
+      {
+        url: '/photo/hue-imperial-city/dai-noi-customer.jpg',
+        alt: { en: 'Happy travelers exploring Hue Citadel courtyards', vi: 'Du khách tham quan sân chầu Đại Nội Huế' },
+        caption: { en: 'Guests discovering historic courtyards and ancient royal halls', vi: 'Du khách cùng hướng dẫn viên khám phá các cung điện cổ kính' }
+      },
+      {
+        url: '/photo/hue-imperial-city/customer-pic.jpg',
+        alt: { en: 'Guests enjoying comfortable tour in Hue', vi: 'Khách hàng vui vẻ trong chuyến đi' },
+        caption: { en: 'Personalized care and memorable travel moments', vi: 'Khoảnh khắc vui vẻ, đồng hành tận tâm cùng du khách' }
+      },
+      {
+        url: '/photo/hue-imperial-city/thien-mu-pagoda.jpg',
+        alt: { en: 'Phuoc Duyen Tower at Thien Mu Pagoda', vi: 'Tháp Phước Duyên chùa Thiên Mụ' },
+        caption: { en: 'Iconic 7-tier Phuoc Duyen Tower overlooking the Perfume River', vi: 'Tháp Phước Duyên 7 tầng soi bóng bên dòng sông Hương' }
+      },
+      {
+        url: '/photo/hue-imperial-city/incense-village.jpg',
+        alt: { en: 'Vibrant rainbow incense displays in Thuy Xuan village', vi: 'Làng hương Thủy Xuân rực rỡ' },
+        caption: { en: 'Photogenic colorful incense bundles in Thuy Xuan village', vi: 'Những bó hương rực rỡ sắc màu tại làng hương Thủy Xuân' }
+      },
+      {
+        url: '/photo/hue-kien-trung-palace.jpg',
+        alt: { en: 'Newly restored Kien Trung Palace in Hue Imperial City', vi: 'Điện Kiến Trung phục dựng lộng lẫy' },
+        caption: { en: 'Kien Trung Palace - masterpiece of French-Indochinese architecture', vi: 'Điện Kiến Trung - kiệt tác kiến trúc Pháp - Đông Dương vừa hồi sinh' }
+      }
     ],
     transportOptions: [
       {
@@ -146,18 +331,104 @@ export const tours: Tour[] = [
         description: { en: 'Ride with an experienced local driver, see hidden spots, and enjoy a more adventurous and immersive experience through Hue\'s streets.', vi: 'Đi cùng tài xế địa phương kinh nghiệm, khám phá những góc khuất và tận hưởng trải nghiệm phiêu lưu, đắm chìm hơn qua các con phố Huế.' }
       }
     ],
+    inclusions: [
+      { en: 'Private air-conditioned car or private motorbike with experienced rider', vi: 'Ô tô riêng có điều hòa mát mẻ hoặc xe máy riêng cùng tài xế bản địa giàu kinh nghiệm' },
+      { en: 'Licensed English-speaking local guide with deep historical knowledge', vi: 'Hướng dẫn viên bản địa am hiểu sâu sắc về lịch sử và văn hóa cung đình Huế' },
+      { en: 'Hotel pickup and drop-off in Hue city center', vi: 'Đón và trả khách tận nơi tại khách sạn trong trung tâm TP Huế' },
+      { en: 'Cold bottled drinking water throughout the tour', vi: 'Nước suối đóng chai mát lạnh suốt hành trình' },
+      { en: 'High-quality helmets and emergency rain ponchos for motorbike option', vi: 'Mũ bảo hiểm đạt chuẩn an toàn và áo mưa tiện lợi cho khách đi xe máy' }
+    ],
+    exclusions: [
+      { en: 'Citadel & royal tomb entrance tickets (guide assists with purchasing on-site)', vi: 'Vé tham quan Đại Nội và các lăng tẩm (hướng dẫn viên hỗ trợ mua trực tiếp tại quầy)' },
+      { en: 'Lunch and personal beverage orders unless requested in advance', vi: 'Bữa trưa và đồ uống cá nhân (trừ khi yêu cầu đặt trọn gói trước)' },
+      { en: 'Personal souvenirs and gratuities for guide/driver (appreciated but optional)', vi: 'Chi phí mua sắm cá nhân và tiền tip tùy tâm cho tài xế/hướng dẫn viên' }
+    ],
+    optionalAddons: [
+      { en: 'Traditional Hue lunch banquet featuring royal specialties', vi: 'Bữa trưa đặc sản Huế thịnh soạn với các món cung đình trứ danh' },
+      { en: 'Visit Tu Duc Tomb (Khiem Lang) — Vietnam’s most poetic royal mausoleum', vi: 'Tham quan thêm Lăng Tự Đức (Khiêm Lăng) — lăng tẩm thơ mộng nhất của triều Nguyễn' },
+      { en: 'Dragon boat cruise on the Perfume River between Citadel and Thien Mu Pagoda', vi: 'Du thuyền rồng ngắm cảnh sông Hương từ bến thuyền Đại Nội đến Chùa Thiên Mụ' },
+      { en: 'Explore the surreal Ho Thuy Tien Abandoned Water Park dragon structure', vi: 'Khám phá kiến trúc tượng rồng ma mị tại Công viên nước bỏ hoang Hồ Thủy Tiên' }
+    ],
     whyBookWithUs: [
-      { en: 'Local guides with extensive knowledge of Hue\'s history and culture', vi: 'Hướng dẫn viên địa phương am hiểu sâu rộng về lịch sử và văn hóa Huế' },
-      { en: 'Flexible schedule with optional afternoon stops tailored to your interests', vi: 'Lịch trình linh hoạt với các điểm dừng buổi chiều tùy chỉnh theo sở thích của bạn' },
-      { en: 'Comfortable and safe transportation', vi: 'Phương tiện di chuyển thoải mái và an toàn' },
-      { en: 'A perfect balance of culture, history, and off-the-beaten-path adventure', vi: 'Sự kết hợp hoàn hảo giữa văn hóa, lịch sử và những cuộc phiêu lưu ngoài lề' }
+      { en: 'Led by certified local Hue guides trained under veteran tour leader Mai Anh Tu (15+ years experience)', vi: 'Đội ngũ hướng dẫn viên người Huế bản địa được đào tạo bởi trưởng đoàn Mai Anh Tú (15+ năm kinh nghiệm)' },
+      { en: 'Unrushed, flexible itinerary with freedom to spend as much time as you desire at key monuments', vi: 'Lịch trình linh hoạt, không gò bó, bạn hoàn toàn làm chủ thời gian tại mỗi điểm di tích' },
+      { en: 'True historical depth beyond guidebooks — unearthing hidden palace anecdotes and royal life', vi: 'Chiều sâu văn hóa vượt xa sách hướng dẫn — khám phá những câu chuyện thâm cung bí sử chân thật' },
+      { en: 'Door-to-door comfort with impeccably maintained vehicles and strict safety protocols', vi: 'Đón trả tận nơi chu đáo với dàn xe bảo dưỡng định kỳ và quy chuẩn an toàn khắt khe' },
+      { en: 'Transparent, upfront pricing with zero hidden surcharges or forced shopping stops', vi: 'Báo giá rõ ràng, minh bạch, cam kết không phí ẩn và không dẫn vào các điểm mua sắm ép buộc' }
+    ],
+    insiderTips: [
+      {
+        title: { en: 'Respectful Temple & Shrine Dress Code', vi: 'Quy định trang phục nơi tôn nghiêm' },
+        content: {
+          en: 'Hue Imperial Citadel and royal tombs contain sacred ancestral temples (The Mieu, Trieu Mieu). Please wear clothes covering your shoulders and knees. Avoid sleeveless tops or short skirts.',
+          vi: 'Đại Nội và các lăng tẩm có nhiều khu vực thờ phụng trang nghiêm (Thế Miếu, Triệu Miếu, điện thờ vua). Vui lòng mặc trang phục lịch sự, che vai và đầu gối. Tránh áo sát nách hoặc váy ngắn.'
+        }
+      },
+      {
+        title: { en: 'Money-Saving Ticket Combo Tip', vi: 'Mẹo mua vé combo tiết kiệm chi phí' },
+        content: {
+          en: 'If visiting the Citadel plus Khai Dinh and Tu Duc tombs, buy the 3-site or 4-site Combo Ticket at the gate. It costs roughly 420,000 VND (~$17 USD) instead of buying separate tickets, saving you over 25%.',
+          vi: 'Nếu bạn có kế hoạch đi Đại Nội cùng Lăng Khải Định và Lăng Tự Đức, hãy chọn mua Vé Tuyến (combo 3 điểm hoặc 4 điểm) tại quầy vé. Giá khoảng 420.000 VNĐ, tiết kiệm hơn 25% so với mua vé lẻ từng nơi.'
+        }
+      },
+      {
+        title: { en: 'Best Times for Golden Hour Photos', vi: 'Thời điểm chụp ảnh đẹp nhất' },
+        content: {
+          en: 'The morning light (8:30–10:00 AM) illuminates Ngo Mon Gate and Thai Hoa Palace beautifully with minimal crowds. Late afternoon (3:30–5:00 PM) offers magical golden reflections at Thien Mu Pagoda and Thuy Xuan village.',
+          vi: 'Ánh nắng buổi sáng (8:30 - 10:00) chiếu rọi Cổng Ngọ Môn và sân chầu tuyệt đẹp khi chưa quá đông người. Khoảng 15:30 - 17:00 chiều là lúc chùa Thiên Mụ và làng hương đón ánh hoàng hôn lung linh nhất.'
+        }
+      },
+      {
+        title: { en: 'Pacing & Comfortable Walking Shoes', vi: 'Giày dép thoải mái & nhịp độ tham quan' },
+        content: {
+          en: 'The Imperial Citadel spans over 500 hectares with cobblestone courtyards. Wear supportive walking shoes, bring sunscreen and a hat. Our guides pace the walking tour smoothly with shaded rest stops.',
+          vi: 'Đại Nội có diện tích hơn 500ha với nhiều sân gạch và cung điện trải dài. Hãy mang giày đi bộ êm chân, mũ nón và kem chống nắng. Hướng dẫn viên sẽ sắp xếp thời gian nghỉ ngơi râm mát hợp lý.'
+        }
+      }
     ],
     faq: [
-      { question: { en: 'Can I customize the afternoon stops?', vi: 'Tôi có thể tùy chỉnh các điểm dừng buổi chiều không?' }, answer: { en: 'Yes! You can choose between royal tombs, cultural villages, scenic hilltops, or the abandoned waterpark. Just let us know your preferences when you book.', vi: 'Có! Bạn có thể lựa chọn giữa lăng tẩm hoàng gia, làng văn hóa, đỉnh đồi ngắm cảnh, hoặc công viên nước bỏ hoang. Hãy cho chúng mình biết sở thích của bạn khi đặt tour.' } },
-      { question: { en: 'How long is the tour?', vi: 'Tour kéo dài bao lâu?' }, answer: { en: '7–8 hours for a full-day tour. Half-day options are also available — just ask.', vi: '7–8 tiếng cho tour trọn ngày. Cũng có tùy chọn nửa ngày — chỉ cần hỏi chúng mình.' } },
-      { question: { en: 'Is the tour suitable for children?', vi: 'Tour có phù hợp với trẻ em không?' }, answer: { en: 'Yes, both car and motorbike options are family-friendly. We always prioritize comfort and safety for all passengers.', vi: 'Có, cả phương án xe ô tô và xe máy đều thân thiện với gia đình. Chúng mình luôn ưu tiên sự thoải mái và an toàn cho mọi hành khách.' } },
-      { question: { en: 'What should I wear?', vi: 'Tôi nên mặc gì?' }, answer: { en: 'Comfortable clothing and walking shoes. Please cover your shoulders and knees when visiting temples and pagodas.', vi: 'Trang phục thoải mái và giày đi bộ. Vui lòng mặc che vai và đầu gối khi tham quan chùa chiền.' } },
-      { question: { en: 'Is the abandoned waterpark safe to visit?', vi: 'Công viên nước bỏ hoang có an toàn để tham quan không?' }, answer: { en: 'Yes, it\'s perfectly safe to explore with your guide. We recommend wearing comfortable shoes as the grounds can be uneven.', vi: 'Có, hoàn toàn an toàn khi khám phá cùng hướng dẫn viên. Chúng mình khuyên bạn nên đi giày thoải mái vì mặt đất có thể gồ ghề.' } }
+      {
+        question: { en: 'How much are entrance tickets and how do we pay?', vi: 'Giá vé tham quan là bao nhiêu và thanh toán thế nào?' },
+        answer: {
+          en: 'The Imperial Citadel ticket is 200,000 VND (~$8 USD) for adults, and Khai Dinh Tomb is 150,000 VND. A 3-site combo ticket (Citadel + Khai Dinh + Minh Mang) is 420,000 VND. Your guide will assist you in purchasing tickets directly at the official ticket counters by cash or QR bank transfer.',
+          vi: 'Vé Đại Nội là 200.000 VNĐ/người lớn, Lăng Khải Định là 150.000 VNĐ. Vé combo 3 điểm (Đại Nội + Khải Định + Minh Mạng) là 420.000 VNĐ. Hướng dẫn viên sẽ hỗ trợ bạn mua vé trực tiếp tại quầy bằng tiền mặt hoặc chuyển khoản mã QR.'
+        }
+      },
+      {
+        question: { en: 'Can I customize the afternoon stops or tour duration?', vi: 'Tôi có thể tùy chỉnh các điểm dừng buổi chiều hoặc thời gian tour không?' },
+        answer: {
+          en: 'Yes! We pride ourselves on custom flexibility. You can substitute royal tombs, add the abandoned water park (Ho Thuy Tien), visit conical hat craft villages, or shorten the day into a 4-hour half-day tour.',
+          vi: 'Hoàn toàn được! Tour mang tính cá nhân hóa cao. Bạn có thể đổi lăng tẩm khác, ghé công viên nước bỏ hoang Hồ Thủy Tiên, làng nón truyền thống, hoặc rút ngắn thành tour nửa ngày 4 tiếng.'
+        }
+      },
+      {
+        question: { en: 'Is this tour suitable for seniors and young children?', vi: 'Tour có phù hợp với người cao tuổi và trẻ nhỏ không?' },
+        answer: {
+          en: 'Yes, our private car option is ideal for multi-generational families. The vehicle has comfortable air-conditioning, and inside the Citadel electric buggies (trams) can be arranged for guests with mobility concerns.',
+          vi: 'Rất phù hợp, đặc biệt là phương án ô tô riêng cho gia đình nhiều thế hệ. Xe máy lạnh êm ái, và trong Đại Nội có thể thuê thêm xe điện trung chuyển nếu người lớn tuổi ngại đi bộ xa.'
+        }
+      },
+      {
+        question: { en: 'What should I wear for temples and royal tombs?', vi: 'Tôi nên mặc trang phục thế nào khi tham quan?' },
+        answer: {
+          en: 'Dress respectfully with covered shoulders and knees for royal ancestral temples and pagodas. Wear lightweight, breathable fabrics and comfortable walking sneakers.',
+          vi: 'Hãy mặc trang phục lịch sự che kín vai và đầu gối khi vào các điện thờ hoàng gia và chùa chiền. Nên chọn chất vải thoáng mát và giày thể thao đi bộ êm chân.'
+        }
+      },
+      {
+        question: { en: 'What happens if it rains during the tour?', vi: 'Nếu trời mưa trong ngày đi tour thì sao?' },
+        answer: {
+          en: 'Hue weather can be unpredictable. If traveling by private car, rain will not interrupt your day as we provide large umbrellas. If traveling by motorbike, we provide high-grade raincoats and can adjust the schedule to spend rainy moments in covered palaces and cozy tea houses.',
+          vi: 'Thời tiết Huế đôi khi có mưa bất chợt. Nếu đi ô tô, bạn hoàn toàn yên tâm vì có sẵn dù lớn che mưa. Nếu đi xe máy, chúng mình trang bị áo mưa chất lượng cao và linh hoạt ưu tiên tham quan các cung điện có mái che hoặc thưởng thức trà cung đình trong lúc đợi tạnh mưa.'
+        }
+      },
+      {
+        question: { en: 'Can you accommodate vegetarian or gluten-free diets for lunch?', vi: 'Có thực đơn ăn chay hoặc yêu cầu ăn kiêng cho bữa trưa không?' },
+        answer: {
+          en: 'Hue is world-renowned for its exquisite Buddhist vegetarian cuisine (cơm chay Huế). Simply inform us when booking and we will reserve an authentic vegetarian dining experience with zero hassle.',
+          vi: 'Huế rất nổi tiếng với ẩm thực chay thanh tịnh cung đình. Bạn chỉ cần báo trước khi đặt tour, chúng mình sẽ sắp xếp quán chay đặc sản chuẩn vị và chu đáo nhất.'
+        }
+      }
     ]
   },
   {
@@ -380,6 +651,217 @@ export const tours: Tour[] = [
     ],
     faq: [
       { question: { en: 'Is it legal/safe to enter?', vi: 'Vào đó có hợp pháp/an toàn không?' }, answer: { en: 'The park is officially closed, but it remains a hugely popular spot for explorers. The paths are generally safe, but we advise wearing closed-toe shoes and stepping carefully around broken glass or overgrown areas.', vi: 'Công viên đã chính thức đóng cửa nhưng vẫn là điểm đến cực kỳ phổ biến cho người thích khám phá. Đường đi nhìn chung an toàn, nhưng chúng mình khuyên nên đi giày bít mũi và bước cẩn thận quanh những khu vực kính vỡ hoặc cỏ rậm.' } }
+    ]
+  },
+  {
+    id: 'hue-imperial-city-day-tour-from-da-nang-hoi-an',
+    slug: 'hue-imperial-city-day-tour-from-da-nang-hoi-an',
+    title: {
+      en: 'Hue Imperial City Day Tour from Da Nang & Hoi An',
+      vi: 'Tour Đại Nội Huế 1 Ngày từ Đà Nẵng & Hội An'
+    },
+    shortDescription: {
+      en: 'Travel from Da Nang or Hoi An to Hue on a full-day journey over Hai Van Pass. Explore the Imperial Citadel, enjoy a local Hue lunch, and visit royal heritage sites with a private car or Easy Rider motorbike.',
+      vi: 'Khởi hành từ Đà Nẵng hoặc Hội An đến Huế qua đèo Hải Vân trong chuyến đi trọn ngày. Khám phá Đại Nội, thưởng thức bữa trưa địa phương và ghé thăm các di tích triều Nguyễn bằng ô tô riêng hoặc xe máy cùng Easy Rider.'
+    },
+    duration: '10–11 hours',
+    transport: {
+      en: 'Private Car or Easy Rider Motorbike',
+      vi: 'Ô tô riêng hoặc xe máy cùng Easy Rider'
+    },
+    price: 'Request a quote',
+    priceCaption: {
+      en: 'Tour price',
+      vi: 'Giá tour'
+    },
+    priceLabel: {
+      en: 'Request a quote',
+      vi: 'Liên hệ nhận báo giá'
+    },
+    priceIsQuote: true,
+    bookingCta: {
+      en: 'Check availability',
+      vi: 'Kiểm tra lịch trống'
+    },
+    departure: {
+      en: 'Da Nang or Hoi An',
+      vi: 'Đà Nẵng hoặc Hội An'
+    },
+    relatedGuide: {
+      href: '/about-hue',
+      title: {
+        en: 'Plan more time in Hue',
+        vi: 'Lên kế hoạch khám phá Huế'
+      },
+      description: {
+        en: 'Read our Hue travel guide for ideas on heritage sites, local food, and when to visit.',
+        vi: 'Xem cẩm nang du lịch Huế để tìm hiểu về di sản, ẩm thực địa phương và thời điểm phù hợp để ghé thăm.'
+      }
+    },
+    seo: {
+      en: {
+        title: 'Hue Day Tour from Da Nang & Hoi An | Imperial City',
+        description: 'Visit Hue Imperial City on a full-day tour from Da Nang or Hoi An. Cross Hai Van Pass, see Lap An Lagoon and royal landmarks by private car or Easy Rider.',
+        keywords: [
+          'Hue day tour from Da Nang',
+          'Hue day trip from Hoi An',
+          'Hue Imperial City tour from Da Nang',
+          'Da Nang to Hue private car tour',
+          'Hoi An to Hue Easy Rider tour'
+        ]
+      },
+      vi: {
+        title: 'Tour Huế 1 Ngày từ Đà Nẵng & Hội An | Đại Nội, Hoàng Thành',
+        description: 'Tour Huế 1 ngày từ Đà Nẵng hoặc Hội An, đón tận khách sạn, qua đèo Hải Vân và đầm Lập An, tham quan Đại Nội bằng ô tô riêng hoặc Easy Rider. Hỏi lịch trình.',
+        keywords: [
+          'tour Huế từ Đà Nẵng 1 ngày',
+          'tour Hội An đi Huế',
+          'tour Đại Nội Huế từ Đà Nẵng',
+          'xe riêng Đà Nẵng đi Huế',
+          'tour xe máy Hội An Huế'
+        ]
+      }
+    },
+    image: '/photo/hue-imperial-city-tour.webp',
+    ogImage: '/photo/hue-imperial-city-tour-og.jpg',
+    ogImageDimensions: { width: 1200, height: 630 },
+    imageAlt: {
+      en: 'A visitor at Kien Trung Palace inside Hue Imperial City',
+      vi: 'Du khách tại cung Kiến Trung trong Đại Nội Huế'
+    },
+    whatsappLink: 'https://wa.me/84862391918?text=Hello!%20I%27d%20like%20to%20check%20availability%20for%20the%20Hue%20Imperial%20City%20Day%20Tour%20from%20Da%20Nang%20or%20Hoi%20An.',
+    highlights: [
+      { en: 'Door-to-door hotel pickup in Da Nang or Hoi An, with drop-off back at your hotel', vi: 'Đón tận khách sạn tại Đà Nẵng hoặc Hội An và đưa bạn về lại khách sạn' },
+      { en: 'Enjoy coastal viewpoints and photo stops along Hai Van Pass', vi: 'Ngắm cảnh biển và dừng chụp ảnh trên cung đường đèo Hải Vân' },
+      { en: 'Pause at Lap An Lagoon and take in views of Lang Co Bay', vi: 'Dừng chân tại đầm Lập An và ngắm cảnh vịnh Lăng Cô' },
+      { en: 'Explore Hue Imperial Citadel and the Forbidden Purple City with a local guide', vi: 'Khám phá Đại Nội Huế và Tử Cấm Thành cùng hướng dẫn viên địa phương' },
+      { en: 'Choose a private air-conditioned car or ride as a passenger with an Easy Rider', vi: 'Chọn ô tô riêng có điều hòa hoặc ngồi sau xe cùng Easy Rider' },
+      { en: 'Add royal tombs, Thien Mu Pagoda, or a local food stop to suit your day', vi: 'Có thể thêm lăng tẩm, chùa Thiên Mụ hoặc điểm dừng ẩm thực địa phương theo lịch trình' }
+    ],
+    itinerary: [
+      {
+        title: { en: 'Hotel pickup in Hoi An or Da Nang', vi: 'Đón tại khách sạn ở Hội An hoặc Đà Nẵng' },
+        description: { en: 'Meet your driver and guide at your hotel. Hoi An pickups usually begin around 7:30 am and Da Nang pickups around 8:00 am; the exact time is confirmed when you book.', vi: 'Gặp tài xế và hướng dẫn viên tại khách sạn. Giờ đón thường khoảng 7:30 tại Hội An và 8:00 tại Đà Nẵng; thời gian cụ thể sẽ được xác nhận khi đặt tour.' }
+      },
+      {
+        title: { en: 'Hai Van Pass viewpoints & Lang Co panorama', vi: 'Các điểm ngắm cảnh trên đèo Hải Vân' },
+        description: { en: 'Follow the winding coastal mountain road and pause at scenic viewpoints when weather permits. Take in breathtaking panoramas of the East Sea, Da Nang coastline, and Lang Co Bay.', vi: 'Đi theo cung đường núi ven biển uốn lượn và dừng tại các điểm ngắm cảnh tuyệt đẹp. Hướng dẫn viên sẽ cùng bạn ngắm nhìn biển Đông, bờ biển Đà Nẵng và toàn cảnh vịnh Lăng Cô.' },
+        image: '/photo/hue-imperial-city/hai-van-pass.jpg',
+        imageAlt: { en: 'Panoramic view from Hai Van Pass looking towards Lang Co Bay', vi: 'Toàn cảnh đèo Hải Vân hướng về vịnh Lăng Cô' }
+      },
+      {
+        title: { en: 'Lap An Lagoon & oyster farming village', vi: 'Đầm Lập An và làng nuôi hàu' },
+        description: { en: 'Take a refreshing break beside the calm brackish water of Lap An Lagoon, framed by the majestic Bach Ma mountain range. Watch local fishermen tend their oyster farms.', vi: 'Nghỉ chân bên mặt nước êm ả của đầm Lập An tựa lưng vào dãy núi Bạch Mã hùng vĩ. Khám phá nghề nuôi hàu truyền thống của ngư dân địa phương.' },
+        image: '/photo/about-hue-tam-giang-lagoon.jpg',
+        imageAlt: { en: 'Serene Lap An Lagoon and fishing huts near Hue', vi: 'Khung cảnh thanh bình tại đầm Lập An gần Huế' }
+      },
+      {
+        title: { en: 'Hue Imperial Citadel & Forbidden Purple City', vi: 'Quần thể Đại Nội Huế & Tử Cấm Thành' },
+        description: { en: 'Explore the gates, courtyards, and ancient palaces of the Nguyen Dynasty’s former imperial capital. Walk through Ngo Mon Gate and see Thai Hoa Palace and Kien Trung Palace with your knowledgeable guide.', vi: 'Khám phá cổng thành uy nghiêm, sân chầu và các cung điện cổ kính của hoàng triều nhà Nguyễn. Đi qua Cổng Ngọ Môn, Điện Thái Hòa và Điện Kiến Trung cùng hướng dẫn viên bản địa.' },
+        image: '/photo/hue-imperial-city/dai-noi.jpg',
+        imageAlt: { en: 'Ngo Mon Meridian Gate inside Hue Imperial Citadel', vi: 'Cổng Ngọ Môn Đại Nội Huế' }
+      },
+      {
+        title: { en: 'Authentic Hue local lunch', vi: 'Bữa trưa đặc sản Huế' },
+        description: { en: 'Savor regional specialties at a hand-picked Hue restaurant, featuring savory steamed rice cakes, local noodles, and lemongrass pork skewers.', vi: 'Thưởng thức bữa trưa đậm đà hương vị Huế tại quán ăn địa phương tuyển chọn với các loại bánh bèo, nậm, lọc và đặc sản bún bò thơm ngon.' },
+        image: '/photo/banh-nam-hue-food.jpg',
+        imageAlt: { en: 'Hue royal culinary specialty cakes', vi: 'Bánh nậm đặc sản xứ Huế' }
+      },
+      {
+        title: { en: 'Khai Dinh Royal Tomb or Thien Mu Pagoda', vi: 'Lăng Khải Định hoặc Chùa Thiên Mụ' },
+        description: { en: 'Visit the architectural marvel of Khai Dinh Tomb with its intricate porcelain mosaics, or experience peaceful Thien Mu Pagoda overlooking the Perfume River before the return trip.', vi: 'Chiêm ngưỡng kiệt tác khảm sành sứ tại Lăng Khải Định hoặc cảm nhận sự thanh tịnh của Chùa Thiên Mụ bên bờ sông Hương trước khi lên xe trở về.' },
+        image: '/photo/visithue-tomb.jpg',
+        imageAlt: { en: 'Khai Dinh Tomb royal architectural details', vi: 'Kiến trúc lăng Khải Định Huế' }
+      },
+      {
+        title: { en: 'Return drive to Da Nang or Hoi An (or Hue drop-off)', vi: 'Trở về Đà Nẵng hoặc Hội An (hoặc trả tại Huế)' },
+        description: { en: 'Relax on the return scenic journey and finish with convenient hotel drop-off. You can also request a one-way trip ending in Hue if you plan to stay overnight.', vi: 'Nghỉ ngơi thư giãn trên cung đường về và kết thúc chuyến đi tận khách sạn ở Đà Nẵng hoặc Hội An. Bạn cũng có thể yêu cầu trả khách tại Huế nếu muốn lưu trú lại.' }
+      }
+    ],
+    gallery: [
+      {
+        url: '/photo/hue-imperial-city/hai-van-pass.jpg',
+        alt: { en: 'Coastal curves along Hai Van Pass', vi: 'Cung đường đèo Hải Vân uốn lượn ven biển' },
+        caption: { en: 'Scenic mountain road connecting Da Nang, Hai Van Pass, and Hue', vi: 'Cung đường đèo Hải Vân hùng vĩ nối liền Đà Nẵng và Huế' }
+      },
+      {
+        url: '/photo/hue-imperial-city/hao-van-pass-group-pic.jpg',
+        alt: { en: 'Traveler group enjoying Hai Van Pass lookout', vi: 'Nhóm du khách chụp ảnh kỷ niệm tại đỉnh đèo Hải Vân' },
+        caption: { en: 'Unforgettable moments with friendly riders and fellow travelers', vi: 'Khoảnh khắc đáng nhớ cùng bạn bè và tài xế trên đèo Hải Vân' }
+      },
+      {
+        url: '/photo/hue-imperial-city/dai-noi.jpg',
+        alt: { en: 'Hue Imperial Citadel Meridian Gate', vi: 'Cổng Ngọ Môn Đại Nội Huế' },
+        caption: { en: 'The grand Meridian Gate at the Hue Imperial Citadel', vi: 'Cổng Ngọ Môn uy nghiêm tại Đại Nội Huế' }
+      },
+      {
+        url: '/photo/hue-imperial-city/dai-noi-customer.jpg',
+        alt: { en: 'Guests discovering the Forbidden Purple City courtyards', vi: 'Du khách tham quan sân điện trong Đại Nội' },
+        caption: { en: 'Guided walk through centuries of royal Vietnamese history', vi: 'Khám phá chiều sâu lịch sử triều Nguyễn cùng hướng dẫn viên' }
+      },
+      {
+        url: '/photo/hue-imperial-city/thien-mu-pagoda.jpg',
+        alt: { en: 'Thien Mu Pagoda on the Perfume River', vi: 'Chùa Thiên Mụ bên bờ sông Hương' },
+        caption: { en: 'Historic 7-tier Phuoc Duyen Tower beside the Perfume River', vi: 'Tháp Phước Duyên 7 tầng thanh bình bên dòng sông Hương' }
+      },
+      {
+        url: '/photo/hue-imperial-city/customer-pic.jpg',
+        alt: { en: 'Happy customer moments with our local guides', vi: 'Nụ cười rạng rỡ của du khách cùng hướng dẫn viên' },
+        caption: { en: 'Attentive, friendly service from start to finish', vi: 'Sự đồng hành chu đáo, tận tâm từ đầu đến cuối chuyến đi' }
+      }
+    ],
+    transportOptions: [
+      { name: { en: 'Private air-conditioned car', vi: 'Ô tô riêng có điều hòa' }, description: { en: 'A private car offers a comfortable, weather-protected ride and room for your group. Choose this option for families, children, or travelers who prefer a relaxed road trip.', vi: 'Ô tô riêng giúp hành trình thoải mái, tránh nắng mưa và có không gian cho nhóm của bạn. Phù hợp với gia đình, trẻ nhỏ hoặc du khách muốn di chuyển thư thái.' } },
+      { name: { en: 'Easy Rider motorbike', vi: 'Xe máy cùng Easy Rider' }, description: { en: 'Travel as a passenger behind an experienced local rider and enjoy an open-air route with flexible photo stops. You do not drive the motorbike yourself; helmets and rain gear are provided.', vi: 'Ngồi sau tài xế địa phương giàu kinh nghiệm và tận hưởng cung đường thoáng với các điểm dừng chụp ảnh linh hoạt. Bạn không tự lái xe; mũ bảo hiểm và áo mưa được cung cấp.' } }
+    ],
+    inclusions: [
+      { en: 'Hotel pickup and drop-off in Da Nang or Hoi An', vi: 'Đón và trả khách tại khách sạn ở Đà Nẵng hoặc Hội An' },
+      { en: 'Private car with driver or motorbike with local Easy Rider, based on your selection', vi: 'Ô tô riêng có tài xế hoặc xe máy cùng Easy Rider địa phương theo lựa chọn của bạn' },
+      { en: 'Local English-speaking guide', vi: 'Hướng dẫn viên địa phương nói tiếng Anh' },
+      { en: 'Helmet and rain gear for the motorbike option', vi: 'Mũ bảo hiểm và áo mưa cho lựa chọn xe máy' },
+      { en: 'Bottled water during the journey', vi: 'Nước uống đóng chai trong hành trình' }
+    ],
+    exclusions: [
+      { en: 'Entrance tickets to the Imperial Citadel and royal tombs unless stated in your confirmed quote', vi: 'Vé vào Đại Nội và các lăng tẩm, trừ khi có ghi rõ trong báo giá đã xác nhận' },
+      { en: 'Meals, drinks, and personal expenses unless confirmed as included', vi: 'Bữa ăn, đồ uống và chi phí cá nhân, trừ khi được xác nhận là đã bao gồm' },
+      { en: 'Travel insurance and optional gratuities', vi: 'Bảo hiểm du lịch và tiền tip tùy tâm' }
+    ],
+    optionalAddons: [
+      { en: 'Khai Dinh Tomb or another royal tomb', vi: 'Lăng Khải Định hoặc lăng tẩm khác' },
+      { en: 'Thien Mu Pagoda and a Perfume River viewpoint', vi: 'Chùa Thiên Mụ và điểm ngắm sông Hương' },
+      { en: 'A local Hue lunch or specialty coffee stop', vi: 'Bữa trưa Huế hoặc điểm dừng thưởng thức cà phê đặc sản' },
+      { en: 'Luggage storage and drop-off in Hue instead of returning to Da Nang or Hoi An', vi: 'Gửi hành lý và trả khách tại Huế thay vì quay về Đà Nẵng hoặc Hội An' }
+    ],
+    whyBookWithUs: [
+      { en: 'Plan your route with founder and lead guide Mai Anh Tu, a 15+ year Easy Rider veteran across Central Vietnam', vi: 'Cùng lên lịch trình với Mai Anh Tú, người sáng lập và hướng dẫn viên trưởng có hơn 15 năm kinh nghiệm Easy Rider tại miền Trung' },
+      { en: 'Plan one day around Hue’s heritage, scenic coastal stops, and your preferred travel style', vi: 'Sắp xếp một ngày kết hợp di sản Huế, điểm dừng ven biển và phương tiện phù hợp với bạn' },
+      { en: 'Start and finish at your hotel in Da Nang or Hoi An', vi: 'Khởi hành và kết thúc ngay tại khách sạn ở Đà Nẵng hoặc Hội An' },
+      { en: 'Choose a private car for comfort or an Easy Rider for an open-air ride', vi: 'Chọn ô tô riêng để thoải mái hoặc Easy Rider để trải nghiệm cung đường thoáng' },
+      { en: 'Discuss timing, entrance tickets, meal preferences, and optional stops before confirming', vi: 'Trao đổi trước về giờ giấc, vé tham quan, bữa ăn và điểm dừng tùy chọn trước khi xác nhận' }
+    ],
+    insiderTips: [
+      {
+        title: { en: 'Hai Van Pass Coastal Weather', vi: 'Thời tiết cung đường đèo Hải Vân' },
+        content: {
+          en: 'Morning mist often gathers on the pass. Bring a light windbreaker jacket for motorbike rides, and keep your camera easily accessible for roadside coastal viewpoints.',
+          vi: 'Sương sớm thường giăng trên đỉnh đèo. Hãy mang theo áo khoác mỏng nếu đi xe máy và để máy ảnh ở vị trí thuận tiện để chụp cảnh biển.'
+        }
+      },
+      {
+        title: { en: 'Luggage & One-Way Trip to Hue', vi: 'Mang hành lý & chuyến đi một chiều đến Huế' },
+        content: {
+          en: 'You can use this day tour as a scenic transfer to Hue with your luggage safely strapped on motorbikes or in car trunks, ending the trip at your Hue hotel without returning to Da Nang or Hoi An.',
+          vi: 'Bạn có thể kết hợp tour này làm chuyến di chuyển kết hợp ngắm cảnh đến Huế. Hành lý được chằng buộc an toàn trên xe máy hoặc trong cốp ô tô và trả tận khách sạn tại Huế.'
+        }
+      }
+    ],
+    faq: [
+      { question: { en: 'Can I take this Hue day tour from either Da Nang or Hoi An?', vi: 'Tôi có thể khởi hành tour Huế từ Đà Nẵng hoặc Hội An không?' }, answer: { en: 'Yes. Pickup and drop-off are available at hotels in both cities. Share your hotel name and preferred pickup time when requesting availability.', vi: 'Có. Tour hỗ trợ đón và trả tại khách sạn ở cả hai thành phố. Hãy gửi tên khách sạn và giờ đón mong muốn khi hỏi lịch.' } },
+      { question: { en: 'How long is the trip?', vi: 'Chuyến đi kéo dài bao lâu?' }, answer: { en: 'Plan for around 10–11 hours, depending on your pickup location, traffic, weather, and the stops you choose. The schedule is confirmed with your booking.', vi: 'Bạn nên dự trù khoảng 10–11 tiếng, tùy nơi đón, giao thông, thời tiết và các điểm dừng đã chọn. Lịch trình sẽ được xác nhận khi đặt tour.' } },
+      { question: { en: 'Is the Easy Rider option suitable if I have never driven a motorbike?', vi: 'Tôi chưa từng lái xe máy thì có đi Easy Rider được không?' }, answer: { en: 'Yes. You travel as a passenger behind your local rider and do not drive the motorbike. Ask us about the route and safety equipment before booking if you have concerns.', vi: 'Có. Bạn ngồi sau tài xế địa phương và không phải tự lái xe. Nếu còn băn khoăn, hãy hỏi thêm về cung đường và trang bị an toàn trước khi đặt.' } },
+      { question: { en: 'Are entrance tickets and lunch included?', vi: 'Vé tham quan và bữa trưa đã bao gồm chưa?' }, answer: { en: 'They are not included by default. Ask for an itemized quote so you know which tickets, meals, and drinks are covered for your selected itinerary.', vi: 'Thông thường các khoản này chưa bao gồm. Hãy yêu cầu báo giá chi tiết để biết vé, bữa ăn và đồ uống nào được tính theo lịch trình bạn chọn.' } },
+      { question: { en: 'Can I finish the trip in Hue instead of returning?', vi: 'Tôi có thể kết thúc chuyến đi ở Huế thay vì quay về không?' }, answer: { en: 'A Hue drop-off may be arranged. Tell us in advance if you are bringing luggage so we can confirm storage and the end point before your trip.', vi: 'Có thể sắp xếp trả khách tại Huế. Hãy báo trước nếu bạn mang hành lý để xác nhận chỗ gửi và điểm kết thúc chuyến đi.' } },
+      { question: { en: 'What happens in rainy weather?', vi: 'Nếu trời mưa thì sao?' }, answer: { en: 'Conditions can affect the Hai Van Pass route, especially on a motorbike. We provide rain gear for riders and will discuss a safer alternative or itinerary adjustment if needed.', vi: 'Thời tiết có thể ảnh hưởng đến cung đường đèo Hải Vân, đặc biệt khi đi xe máy. Tour có áo mưa và sẽ trao đổi phương án an toàn hơn hoặc điều chỉnh lịch trình khi cần.' } }
     ]
   }
 ];
