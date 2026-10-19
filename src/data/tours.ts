@@ -13,6 +13,9 @@ export type FAQItem = {
 export type TransportOption = {
   name: { en: string; vi: string };
   description: { en: string; vi: string };
+  badge?: { en: string; vi: string };
+  highlight?: boolean;
+  features?: { en: string; vi: string }[];
 };
 
 export type TourGalleryItem = {
@@ -139,13 +142,13 @@ export const tours: Tour[] = [
       vi: 'Tour Khám Phá Đại Nội Huế & Lăng Tẩm Triều Nguyễn'
     },
     shortDescription: {
-      en: 'Step inside the 143-year imperial capital of Vietnam’s Nguyen Dynasty. Explore the UNESCO-listed Hue Imperial Citadel (Đại Nội), marvel at Khai Dinh’s mosaic palace, visit peaceful 400-year-old Thien Mu Pagoda, and discover vibrant Thuy Xuan Incense Village. Travel comfortably with our licensed local guides on authentic motorbikes.',
-      vi: 'Bước vào trái tim kinh đô phong kiến 143 năm của triều Nguyễn. Khám phá Quần thể Di tích Cố đô & Đại Nội Huế được UNESCO công nhận, chiêm ngưỡng nghệ thuật khảm sành sứ Lăng Khải Định, viếng chùa Thiên Mụ 400 năm tuổi và trải nghiệm làng hương Thủy Xuân cùng hướng dẫn viên bản địa Huế trên xe máy.'
+      en: 'Step inside the 143-year imperial capital of Vietnam’s Nguyen Dynasty. Explore the UNESCO-listed Hue Imperial Citadel (Đại Nội), marvel at Khai Dinh’s mosaic palace, visit peaceful 400-year-old Thien Mu Pagoda, and discover vibrant Thuy Xuan Incense Village. Travel comfortably with our licensed local guides by private air-conditioned car or authentic motorbike.',
+      vi: 'Bước vào trái tim kinh đô phong kiến 143 năm của triều Nguyễn. Khám phá Quần thể Di tích Cố đô & Đại Nội Huế được UNESCO công nhận, chiêm ngưỡng nghệ thuật khảm sành sứ Lăng Khải Định, viếng chùa Thiên Mụ 400 năm tuổi và trải nghiệm làng hương Thủy Xuân. Lựa chọn linh hoạt giữa ô tô riêng có điều hòa mát mẻ hoặc xe máy cùng hướng dẫn viên bản địa Huế.'
     },
     duration: '7–8 hours',
     transport: {
-      en: 'Motorbike with Rider',
-      vi: 'Xe máy có tài xế'
+      en: 'Private Car or Motorbike',
+      vi: 'Xe ô tô riêng hoặc Xe máy'
     },
     price: 'From $65 USD',
     priceCaption: {
@@ -166,12 +169,13 @@ export const tours: Tour[] = [
     },
     seo: {
       en: {
-        title: 'Hue Imperial City Tour | Citadel, Royal Tombs & Thien Mu Pagoda',
-        description: 'Comprehensive Hue Imperial City full-day tour. Discover the Imperial Citadel (Đại Nội), Kien Trung Palace, Khai Dinh Tomb & Thien Mu Pagoda with local guides by motorbike.',
+        title: 'Hue Imperial City Tour | Private Car & Motorbike Options',
+        description: 'Comprehensive Hue Imperial City full-day tour. Discover the Imperial Citadel (Đại Nội), Kien Trung Palace, Khai Dinh Tomb & Thien Mu Pagoda with local guides by private car or motorbike.',
         keywords: [
           'Hue Imperial City tour',
           'Hue Citadel tour',
           'Hue Imperial Citadel tour',
+          'Hue private car tour',
           'Khai Dinh Tomb tour',
           'Thien Mu Pagoda tour',
           'Hue motorbike tour'
@@ -179,11 +183,12 @@ export const tours: Tour[] = [
       },
       vi: {
         title: 'Tour Đại Nội Huế 1 Ngày | Kinh Thành, Lăng Tẩm & Chùa Thiên Mụ',
-        description: 'Tour khám phá Đại Nội Huế trọn gói 1 ngày. Tham quan Kinh Thành Huế, điện Kiến Trung, lăng Khải Định, chùa Thiên Mụ và làng hương cùng hướng dẫn viên bản địa bằng xe máy.',
+        description: 'Tour khám phá Đại Nội Huế trọn gói 1 ngày. Tham quan Kinh Thành Huế, điện Kiến Trung, lăng Khải Định, chùa Thiên Mụ và làng hương cùng hướng dẫn viên bản địa bằng xe ô tô riêng hoặc xe máy.',
         keywords: [
           'tour đại nội huế',
           'tour kinh thành huế',
           'tour huế 1 ngày',
+          'xe ô tô du lịch huế',
           'tham quan lăng tẩm huế',
           'tour lăng khải định',
           'giá vé đại nội huế 2026',
@@ -320,12 +325,48 @@ export const tours: Tour[] = [
         caption: { en: 'Kien Trung Palace - masterpiece of French-Indochinese architecture', vi: 'Điện Kiến Trung - kiệt tác kiến trúc Pháp - Đông Dương vừa hồi sinh' }
       }
     ],
+    transportOptions: [
+      {
+        name: { en: 'Private Air-Conditioned Car', vi: 'Xe ô tô riêng có điều hòa' },
+        description: {
+          en: 'A modern, private 4, 7, or 16-seater vehicle with cool air-conditioning and a courteous local driver. Perfect for multi-generational families, seniors, young children, or travelers who want a completely relaxed, weather-protected journey away from the tropical midday heat.',
+          vi: 'Xe ô tô riêng 4–7–16 chỗ đời mới với điều hòa mát mẻ và tài xế bản địa chu đáo. Lựa chọn lý tưởng hàng đầu cho gia đình có người lớn tuổi, trẻ nhỏ hoặc du khách muốn hành trình thư thái, tránh trưa nắng gắt và thời tiết thất thường của miền Trung.'
+        },
+        badge: {
+          en: '✨ Best for Families & Weather Comfort',
+          vi: '✨ Khuyên dùng cho gia đình & tránh nắng mưa'
+        },
+        highlight: true,
+        features: [
+          { en: 'Cool air-conditioning throughout the entire day', vi: 'Điều hòa mát mẻ suốt toàn bộ hành trình' },
+          { en: '100% weather-protected (sun, heat, or sudden rain)', vi: 'Tránh nắng gắt, khói bụi và mưa bất chợt' },
+          { en: 'Generous luggage space & comfortable seating', vi: 'Không gian riêng tư, cốp chứa hành lý rộng rãi' },
+          { en: 'Door-to-door hotel pickup and drop-off in Hue', vi: 'Đón trả tận nơi tại khách sạn trung tâm Huế' }
+        ]
+      },
+      {
+        name: { en: 'Authentic Motorbike with Rider', vi: 'Xe máy riêng cùng tài xế bản địa' },
+        description: {
+          en: 'Ride as a passenger behind an experienced local driver. Weave through ancient Hue alleys, feel the river breeze, and enjoy flexible, spontaneous photography stops along scenic tree-lined avenues.',
+          vi: 'Ngồi sau xe máy cùng tài xế bản địa dày dặn kinh nghiệm. Luồn lách qua các ngõ phố cổ kính xứ Huế, tận hưởng làn gió mát và trải nghiệm du lịch chân thực, linh hoạt dừng chụp ảnh bất cứ đâu.'
+        },
+        badge: {
+          en: '🏍️ Authentic Local Adventure',
+          vi: '🏍️ Trải nghiệm phiêu lưu bản địa'
+        },
+        features: [
+          { en: 'Skilled, gentle local Easy Rider driver', vi: 'Tài xế bản địa tay lái vững vàng, êm ái' },
+          { en: 'High-quality safety helmets & rain gear provided', vi: 'Trang bị mũ bảo hiểm chuẩn & áo mưa tiện lợi' },
+          { en: 'Immersive street-level exploration & photo stops', vi: 'Dễ dàng dừng ngắm cảnh & chụp hình góc đẹp' }
+        ]
+      }
+    ],
     inclusions: [
-      { en: 'Comfortable motorbike with experienced local rider/guide', vi: 'Xe máy riêng cùng tài xế kiêm hướng dẫn viên bản địa giàu kinh nghiệm' },
+      { en: 'Private air-conditioned car or private motorbike with experienced rider', vi: 'Ô tô riêng có điều hòa mát mẻ hoặc xe máy riêng cùng tài xế bản địa giàu kinh nghiệm' },
       { en: 'Licensed English-speaking local guide with deep historical knowledge', vi: 'Hướng dẫn viên bản địa am hiểu sâu sắc về lịch sử và văn hóa cung đình Huế' },
       { en: 'Hotel pickup and drop-off in Hue city center', vi: 'Đón và trả khách tận nơi tại khách sạn trong trung tâm TP Huế' },
       { en: 'Cold bottled drinking water throughout the tour', vi: 'Nước suối đóng chai mát lạnh suốt hành trình' },
-      { en: 'High-quality safety helmets and emergency rain ponchos', vi: 'Mũ bảo hiểm đạt chuẩn an toàn và áo mưa tiện lợi khi cần' }
+      { en: 'High-quality safety helmets and emergency rain ponchos for motorbike option', vi: 'Mũ bảo hiểm đạt chuẩn an toàn và áo mưa tiện lợi cho khách đi xe máy' }
     ],
     exclusions: [
       { en: 'Citadel & royal tomb entrance tickets (guide assists with purchasing on-site)', vi: 'Vé tham quan Đại Nội và các lăng tẩm (hướng dẫn viên hỗ trợ mua trực tiếp tại quầy)' },
@@ -393,8 +434,8 @@ export const tours: Tour[] = [
       {
         question: { en: 'Is this tour suitable for seniors and young children?', vi: 'Tour có phù hợp với người cao tuổi và trẻ nhỏ không?' },
         answer: {
-          en: 'Yes, our experienced local riders travel at a very gentle, safe pace with premium safety helmets. Inside the Citadel, electric buggies (trams) can also be arranged on-site for guests who prefer less walking.',
-          vi: 'Hoàn toàn phù hợp. Đội ngũ tài xế di chuyển rất cẩn thận, êm ái với tốc độ an toàn. Bên trong Đại Nội có thể thuê thêm xe điện trung chuyển nếu người lớn tuổi hoặc trẻ em ngại đi bộ xa.'
+          en: 'Yes! Our private air-conditioned car option is especially popular for multi-generational families with seniors or young children, offering total climate control and relaxed comfort. Inside the Citadel, electric buggies (trams) can also be arranged on-site for guests who prefer less walking.',
+          vi: 'Rất phù hợp! Lựa chọn xe ô tô riêng có điều hòa mát mẻ là phương án được các gia đình nhiều thế hệ, có người lớn tuổi hoặc trẻ nhỏ yêu thích nhất. Bên trong Đại Nội, bạn còn có thể thuê thêm xe điện trung chuyển nếu người lớn tuổi ngại đi bộ xa.'
         }
       },
       {
@@ -407,8 +448,8 @@ export const tours: Tour[] = [
       {
         question: { en: 'What happens if it rains during the tour?', vi: 'Nếu trời mưa trong ngày đi tour thì sao?' },
         answer: {
-          en: 'Hue weather can be unpredictable. We always provide high-grade rain ponchos and can adjust the schedule flexibly to spend rainy moments visiting sheltered royal palaces, museums, and enjoying hot imperial herbal tea.',
-          vi: 'Thời tiết Huế đôi khi có mưa bất chợt. Chúng mình luôn trang bị sẵn áo mưa chất lượng cao và linh hoạt ưu tiên tham quan các cung điện có mái che, bảo tàng cổ vật hoặc thưởng thức trà cung đình ấm áp trong lúc đợi tạnh mưa.'
+          en: 'Hue weather can be unpredictable. If traveling by private car, rain will never disrupt your day as our vehicle stays dry and comfortable with large umbrellas provided. If choosing motorbike, we supply high-grade rain ponchos and adjust stops to sheltered palaces and cozy tea houses.',
+          vi: 'Thời tiết Huế đôi khi có mưa bất chợt. Nếu chọn đi ô tô riêng, bạn hoàn toàn yên tâm vì xe luôn khô ráo mát mẻ, có sẵn dù lớn che mưa tận cửa. Nếu chọn đi xe máy, chúng mình trang bị sẵn áo mưa cao cấp và linh hoạt ưu tiên tham quan các cung điện có mái che hoặc thưởng thức trà cung đình trong lúc đợi tạnh mưa.'
         }
       },
       {
@@ -650,13 +691,13 @@ export const tours: Tour[] = [
       vi: 'Tour Đại Nội Huế 1 Ngày từ Đà Nẵng & Hội An'
     },
     shortDescription: {
-      en: 'Travel from Da Nang or Hoi An to Hue on a full-day journey over Hai Van Pass. Explore the Imperial Citadel, enjoy a local Hue lunch, and visit royal heritage sites with an experienced local Easy Rider guide.',
-      vi: 'Khởi hành từ Đà Nẵng hoặc Hội An đến Huế qua đèo Hải Vân trong chuyến đi trọn ngày. Khám phá Đại Nội, thưởng thức bữa trưa địa phương và ghé thăm các di tích triều Nguyễn cùng Easy Rider xe máy.'
+      en: 'Travel from Da Nang or Hoi An to Hue on a full-day journey over Hai Van Pass. Explore the Imperial Citadel, enjoy a local Hue lunch, and visit royal heritage sites with an experienced local guide. Choose between a private air-conditioned car for maximum comfort or an exhilarating Easy Rider motorbike.',
+      vi: 'Khởi hành từ Đà Nẵng hoặc Hội An đến Huế qua đèo Hải Vân trong chuyến đi trọn ngày. Khám phá Đại Nội, thưởng thức bữa trưa địa phương và ghé thăm các di tích triều Nguyễn. Lựa chọn linh hoạt giữa ô tô riêng có điều hòa mát mẻ hoặc xe máy cùng Easy Rider.'
     },
     duration: '10–11 hours',
     transport: {
-      en: 'Easy Rider Motorbike',
-      vi: 'Xe máy cùng Easy Rider'
+      en: 'Private Car or Easy Rider Motorbike',
+      vi: 'Ô tô riêng hoặc xe máy cùng Easy Rider'
     },
     price: 'Request a quote',
     priceCaption: {
@@ -689,23 +730,26 @@ export const tours: Tour[] = [
     },
     seo: {
       en: {
-        title: 'Hue Day Tour from Da Nang & Hoi An | Imperial City',
-        description: 'Visit Hue Imperial City on a full-day tour from Da Nang or Hoi An. Cross Hai Van Pass, see Lap An Lagoon and royal landmarks with an experienced Easy Rider.',
+        title: 'Hue Day Tour from Da Nang & Hoi An | Private Car & Easy Rider',
+        description: 'Visit Hue Imperial City on a full-day tour from Da Nang or Hoi An. Cross Hai Van Pass, see Lap An Lagoon and royal landmarks by private car or Easy Rider.',
         keywords: [
           'Hue day tour from Da Nang',
           'Hue day trip from Hoi An',
           'Hue Imperial City tour from Da Nang',
+          'Da Nang to Hue private car tour',
           'Hoi An to Hue Easy Rider tour',
           'Da Nang to Hue motorbike tour'
         ]
       },
       vi: {
-        title: 'Tour Huế 1 Ngày từ Đà Nẵng & Hội An | Đại Nội, Hoàng Thành',
-        description: 'Tour Huế 1 ngày từ Đà Nẵng hoặc Hội An, đón tận khách sạn, qua đèo Hải Vân và đầm Lập An, tham quan Đại Nội cùng Easy Rider. Hỏi lịch trình.',
+        title: 'Tour Huế 1 Ngày từ Đà Nẵng & Hội An | Ô Tô Riêng & Easy Rider',
+        description: 'Tour Huế 1 ngày từ Đà Nẵng hoặc Hội An, đón tận khách sạn, qua đèo Hải Vân và đầm Lập An, tham quan Đại Nội bằng ô tô riêng hoặc Easy Rider. Hỏi lịch trình.',
         keywords: [
           'tour Huế từ Đà Nẵng 1 ngày',
           'tour Hội An đi Huế',
           'tour Đại Nội Huế từ Đà Nẵng',
+          'xe riêng Đà Nẵng đi Huế',
+          'thuê xe ô tô Đà Nẵng đi Huế 1 ngày',
           'tour xe máy Hội An Huế',
           'easy rider Đà Nẵng Huế'
         ]
@@ -724,7 +768,7 @@ export const tours: Tour[] = [
       { en: 'Enjoy coastal viewpoints and photo stops along Hai Van Pass', vi: 'Ngắm cảnh biển và dừng chụp ảnh trên cung đường đèo Hải Vân' },
       { en: 'Pause at Lap An Lagoon and take in views of Lang Co Bay', vi: 'Dừng chân tại đầm Lập An và ngắm cảnh vịnh Lăng Cô' },
       { en: 'Explore Hue Imperial Citadel and royal palaces with a local guide', vi: 'Khám phá Đại Nội và Kinh Thành Huế cùng hướng dẫn viên địa phương' },
-      { en: 'Experience the open-air coastal route and Hai Van Pass as a passenger behind an experienced Easy Rider', vi: 'Trải nghiệm cung đường ven biển và đèo Hải Vân ngoạn mục khi ngồi sau tay lái Easy Rider' },
+      { en: 'Choose a private air-conditioned car for weather-proof comfort or ride as a passenger with an Easy Rider', vi: 'Lựa chọn ô tô riêng có điều hòa mát mẻ, tránh nắng mưa hoặc ngồi sau xe máy cùng Easy Rider' },
       { en: 'Add royal tombs, Thien Mu Pagoda, or a local food stop to suit your day', vi: 'Có thể thêm lăng tẩm, chùa Thiên Mụ hoặc điểm dừng ẩm thực địa phương theo lịch trình' }
     ],
     itinerary: [
@@ -799,11 +843,47 @@ export const tours: Tour[] = [
         caption: { en: 'Attentive, friendly service from start to finish', vi: 'Sự đồng hành chu đáo, tận tâm từ đầu đến cuối chuyến đi' }
       }
     ],
+    transportOptions: [
+      {
+        name: { en: 'Private Air-Conditioned Car', vi: 'Ô tô riêng có điều hòa' },
+        description: {
+          en: 'A modern, private air-conditioned car (4, 7, or 16 seats) with plenty of luggage space and a professional driver. Perfect for families, children, groups, or travelers seeking a relaxed, scenic road trip across Hai Van Pass protected from tropical heat and rain.',
+          vi: 'Ô tô riêng 4–7–16 chỗ đời mới với điều hòa mát mẻ, khoang hành lý rộng rãi và tài xế chu đáo. Lựa chọn số 1 cho gia đình, nhóm bạn hoặc du khách muốn hành trình qua đèo Hải Vân êm ái, tránh nắng gió gắt và thời tiết thất thường.'
+        },
+        badge: {
+          en: '✨ Top Comfort & Weather Protection',
+          vi: '✨ Êm ái tối đa & tránh nắng mưa'
+        },
+        highlight: true,
+        features: [
+          { en: 'Air-conditioned comfort across Hai Van Pass', vi: 'Máy lạnh mát mẻ vượt đèo Hải Vân êm ái' },
+          { en: 'Spacious trunk for suitcases & backpack luggage', vi: 'Khoang hành lý rộng rãi cho vali & balo lớn' },
+          { en: 'Ideal for families, children, and elderly travelers', vi: 'Rất phù hợp cho gia đình có người già & trẻ em' },
+          { en: 'Flexible scenic stops at lagoon and pass viewpoints', vi: 'Dừng chân ngắm đầm Lập An & đỉnh đèo tùy thích' }
+        ]
+      },
+      {
+        name: { en: 'Easy Rider Motorbike Adventure', vi: 'Xe máy cùng Easy Rider' },
+        description: {
+          en: 'Travel as a passenger behind an experienced local rider (15+ years experience) and conquer the winding curves of Hai Van Pass. Experience open ocean air and total freedom with flexible photo stops.',
+          vi: 'Ngồi sau tài xế địa phương giàu kinh nghiệm (15+ năm Easy Rider) chinh phục từng khúc cua ngoạn mục đèo Hải Vân, tận hưởng gió biển trong lành và dừng chụp ảnh linh hoạt tại các góc máy đẹp nhất.'
+        },
+        badge: {
+          en: '🏍️ Hai Van Pass Coastal Thrill',
+          vi: '🏍️ Chinh phục đèo Hải Vân mở'
+        },
+        features: [
+          { en: '15+ year veteran local Easy Rider driver', vi: 'Đội ngũ Easy Rider 15+ năm kinh nghiệm cung đường đèo' },
+          { en: 'Top-tier helmets and emergency raincoats', vi: 'Trang bị mũ bảo hiểm chuẩn an toàn & áo mưa tiện lợi' },
+          { en: 'Open-air panoramic viewpoints & photo flexibility', vi: 'Tầm nhìn 360 độ ngắm cảnh biển & dừng chụp ảnh tự do' }
+        ]
+      }
+    ],
     inclusions: [
       { en: 'Hotel pickup and drop-off in Da Nang or Hoi An', vi: 'Đón và trả khách tại khách sạn ở Đà Nẵng hoặc Hội An' },
-      { en: 'Comfortable motorbike with experienced local Easy Rider driver', vi: 'Xe máy cùng tài xế Easy Rider địa phương giàu kinh nghiệm' },
+      { en: 'Private air-conditioned car with driver or motorbike with local Easy Rider, based on your selection', vi: 'Ô tô riêng có điều hòa mát mẻ hoặc xe máy cùng Easy Rider địa phương theo lựa chọn của bạn' },
       { en: 'Local English-speaking guide', vi: 'Hướng dẫn viên địa phương nói tiếng Anh' },
-      { en: 'High-quality helmet and rain gear', vi: 'Mũ bảo hiểm đạt chuẩn an toàn và áo mưa tiện lợi' },
+      { en: 'High-quality helmet and rain gear for motorbike option', vi: 'Mũ bảo hiểm đạt chuẩn an toàn và áo mưa tiện lợi cho khách đi xe máy' },
       { en: 'Bottled water during the journey', vi: 'Nước uống đóng chai trong hành trình' }
     ],
     exclusions: [
@@ -821,7 +901,7 @@ export const tours: Tour[] = [
       { en: 'Plan your route with founder and lead guide Mai Anh Tu, a 15+ year Easy Rider veteran across Central Vietnam', vi: 'Cùng lên lịch trình với Mai Anh Tú, người sáng lập và hướng dẫn viên trưởng có hơn 15 năm kinh nghiệm Easy Rider tại miền Trung' },
       { en: 'Plan one day around Hue’s heritage, scenic coastal stops, and your preferred travel style', vi: 'Sắp xếp một ngày kết hợp di sản Huế, điểm dừng ven biển và phương tiện phù hợp với bạn' },
       { en: 'Start and finish at your hotel in Da Nang or Hoi An', vi: 'Khởi hành và kết thúc ngay tại khách sạn ở Đà Nẵng hoặc Hội An' },
-      { en: 'Ride with an experienced Easy Rider for an authentic, scenic open-air journey', vi: 'Đồng hành cùng Easy Rider dày dặn kinh nghiệm để tận hưởng trọn vẹn cung đường ven biển thoáng đãng' },
+      { en: 'Choose a private car for comfort and luggage, or an Easy Rider for an open-air coastal ride', vi: 'Chọn ô tô riêng để thoải mái, che nắng mưa và mang hành lý, hoặc Easy Rider để trải nghiệm cung đường thoáng' },
       { en: 'Discuss timing, entrance tickets, meal preferences, and optional stops before confirming', vi: 'Trao đổi trước về giờ giấc, vé tham quan, bữa ăn và điểm dừng tùy chọn trước khi xác nhận' }
     ],
     insiderTips: [
@@ -835,8 +915,8 @@ export const tours: Tour[] = [
       {
         title: { en: 'Luggage & One-Way Trip to Hue', vi: 'Mang hành lý & chuyến đi một chiều đến Huế' },
         content: {
-          en: 'You can use this day tour as a scenic transfer to Hue with your luggage safely strapped on motorbikes, ending the trip at your Hue hotel without returning to Da Nang or Hoi An.',
-          vi: 'Bạn có thể kết hợp tour này làm chuyến di chuyển kết hợp ngắm cảnh đến Huế. Hành lý được chằng buộc an toàn trên xe máy và trả tận khách sạn tại Huế.'
+          en: 'You can use this day tour as a scenic transfer to Hue with your luggage safely strapped on motorbikes or in car trunks, ending the trip at your Hue hotel without returning to Da Nang or Hoi An.',
+          vi: 'Bạn có thể kết hợp tour này làm chuyến di chuyển kết hợp ngắm cảnh đến Huế. Hành lý được chằng buộc an toàn trên xe máy hoặc trong cốp ô tô và trả tận khách sạn tại Huế.'
         }
       }
     ],

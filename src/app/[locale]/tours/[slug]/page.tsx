@@ -341,18 +341,60 @@ export default async function TourDetailPage({ params }: Props) {
               {/* Transport Options */}
               {tour.transportOptions && tour.transportOptions.length > 0 && (
                 <div className="flex flex-col gap-6">
-                  <h2 className="text-h3 font-display text-[var(--color-ink)]">{strings.transportOptions}</h2>
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <h2 className="text-h3 font-display text-[var(--color-ink)]">{strings.transportOptions}</h2>
+                    <span className="text-xs text-[var(--color-terracotta)] font-medium">
+                      {isVi ? '• Tùy chọn linh hoạt theo nhu cầu của bạn' : '• Flexible choice based on your preferences'}
+                    </span>
+                  </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {tour.transportOptions.map((opt, idx) => (
-                      <div key={idx} className="bg-[var(--color-sand)] rounded-[var(--radius-md)] p-6 flex flex-col gap-3">
-                        <h3 className="text-body font-semibold text-[var(--color-ink)]">
-                          {isVi ? opt.name.vi : opt.name.en}
-                        </h3>
-                        <p className="text-body text-[var(--color-ink)] opacity-70 leading-relaxed">
-                          {isVi ? opt.description.vi : opt.description.en}
-                        </p>
-                      </div>
-                    ))}
+                    {tour.transportOptions.map((opt, idx) => {
+                      const isHighlighted = opt.highlight || opt.name.en.toLowerCase().includes('car') || opt.name.vi.toLowerCase().includes('ô tô');
+                      return (
+                        <div
+                          key={idx}
+                          className={`rounded-[var(--radius-md)] p-6 flex flex-col justify-between gap-4 transition-all duration-300 relative ${
+                            isHighlighted
+                              ? 'bg-gradient-to-br from-white via-[#faf7f2] to-[var(--color-sand)] border-2 border-[var(--color-terracotta)]/45 shadow-md ring-1 ring-[var(--color-terracotta)]/20'
+                              : 'bg-[var(--color-sand)] border border-black/5 hover:border-black/10'
+                          }`}
+                        >
+                          <div className="flex flex-col gap-3">
+                            <div className="flex flex-wrap items-center justify-between gap-2">
+                              <h3 className="text-body font-semibold text-[var(--color-ink)] flex items-center gap-2.5">
+                                <span className="text-xl sm:text-2xl" role="img" aria-label={isHighlighted ? 'Car' : 'Motorbike'}>
+                                  {isHighlighted ? '🚗' : '🏍️'}
+                                </span>
+                                <span>{isVi ? opt.name.vi : opt.name.en}</span>
+                              </h3>
+                              {opt.badge && (
+                                <span className={`text-[11px] sm:text-xs font-semibold px-3 py-1 rounded-full ${
+                                  isHighlighted
+                                    ? 'bg-[var(--color-terracotta)] text-white shadow-xs font-display tracking-wide'
+                                    : 'bg-[var(--color-river)]/15 text-[var(--color-river)] border border-[var(--color-river)]/20'
+                                }`}>
+                                  {isVi ? opt.badge.vi : opt.badge.en}
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-body text-[var(--color-ink)] opacity-75 leading-relaxed text-sm">
+                              {isVi ? opt.description.vi : opt.description.en}
+                            </p>
+                          </div>
+
+                          {opt.features && opt.features.length > 0 && (
+                            <ul className="pt-3 border-t border-black/8 flex flex-col gap-2 text-xs text-[var(--color-ink)]/85">
+                              {opt.features.map((f, fIdx) => (
+                                <li key={fIdx} className="flex items-start gap-2">
+                                  <span className="text-[var(--color-terracotta)] font-bold text-sm leading-none mt-0.5">✓</span>
+                                  <span>{isVi ? f.vi : f.en}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               )}
