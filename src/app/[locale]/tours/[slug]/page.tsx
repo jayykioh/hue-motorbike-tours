@@ -3,6 +3,7 @@ import { tours, getTourBySlug } from '@/data/tours';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import Script from 'next/script';
 import { LightboxProvider, ClickableImage, type LightboxItem } from '@/components/tours/ImageLightbox';
 
 type Props = {
@@ -223,6 +224,20 @@ export default async function TourDetailPage({ params }: Props) {
 
   return (
     <LightboxProvider locale={locale}>
+      {slug === 'hue-imperial-city-day-tour-from-da-nang-hoi-an' && (
+        <>
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=AW-789962253"
+            strategy="afterInteractive"
+          />
+          <Script id="google-ads-tag-aw-789962253" strategy="afterInteractive">
+            {`window.dataLayer = window.dataLayer || [];
+function gtag(){window.dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-789962253');`}
+          </Script>
+        </>
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
