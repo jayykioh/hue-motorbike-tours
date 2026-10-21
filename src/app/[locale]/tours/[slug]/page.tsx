@@ -6,6 +6,16 @@ import Image from 'next/image';
 import Script from 'next/script';
 import { LightboxProvider, ClickableImage, type LightboxItem } from '@/components/tours/ImageLightbox';
 
+declare global {
+  interface Window {
+    gtag?: (
+      command: 'event',
+      eventName: 'conversion',
+      parameters: { send_to: string }
+    ) => void;
+  }
+}
+
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
 };
@@ -116,6 +126,11 @@ export default async function TourDetailPage({ params }: Props) {
   };
 
   const whatsappHref = tour.whatsappLink ?? `https://wa.me/84862391918?text=Hi%20I%20am%20interested%20in%20${encodeURIComponent(title)}`;
+  const trackWhatsAppConversion = () => {
+    if (slug === 'hue-imperial-city-day-tour-from-da-nang-hoi-an') {
+      window.gtag?.('event', 'conversion', { send_to: 'AW-789962253/m6e1CIH5l6cZEI281_gC' });
+    }
+  };
   const relatedTours = (tour.relatedTourSlugs ?? [])
     .map((relatedSlug) => getTourBySlug(relatedSlug))
     .filter((relatedTour) => relatedTour && relatedTour.slug !== 'hue-abandoned-water-park-tour');
@@ -283,7 +298,7 @@ gtag('config', 'AW-789962253');`}
               </p>
 
               <div className="flex flex-col sm:flex-row items-center gap-6">
-                <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="btn-primary w-full sm:w-auto">
+                <a href={whatsappHref} onClick={trackWhatsAppConversion} target="_blank" rel="noopener noreferrer" className="btn-primary w-full sm:w-auto">
                   {strings.bookThisTour} →
                 </a>
                     <span className="text-body font-semibold">{priceText}</span>
@@ -677,6 +692,7 @@ gtag('config', 'AW-789962253');`}
                   </div>
                   <a
                     href={whatsappHref}
+                    onClick={trackWhatsAppConversion}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-primary w-full text-center"
@@ -696,6 +712,7 @@ gtag('config', 'AW-789962253');`}
                   </p>
                   <a
                     href={whatsappHref}
+                    onClick={trackWhatsAppConversion}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-body font-semibold text-[var(--color-terracotta)] hover:opacity-75 transition-opacity"
