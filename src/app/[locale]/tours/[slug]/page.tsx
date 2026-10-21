@@ -5,16 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
 import { LightboxProvider, ClickableImage, type LightboxItem } from '@/components/tours/ImageLightbox';
-
-declare global {
-  interface Window {
-    gtag?: (
-      command: 'event',
-      eventName: 'conversion',
-      parameters: { send_to: string }
-    ) => void;
-  }
-}
+import GoogleAdsWhatsAppLink from '@/components/tours/GoogleAdsWhatsAppLink';
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -126,11 +117,6 @@ export default async function TourDetailPage({ params }: Props) {
   };
 
   const whatsappHref = tour.whatsappLink ?? `https://wa.me/84862391918?text=Hi%20I%20am%20interested%20in%20${encodeURIComponent(title)}`;
-  const trackWhatsAppConversion = () => {
-    if (slug === 'hue-imperial-city-day-tour-from-da-nang-hoi-an') {
-      window.gtag?.('event', 'conversion', { send_to: 'AW-789962253/m6e1CIH5l6cZEI281_gC' });
-    }
-  };
   const relatedTours = (tour.relatedTourSlugs ?? [])
     .map((relatedSlug) => getTourBySlug(relatedSlug))
     .filter((relatedTour) => relatedTour && relatedTour.slug !== 'hue-abandoned-water-park-tour');
@@ -298,9 +284,15 @@ gtag('config', 'AW-789962253');`}
               </p>
 
               <div className="flex flex-col sm:flex-row items-center gap-6">
-                <a href={whatsappHref} onClick={trackWhatsAppConversion} target="_blank" rel="noopener noreferrer" className="btn-primary w-full sm:w-auto">
-                  {strings.bookThisTour} →
-                </a>
+                {slug === 'hue-imperial-city-day-tour-from-da-nang-hoi-an' ? (
+                  <GoogleAdsWhatsAppLink href={whatsappHref} className="btn-primary w-full sm:w-auto">
+                    {strings.bookThisTour} →
+                  </GoogleAdsWhatsAppLink>
+                ) : (
+                  <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="btn-primary w-full sm:w-auto">
+                    {strings.bookThisTour} →
+                  </a>
+                )}
                     <span className="text-body font-semibold">{priceText}</span>
               </div>
             </div>
@@ -690,15 +682,15 @@ gtag('config', 'AW-789962253');`}
                     <p className="text-small font-semibold uppercase tracking-widest text-[var(--color-terracotta)] mb-2">{priceCaption}</p>
                     <p className="text-h3 font-display text-[var(--color-ink)]">{priceText}</p>
                   </div>
-                  <a
-                    href={whatsappHref}
-                    onClick={trackWhatsAppConversion}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary w-full text-center"
-                  >
-                    {strings.bookThisTour} →
-                  </a>
+                  {slug === 'hue-imperial-city-day-tour-from-da-nang-hoi-an' ? (
+                    <GoogleAdsWhatsAppLink href={whatsappHref} className="btn-primary w-full text-center">
+                      {strings.bookThisTour} →
+                    </GoogleAdsWhatsAppLink>
+                  ) : (
+                    <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="btn-primary w-full text-center">
+                      {strings.bookThisTour} →
+                    </a>
+                  )}
                   <p className="text-small text-[var(--color-ink)] opacity-60 text-center leading-relaxed">
                     {isVi ? 'Nhắn tin qua WhatsApp — phản hồi trong vòng vài tiếng.' : 'Book via WhatsApp — we reply within a few hours.'}
                   </p>
@@ -710,15 +702,15 @@ gtag('config', 'AW-789962253');`}
                   <p className="text-body text-[var(--color-ink)] opacity-70 leading-relaxed">
                     {strings.haveQuestionsDesc}
                   </p>
-                  <a
-                    href={whatsappHref}
-                    onClick={trackWhatsAppConversion}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-body font-semibold text-[var(--color-terracotta)] hover:opacity-75 transition-opacity"
-                  >
-                    {strings.messageUs} →
-                  </a>
+                  {slug === 'hue-imperial-city-day-tour-from-da-nang-hoi-an' ? (
+                    <GoogleAdsWhatsAppLink href={whatsappHref} className="text-body font-semibold text-[var(--color-terracotta)] hover:opacity-75 transition-opacity">
+                      {strings.messageUs} →
+                    </GoogleAdsWhatsAppLink>
+                  ) : (
+                    <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="text-body font-semibold text-[var(--color-terracotta)] hover:opacity-75 transition-opacity">
+                      {strings.messageUs} →
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
