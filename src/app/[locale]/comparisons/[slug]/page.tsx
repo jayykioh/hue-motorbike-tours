@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: meta.title,
     description: meta.description,
-    keywords: meta.keywords,
+    robots: { index: false, follow: true },
     alternates: {
       canonical: `https://huebiketour.com/${locale}/comparisons/${slug}`,
       languages: {
@@ -47,7 +47,8 @@ export default async function ComparisonPage({ params }: Props) {
   const comp = comparisons.find((c) => c.slug === slug);
   if (!comp) notFound();
 
-  // JSON-LD: Article + FAQPage
+  // The comparison matrix is not a question-and-answer section, so only mark
+  // the page as an Article.
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -55,22 +56,7 @@ export default async function ComparisonPage({ params }: Props) {
         "@type": "Article",
         "headline": isVi ? comp.meta.vi.title : comp.meta.en.title,
         "description": isVi ? comp.meta.vi.description : comp.meta.en.description,
-        "author": {
-          "@type": "Organization",
-          "name": "Hue Motorbike Tours",
-          "url": "https://huebiketour.com"
-        }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": comp.features.map(f => ({
-          "@type": "Question",
-          "name": isVi ? `Đánh giá về ${f.featureName.vi}?` : `How is the ${f.featureName.en}?`,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": isVi ? f.values[0].text.vi : f.values[0].text.en
-          }
-        }))
+        "publisher": { "@id": "https://huebiketour.com/#travel-agency" }
       }
     ]
   };
@@ -83,7 +69,7 @@ export default async function ComparisonPage({ params }: Props) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
       <div className="flex flex-col w-full min-h-screen pt-24 pb-20 bg-[var(--color-sand)]">
         <div className="max-w-[var(--container-max)] mx-auto px-6 w-full flex flex-col gap-12">

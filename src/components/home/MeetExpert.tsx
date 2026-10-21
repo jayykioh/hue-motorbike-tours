@@ -8,17 +8,14 @@ export default function MeetExpert({ locale }: Props) {
   const isVi = locale === "vi";
 
   const t = {
-    eyebrow: isVi ? "NGƯỜI DẪN ĐƯỜNG BẢN ĐỊA" : "MEET YOUR LEAD EASY RIDER",
-    title: isVi ? "Chuyên Gia Địa Phương Của Bạn" : "Meet Your Local Expert",
-    subtitle: isVi 
-      ? "Người sáng lập Hue Bike Tour với hơn 15 năm rong ruổi khắp các cung đèo miền Trung." 
-      : "Founder of Hue Bike Tour & 15+ year veteran Easy Rider across Central Vietnam.",
-    bio: isVi 
-      ? "Xin chào, tôi là Tú. Sau hơn một thập kỷ rong ruổi trên mọi nẻo đường đèo từ Huế đến Hội An, tôi thành lập Hue Bike Tour với một sứ mệnh duy nhất: mang đến cho bạn trải nghiệm miền Trung nguyên bản nhất. Chúng tôi không đi theo những lối mòn du lịch công nghiệp. Chúng tôi đưa bạn khám phá những đầm phá hoang sơ, những ngôi làng ẩn mình và những khúc cua hùng vĩ nhất theo nhịp độ của riêng bạn."
-      : "Hi, I'm Tu. After more than a decade navigating the mountain passes from Hue to Hoi An, I founded Hue Bike Tour with a single mission: to give you an authentic, unhurried Vietnamese experience. We don't do mass bus tours. We take you to serene coastal lagoons, tucked-away villages, and sweeping mountain roads — safely, and at your own pace.",
-    statYears: isVi ? "Năm dẫn tour đèo" : "Years guiding passes",
-    statLocal: isVi ? "Tài xế bản địa Huế" : "Native local riders",
-    statRating: isVi ? "Đánh giá Google Maps" : "Google Maps rating",
+    eyebrow: isVi ? "NGƯỜI DẪN ĐƯỜNG BẢN ĐỊA" : "MEET YOUR LOCAL EASY RIDER",
+    title: isVi ? "Người Sáng Lập & Hướng Dẫn Viên" : "Meet the Founder and Lead Guide",
+    subtitle: isVi
+      ? "Tú sáng lập Hue Motorbike Tours và dẫn các hành trình khởi hành từ Huế."
+      : "Tu founded Hue Motorbike Tours and leads journeys starting in Hue.",
+    bio: isVi
+      ? "Xin chào, tôi là Tú. Tôi tổ chức các hành trình xe máy khởi hành từ Huế, kết hợp điểm di sản, ẩm thực địa phương và cung đường cảnh đẹp. Hãy chia sẻ sở thích của bạn để cùng trao đổi về lộ trình và nhịp độ phù hợp."
+      : "Hi, I'm Tu, founder and lead guide at Hue Motorbike Tours. I plan motorbike journeys from Hue, with time for heritage stops, local food, and scenic roads. Tell me what you enjoy and we'll discuss a route and pace that fits.",
     partnerLabel: isVi ? "Tuyến liên kết:" : "Partner routes:",
     partnerHoiAn: isVi ? "Tour Xe Máy Hội An" : "Hoi An Motorbike Tours",
     partnerDaNang: isVi ? "Tour Đà Nẵng & Hội An" : "Da Nang & Hoi An Tours",
@@ -51,28 +48,6 @@ export default function MeetExpert({ locale }: Props) {
             <p className="text-base sm:text-[1.05rem] leading-relaxed text-[var(--color-ink)]/80 font-body">
               {t.bio}
             </p>
-
-            {/* Editorial Credentials Grid */}
-            <div className="grid grid-cols-3 gap-4 pt-4 pb-4 border-y border-[var(--color-sand)]">
-              <div>
-                <span className="font-display text-3xl sm:text-4xl text-[var(--color-ink)] font-bold block leading-none">15+</span>
-                <span className="text-xs sm:text-small text-[var(--color-ink)]/65 font-medium mt-1.5 block">
-                  {t.statYears}
-                </span>
-              </div>
-              <div>
-                <span className="font-display text-3xl sm:text-4xl text-[var(--color-ink)] font-bold block leading-none">100%</span>
-                <span className="text-xs sm:text-small text-[var(--color-ink)]/65 font-medium mt-1.5 block">
-                  {t.statLocal}
-                </span>
-              </div>
-              <div>
-                <span className="font-display text-3xl sm:text-4xl text-[var(--color-terracotta)] font-bold block leading-none">5.0 ★</span>
-                <span className="text-xs sm:text-small text-[var(--color-ink)]/65 font-medium mt-1.5 block">
-                  {t.statRating}
-                </span>
-              </div>
-            </div>
 
             {/* Sign-off & Sister sites */}
             <div className="flex flex-col gap-4 pt-1">

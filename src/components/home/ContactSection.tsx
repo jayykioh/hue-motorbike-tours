@@ -9,20 +9,20 @@ export default function ContactSection() {
 
   const t = {
     en: {
-      eyebrow: "FIND US",
-      headline: "We're based in Hue.\nAlways reachable.",
+      eyebrow: "CONTACT OUR LOCAL TEAM",
+      headline: "Plan your Hue tour\nwith a local guide.",
       whatsapp: "Chat on WhatsApp",
       hours: "Available daily, 7 AM – 9 PM (Vietnam time)",
-      mapLabel: "Hue City, Vietnam",
-      address: "Hue City, Thua Thien Hue Province, Vietnam",
+      mapLabel: "Hue Imperial City — a destination on our Hue tours",
+      address: "Tours start in Hue City, Vietnam",
     },
     vi: {
       eyebrow: "LIÊN HỆ",
-      headline: "Chúng tôi ở Huế.\nLuôn sẵn sàng.",
+      headline: "Khám phá Huế\ncùng hướng dẫn viên địa phương.",
       whatsapp: "Nhắn tin WhatsApp",
       hours: "Hoạt động mỗi ngày, 7 SA – 9 CH (giờ Việt Nam)",
-      mapLabel: "Thành phố Huế, Việt Nam",
-      address: "Thành phố Huế, Tỉnh Thừa Thiên Huế, Việt Nam",
+      mapLabel: "Đại Nội Huế — điểm đến trong các tour tại Huế",
+      address: "Tour khởi hành tại Thành phố Huế, Việt Nam",
     }
   };
 
@@ -61,7 +61,7 @@ export default function ContactSection() {
             {/* Address */}
             <div className="flex flex-col gap-2">
               <span className="text-small font-semibold uppercase tracking-widest text-[var(--color-ink)]/50">
-                {currentLocale === 'vi' ? 'Địa chỉ' : 'Location'}
+              {currentLocale === 'vi' ? 'Khu vực khởi hành' : 'Tour starting area'}
               </span>
               <p className="text-body text-[var(--color-ink)]/75">{lang.address}</p>
             </div>

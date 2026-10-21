@@ -13,11 +13,10 @@ export default function FeaturedTours() {
   const t = {
     en: {
       subtitle: "OUR JOURNEYS",
-      title: "Best Hue Motorbike Tours",
+      title: "Hue Motorbike Tours and Local Journeys",
       viewTour: "Explore Itinerary",
       duration: "Duration",
       transport: "Transport",
-      bestSeller: "Bestseller",
       viewAll: "Explore All Tours",
       startingAt: "From",
     },
@@ -27,20 +26,12 @@ export default function FeaturedTours() {
       viewTour: "Xem Lịch Trình",
       duration: "Thời gian",
       transport: "Di chuyển",
-      bestSeller: "Bán Chạy Nhất",
       viewAll: "Xem Tất Cả Các Tour",
       startingAt: "Chỉ từ",
     }
   };
 
   const lang = t[currentLocale];
-
-  // Assign a marketing badge specifically to the first two tours to make them stand out
-  const getBadge = (id: string, index: number) => {
-    if (index === 0) return lang.bestSeller;
-    if (index === 1 && id.includes('dmz')) return isVi ? 'Lịch Sử Hào Hùng' : 'Top Historical';
-    return null;
-  };
 
   return (
     <section className="bg-[var(--color-limestone)] py-16 lg:py-40 px-5 sm:px-6">
@@ -55,9 +46,8 @@ export default function FeaturedTours() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
-          {tours.map((tour, index) => {
+          {tours.map((tour) => {
             if (!tour.slug) return null;
-            const badge = getBadge(tour.id, index);
 
             return (
               <Link 
@@ -67,11 +57,6 @@ export default function FeaturedTours() {
               >
                 {/* Image Container */}
                 <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] bg-[var(--color-sand)] overflow-hidden">
-                  {badge && (
-                    <div className="absolute top-4 left-4 z-10 bg-[var(--color-terracotta)] text-white text-xs font-bold tracking-wider uppercase px-4 py-1.5 rounded-[var(--radius-pill)] shadow-md">
-                      {badge}
-                    </div>
-                  )}
                   <Image 
                     src={tour.image} 
                     alt={isVi ? tour.title.vi : tour.title.en}
@@ -134,7 +119,7 @@ export default function FeaturedTours() {
             </svg>
           </Link>
           <p className="text-[0.8rem] font-semibold text-[var(--color-ink)]/45 tracking-wide uppercase">
-            {isVi ? `${tours.length} lịch trình · Tất cả đều có thể tùy chỉnh` : `${tours.length} Itineraries · All Fully Customizable`}
+            {isVi ? `${tours.length} lịch trình · Xem chi tiết phương tiện và hành trình` : `${tours.length} itineraries · Compare routes and transport options`}
           </p>
         </div>
       </div>

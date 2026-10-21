@@ -13,16 +13,16 @@ export default function WhyUs() {
       title: "Why ride with us?",
       points: [
         {
-          title: "Expert Hue Easy Rider Guides",
-          desc: "Our easy rider hue guides know routes no Google Map shows — backroads with the best views, the freshest food stalls, and zero tourist crowds."
+          title: "Local Hue Easy Rider Guide",
+          desc: "Explore Hue with a local guide and plan stops around the heritage sites, food, and scenery you want to see."
         },
         {
-          title: "Safest Motorbike Tour in Hue",
-          desc: "Every hue bike tour uses well-maintained motorbikes, full safety gear, and experienced riders who know every bend of every road."
+          title: "Choose Your Transport",
+          desc: "Selected itineraries offer a motorbike ride with a local driver or a private car. Compare the tour details before you book."
         },
         {
-          title: "Authentic Hue Cultural Experience",
-          desc: "We stop for real local food, royal tomb stories, and village life — not just photo ops. A hue motorbike tour that goes beyond the surface."
+          title: "Heritage and Local Food",
+          desc: "Tour itineraries include Hue landmarks, royal tombs, local dishes, and scenic stops across Central Vietnam."
         }
       ]
     },
@@ -31,16 +31,16 @@ export default function WhyUs() {
       title: "Tại sao chọn chúng tôi?",
       points: [
         {
-          title: "Kiến thức địa phương",
-          desc: "Chúng tôi biết những con đường không có trên bản đồ. Những lối đi cảnh đẹp và vắng xe nhất."
+          title: "Hướng Dẫn Viên Địa Phương",
+          desc: "Khám phá Huế cùng hướng dẫn viên địa phương và chọn điểm dừng theo sở thích về di sản, ẩm thực hoặc cảnh quan."
         },
         {
-          title: "An toàn là trên hết",
-          desc: "Xe luôn được bảo dưỡng tốt, người lái kinh nghiệm, và lộ trình ưu tiên an toàn tuyệt đối."
+          title: "Lựa Chọn Phương Tiện",
+          desc: "Một số lịch trình có lựa chọn xe máy cùng tài xế địa phương hoặc ô tô riêng. Xem thông tin từng tour trước khi đặt."
         },
         {
-          title: "Trải nghiệm văn hóa",
-          desc: "Dừng chân thưởng thức ẩm thực bản địa, ngắm nhìn cuộc sống làng quê và tìm hiểu lịch sử."
+          title: "Di Sản và Ẩm Thực Huế",
+          desc: "Lịch trình tour có các điểm di sản, lăng tẩm, món ăn địa phương và điểm dừng ngắm cảnh ở miền Trung."
         }
       ]
     }

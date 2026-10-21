@@ -17,11 +17,11 @@ export default function AboutHueHero({ locale }: Props) {
     eyebrow: isVi ? "CỐ ĐÔ VIỆT NAM" : "ANCIENT IMPERIAL CAPITAL",
     title: isVi ? "Huế — Kinh Thành\nCủa Hồn Việt" : "Hue — Where Vietnam's\nSoul Lives On",
     lead: isVi
-      ? "Hơn 700 năm lịch sử, 7 di tích UNESCO, và một nhịp sống không nơi nào có được. Đây là tất cả những gì bạn cần biết để thực sự hiểu Huế."
-      : "Over 700 years of history, 7 UNESCO monuments, and a pace of life found nowhere else. Everything you need to truly understand Hue.",
+      ? "Khám phá di sản triều Nguyễn, Đại Nội, các lăng tẩm và nhịp sống bên dòng sông Hương qua cẩm nang du lịch Huế."
+      : "Explore Hue's Nguyen Dynasty heritage, Imperial Citadel, royal tombs, and life along the Perfume River in this city travel guide.",
     scrollHint: isVi ? "Khám phá" : "Explore below",
     statsHistory: isVi ? "Năm thủ đô" : "Years as Capital",
-    statsUNESCO: isVi ? "Di tích UNESCO" : "UNESCO Monuments",
+    statsRoyalTombs: isVi ? "Lăng tẩm triều Nguyễn" : "Royal Tombs",
     statsRiver: isVi ? "Km sông Hương" : "Km Perfume River",
     statsDishes: isVi ? "Món ăn hoàng gia" : "Royal Dishes",
   };
@@ -68,7 +68,7 @@ export default function AboutHueHero({ locale }: Props) {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/10 rounded-[var(--radius-md)] overflow-hidden border border-white/10">
             {[
               { value: "143", label: t.statsHistory },
-              { value: "7", label: t.statsUNESCO },
+              { value: "7", label: t.statsRoyalTombs },
               { value: "70+", label: t.statsRiver },
               { value: "300+", label: t.statsDishes },
             ].map((stat) => (

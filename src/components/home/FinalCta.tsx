@@ -5,24 +5,23 @@ import { usePathname } from "next/navigation";
 export default function FinalCta() {
   const pathname = usePathname();
   const currentLocale = pathname?.startsWith('/vi') ? 'vi' : 'en';
-  const isVi = currentLocale === 'vi';
 
   const t = {
     en: {
       subtitle: "START YOUR JOURNEY",
-      title: "Ready for the best hue motorbike tour?",
-      description: "Message us on WhatsApp to book your hue bike tour or easy rider hue experience. We craft the perfect motorbike tour in hue based on your dates, pace, and interests — no scripts, no tourist traps.",
+      title: "Plan your Hue motorbike tour",
+      description: "Message us on WhatsApp with your dates, group size, and preferred route. We can discuss the itinerary, transport options, and availability with you.",
       buttonText: "Chat on WhatsApp",
       availability: "Currently accepting bookings",
-      badges: ["No Hidden Fees", "Free Cancellation", "Book Now, Pay Later"],
+      badges: ["Local Hue routes", "Motorbike or private car options", "Direct WhatsApp contact"],
     },
     vi: {
       subtitle: "BẮT ĐẦU HÀNH TRÌNH",
       title: "Sẵn sàng khám phá Huế thật sự?",
-      description: "Nhắn tin qua WhatsApp. Chúng mình sẽ tạo lộ trình phù hợp với ngày tháng, nhịp độ và những gì bạn muốn trải nghiệm.",
+      description: "Gửi ngày đi, số người và tuyến đường bạn quan tâm qua WhatsApp. Chúng mình sẽ trao đổi về lịch trình, phương tiện và tình trạng nhận khách.",
       buttonText: "Nhắn tin qua WhatsApp",
       availability: "Đang nhận đặt lịch",
-      badges: ["Không Phí Ẩn", "Hủy Miễn Phí", "Đặt Trước, Trả Sau"],
+      badges: ["Hành trình từ Huế", "Có lựa chọn xe máy hoặc ô tô riêng", "Liên hệ trực tiếp qua WhatsApp"],
     }
   };
 

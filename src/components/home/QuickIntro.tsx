@@ -12,16 +12,16 @@ export default function QuickIntro() {
   const t = {
     en: {
       eyebrow: "DISCOVER HUE",
-      headline: "The best motorbike tours in Hue start right here.",
-      paragraph1: "Hue was once the imperial heart of Vietnam — and our hue motorbike tours take you into the heart of it. This ancient city remains a place of quiet poetry, where royal tombs hide in pine forests and life moves at the pace of the Perfume River.",
-      paragraph2: "Forget crowded buses and rushed schedules. Our motorbike tour in hue puts you on the back of a bike with a local easy rider guide. Taste authentic dishes, ride hidden village roads, and experience Central Vietnam the way locals do — in complete safety.",
+      headline: "See Hue by motorbike with a local guide.",
+      paragraph1: "Once the imperial capital of Vietnam, Hue brings together royal tombs, the Perfume River, and a living food culture. Explore the city and its surroundings at a pace that leaves room for stories and local stops.",
+      paragraph2: "Choose a Hue motorbike tour with a local Easy Rider, visit heritage sites, sample regional dishes, and follow scenic roads through Central Vietnam.",
       cta: "Explore Our Tours →",
     },
     vi: {
       eyebrow: "KHÁM PHÁ HUẾ",
       headline: "Chạm vào linh hồn của vùng đất cố đô.",
       paragraph1: "Huế từng là trái tim của các triều đại hoàng gia Việt Nam. Đến tận bây giờ, nơi đây vẫn giữ vẹn nguyên nét thơ mộng với những lăng tẩm ẩn mình giữa đồi thông và nhịp sống êm đềm bên dòng sông Hương.",
-      paragraph2: "Hãy gác lại những chuyến xe buýt đông đúc và lịch trình vội vã. Chúng mình sẽ đưa bạn đi sâu vào một Huế rất đỗi chân thực. Bạn sẽ thưởng thức ẩm thực nguyên bản, rong ruổi trên những con đường làng yên ả và tận hưởng trọn vẹn vẻ đẹp của dải đất miền Trung một cách an toàn nhất.",
+      paragraph2: "Khám phá Huế cùng hướng dẫn viên địa phương, thưởng thức món ăn đặc sản và ghé những điểm di sản theo nhịp độ phù hợp với bạn.",
       cta: "Xem Các Lịch Trình →",
     }
   };
@@ -65,7 +65,7 @@ export default function QuickIntro() {
           <div className="relative w-full aspect-[4/3] lg:aspect-[5/4] rounded-[var(--radius-lg)] overflow-hidden shadow-xl shadow-black/6 border border-[var(--color-sand)] bg-[var(--color-sand)] group">
             <Image 
               src="/photo/hue-imperal-city.jpg" 
-              alt="Hue Imperial City - Starting point for the best hue motorbike tour" 
+              alt="Hue Imperial City, a heritage stop on local Hue motorbike tours" 
               fill 
               className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[var(--ease-standard)]"
               sizes="(max-width: 1024px) 100vw, 50vw"

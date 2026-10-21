@@ -81,7 +81,7 @@ export default function LandmarksGrid({ locale }: { locale: string }) {
       tag: t.locals,
       desc: isVi
         ? "Làng nghề làm hương truyền thống từ hơn 700 năm — những bó hương sặc sỡ đỏ, tím, vàng phơi dưới nắng tạo nên khung cảnh nhiếp ảnh không thể bỏ qua. Nghề hương gắn liền với đời sống tâm linh của người Huế."
-        : "A traditional incense-making village over 700 years old — vibrant red, purple, and yellow bundles drying in the sun create unmissable photography scenes. Incense craft is woven into Hue's spiritual identity.",
+        : "A traditional incense-making village where red, purple, and yellow bundles dry in the sun. Visitors can see how incense craft remains part of Hue's local culture.",
       image: "/photo/hue-incense-sticks-village.jpg",
       alt: "Colorful incense sticks at Thuy Xuan Incense Village in Hue",
       highlight: isVi ? "Làng nghề 700 năm tuổi" : "700-year-old craft village",

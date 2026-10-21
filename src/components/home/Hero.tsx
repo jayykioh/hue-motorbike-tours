@@ -59,22 +59,20 @@ export default function Hero() {
 
   const t = {
     en: {
-      subtitle: "HUE MOTORBIKE TOUR · Hai Van Pass · Easy Rider Experience",
+      subtitle: "HUE MOTORBIKE TOURS · EASY RIDER · CENTRAL VIETNAM",
       title: "Discover Hue on a Motorbike.",
-      description: "The best hue motorbike tour & easy rider hue experience. Explore Imperial City, Hai Van Pass & Hoi An with expert local guides — at your pace, on roads no tourist bus ever takes.",
+      description: "Explore Hue's Imperial City, local food, and the Hai Van Pass on a motorbike journey with a local Easy Rider guide.",
       primaryCta: "Plan My Trip →",
       secondaryCta: "Explore Tours",
       nowBooking: "Now Accepting Bookings",
-      reviewScore: "5.0 · Rated by International Guests",
     },
     vi: {
       subtitle: "MIỀN TRUNG VIỆT NAM · Huế → Hải Vân → Hội An",
-      title: "Đi theo con đường đẹp nhất.",
+      title: "Khám phá Huế bằng xe máy.",
       description: "Hành trình được chọn lọc qua Huế, Đà Nẵng và Hội An với kiến thức địa phương, ẩm thực ngon và những cung đường xứng đáng để đi chậm lại.",
       primaryCta: "Lên Kế Hoạch Chuyến Đi →",
       secondaryCta: "Khám Phá Tour",
       nowBooking: "Đang nhận đặt lịch",
-      reviewScore: "5.0 · Khách quốc tế đánh giá",
     }
   };
 
@@ -157,13 +155,6 @@ export default function Hero() {
                 </span>
                 <span className="text-[0.8rem] font-semibold text-white/80 tracking-wide uppercase">
                   {lang.nowBooking}
-                </span>
-              </div>
-              {/* Stars */}
-              <div className="flex items-center gap-2">
-                <span className="text-[#fbbf24] text-base leading-none tracking-tight">★★★★★</span>
-                <span className="text-[0.8rem] font-semibold text-white/80">
-                  {lang.reviewScore}
                 </span>
               </div>
             </div>

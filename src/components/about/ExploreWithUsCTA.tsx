@@ -11,8 +11,8 @@ export default function ExploreWithUsCTA({ locale }: { locale: string }) {
       ? "Sẵn Sàng Trải Nghiệm\nHuế Thực Sự?"
       : "Ready to Experience\nthe Real Hue?",
     desc: isVi
-      ? "Đừng chỉ đọc về Huế — hãy đến và cảm nhận. Các tour xe máy của chúng tôi đưa bạn đến những địa điểm này và xa hơn thế, theo nhịp của riêng bạn, với hướng dẫn viên địa phương thực sự biết từng con đường."
-      : "Don't just read about Hue — come and feel it. Our motorbike tours bring you to these places and beyond, at your own pace, with local guides who actually know every road.",
+      ? "Đừng chỉ đọc về Huế — hãy đến và cảm nhận. Các tour xe máy đưa bạn đến những địa điểm này và xa hơn thế, theo nhịp của riêng bạn cùng hướng dẫn viên địa phương."
+      : "Don't just read about Hue — come and experience it. Explore these places and more on a motorbike tour with a local guide, at a pace that suits your trip.",
     tours: [
       {
         name: isVi ? "Tour Đại Nội & Lăng Tẩm" : "Imperial City & Royal Tombs",
@@ -35,7 +35,6 @@ export default function ExploreWithUsCTA({ locale }: { locale: string }) {
     ],
     ctaMain: isVi ? "Xem Tất Cả Các Tour →" : "Browse All Tours →",
     ctaWhatsApp: isVi ? "Đặt tour qua WhatsApp" : "Book via WhatsApp",
-    ratings: isVi ? "87 đánh giá 5 sao · Google Maps" : "87 five-star reviews · Google Maps",
     imageAlt: "Easy rider guide with tourists on motorbike in Hue Vietnam",
   };
 
@@ -111,11 +110,6 @@ export default function ExploreWithUsCTA({ locale }: { locale: string }) {
               </a>
             </div>
 
-            {/* Social proof */}
-            <div className="flex items-center gap-2 text-xs text-[var(--color-limestone)]/40">
-              <span className="text-yellow-400 text-sm">★★★★★</span>
-              <span>{t.ratings}</span>
-            </div>
           </div>
 
           {/* Right: Image */}

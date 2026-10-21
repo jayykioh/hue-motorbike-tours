@@ -20,35 +20,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const description =
     locale === "vi"
-      ? "Tìm hiểu về Huế — cố đô Việt Nam với hơn 700 năm lịch sử, 7 di tích UNESCO, ẩm thực hoàng gia độc đáo và những địa điểm nổi bật nhất. Hướng dẫn du lịch Huế toàn diện nhất."
-      : "Discover Hue — Vietnam's ancient imperial capital with 700+ years of history, 7 UNESCO monuments, royal cuisine, and unmissable landmarks. The most complete Hue travel guide.";
+      ? "Khám phá lịch sử, Đại Nội, lăng tẩm, ẩm thực và các địa điểm nổi bật ở Huế qua cẩm nang du lịch song ngữ của Hue Motorbike Tours."
+      : "Explore Hue's imperial history, landmarks, royal tombs and food with this bilingual travel guide from Hue Motorbike Tours.";
 
   return {
     title,
     description,
-    keywords:
-      locale === "vi"
-        ? [
-            "về Huế",
-            "lịch sử Huế",
-            "địa điểm du lịch Huế",
-            "ẩm thực Huế",
-            "di tích Huế",
-            "Đại Nội Huế",
-            "du lịch Huế",
-            "văn hóa Huế",
-          ]
-        : [
-            "about Hue Vietnam",
-            "Hue history",
-            "Hue landmarks",
-            "Hue Imperial City",
-            "things to do in Hue",
-            "Hue travel guide",
-            "visit Hue Vietnam",
-            "Hue culture food",
-            "best time to visit Hue",
-          ],
     alternates: {
       canonical: `https://huebiketour.com/${locale}/about-hue`,
       languages: {
@@ -94,7 +71,6 @@ export default async function AboutHuePage({ params }: Props) {
     address: {
       "@type": "PostalAddress",
       addressLocality: "Hue",
-      addressRegion: "Thua Thien Hue",
       addressCountry: "VN",
     },
     touristType: ["History enthusiasts", "Cultural travelers", "Adventure tourists", "Food lovers"],

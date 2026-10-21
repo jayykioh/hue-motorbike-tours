@@ -12,8 +12,8 @@ export default function ImmersiveExperience() {
       title: "Your Hue Easy Rider Awaits",
       scrollHint: "Scroll to discover",
       overlay: {
-        headline: "Ride behind an easy rider hue guide. See the real thing.",
-        body: "Our experienced easy rider hue guides carry you safely through hue motorbike tour routes — royal tombs, the DMZ, Hai Van Pass, Lang Co Beach, Thien Mu Pagoda and beyond. The most authentic motorbike tour in hue — at your pace, on roads no tourist bus ever takes.",
+        headline: "Explore Hue by motorbike with a local guide.",
+        body: "Explore Hue and Central Vietnam by motorbike, with routes to historic sites and coastal stops. Choose an itinerary and contact us to confirm the trip details.",
         tags: ["Easy Rider Tour", "Imperial Citadel", "Hai Van Pass", "Lang Co Beach", "Thien Mu Pagoda", "Tam Giang Lagoon", "Hue Food Tour", "DMZ Tunnels"],
       }
     },
@@ -21,8 +21,8 @@ export default function ImmersiveExperience() {
       title: "Tài Xế Easy Rider Đang Chờ",
       scrollHint: "Cuộn để khám phá",
       overlay: {
-        headline: "Ngồi sau một người địa phương. Trải nghiệm thật sự.",
-        body: "Những tài xế Easy Rider lâu năm của chúng mình sẽ đưa bạn đi an toàn qua các lăng tẩm hoàng triều, khu DMZ, đèo Hải Vân, vịnh Lăng Cô, chùa Thiên Mụ và nhiều nơi khác — theo nhịp của bạn, trên những con đường mà xe du lịch không bao giờ đặt chân tới.",
+        headline: "Khám phá Huế bằng xe máy cùng hướng dẫn viên địa phương.",
+        body: "Khám phá Huế và miền Trung bằng xe máy, qua các điểm di sản và cung đường ven biển. Chọn lịch trình phù hợp rồi liên hệ để xác nhận thông tin chuyến đi.",
         tags: ["Đại Nội", "Đèo Hải Vân", "Vịnh Lăng Cô", "Chùa Thiên Mụ", "Phá Tam Giang", "Địa Đạo DMZ"],
       }
     }

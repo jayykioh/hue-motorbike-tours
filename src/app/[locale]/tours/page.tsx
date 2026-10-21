@@ -9,12 +9,16 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const title = locale === 'vi'
+    ? 'Tour Xe Máy Huế & Các Hành Trình Easy Rider'
+    : 'Hue Motorbike Tours & Easy Rider Journeys';
+  const description = locale === 'vi'
+    ? 'Chọn tour xe máy tại Huế: khám phá Đại Nội, ẩm thực địa phương, tour DMZ và hành trình qua đèo Hải Vân đến Đà Nẵng, Hội An.'
+    : 'Choose a Hue motorbike tour: explore the Imperial City, local food, the DMZ, or ride the Hai Van Pass toward Da Nang and Hoi An.';
   
   return {
-    title: locale === 'vi' ? 'Tất Cả Các Tour | Hue Motorbike Tours' : 'All Tours | Hue Motorbike Tours',
-    description: locale === 'vi' 
-      ? 'Khám phá tất cả các hành trình xe máy qua Huế, Đà Nẵng và Hội An.' 
-      : 'Explore all our curated motorbike journeys through Hue, Da Nang and Hoi An.',
+    title,
+    description,
     alternates: {
       canonical: `https://huebiketour.com/${locale}/tours`,
       languages: {
@@ -24,10 +28,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     openGraph: {
-      title: locale === 'vi' ? 'Tất Cả Các Tour | Hue Motorbike Tours' : 'All Tours | Hue Motorbike Tours',
-      description: locale === 'vi' 
-        ? 'Khám phá tất cả các hành trình xe máy qua Huế, Đà Nẵng và Hội An.' 
-        : 'Explore all our curated motorbike journeys through Hue, Da Nang and Hoi An.',
+      title,
+      description,
       url: `https://huebiketour.com/${locale}/tours`,
       siteName: 'Hue Motorbike Tours',
     },
@@ -39,11 +41,14 @@ export default async function ToursPage({ params }: Props) {
   const isVi = locale === 'vi';
 
   const strings = {
-    title: isVi ? 'Tất Cả Hành Trình' : 'All Journeys',
-    subtitle: isVi ? 'KHÁM PHÁ MIỀN TRUNG' : 'EXPLORE CENTRAL VIETNAM',
+    title: isVi ? 'Tour Xe Máy Huế & Hành Trình Easy Rider' : 'Hue Motorbike Tours & Easy Rider Journeys',
+    subtitle: isVi ? 'KHÁM PHÁ HUẾ VÀ MIỀN TRUNG' : 'EXPLORE HUE AND CENTRAL VIETNAM',
     viewTour: isVi ? 'Xem Chi Tiết' : 'View Tour',
     duration: isVi ? 'Thời gian' : 'Duration',
-    transport: isVi ? 'Di chuyển' : 'Transport'
+    transport: isVi ? 'Di chuyển' : 'Transport',
+    intro: isVi
+      ? 'So sánh thời lượng, phương tiện và lịch trình để chọn chuyến đi phù hợp. Mở từng tour để xem các điểm dừng, thông tin bao gồm và gửi yêu cầu xác nhận lịch.'
+      : 'Compare duration, transport and itinerary to find a trip that suits you. Open a tour for its stops, inclusions and a request to confirm current availability.'
   };
 
   return (
@@ -57,6 +62,9 @@ export default async function ToursPage({ params }: Props) {
           <h1 className="text-h2 lg:text-h1 font-display text-[var(--color-ink)]">
             {strings.title}
           </h1>
+          <p className="max-w-3xl text-body-lg text-[var(--color-ink)]/70 leading-relaxed">
+            {strings.intro}
+          </p>
         </div>
       </section>
 

@@ -41,7 +41,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: metadataTitle,
     description,
-    keywords: localizedSeo?.keywords,
+    ...(tour.slug === 'hue-abandoned-water-park-tour'
+      ? { robots: { index: false, follow: true } }
+      : {}),
     alternates: {
       canonical: canonicalUrl,
       languages: {
@@ -108,12 +110,20 @@ export default async function TourDetailPage({ params }: Props) {
     gallery: isVi ? 'Hình Ảnh Thực Tế & Khách Hàng' : 'Tour Gallery & Real Moments',
     gallerySub: isVi ? 'Hình ảnh chân thực từ quần thể di tích Đại Nội, chùa chiền, làng nghề và những khoảnh khắc đáng nhớ cùng du khách.' : 'Authentic photos from the Imperial Citadel, royal heritage landmarks, craft villages, and memorable moments with our travelers.',
     insiderTips: isVi ? 'Kinh Nghiệm & Lưu Ý Tham Quan' : 'Insider Tips from Local Guides',
+    relatedTours: isVi ? 'Có thể bạn cũng quan tâm' : 'You may also be interested in',
+    viewRelatedTour: isVi ? 'Xem lịch trình' : 'View itinerary',
   };
 
   const whatsappHref = tour.whatsappLink ?? `https://wa.me/84862391918?text=Hi%20I%20am%20interested%20in%20${encodeURIComponent(title)}`;
+  const relatedTours = (tour.relatedTourSlugs ?? [])
+    .map((relatedSlug) => getTourBySlug(relatedSlug))
+    .filter((relatedTour) => relatedTour && relatedTour.slug !== 'hue-abandoned-water-park-tour');
 
   // JSON-LD for TouristTrip + BreadcrumbList
   const canonicalUrl = `https://huebiketour.com/${locale}/tours/${slug}`;
+  const structuredPrice = tour.priceIsQuote
+    ? undefined
+    : tour.price.match(/[0-9]+(?:\.[0-9]+)?/)?.[0];
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
@@ -121,12 +131,7 @@ export default async function TourDetailPage({ params }: Props) {
     "description": description,
     "url": canonicalUrl,
     "image": tour.image.startsWith('/') ? `https://huebiketour.com${tour.image}` : tour.image,
-    "provider": {
-      "@type": "TravelAgency",
-      "name": "Hue Motorbike Tours",
-      "telephone": "+84862391918",
-      "url": "https://huebiketour.com"
-    },
+    "provider": { "@id": "https://huebiketour.com/#travel-agency" },
     "touristType": ["Cultural tourists", "Families", "History enthusiasts", "Sightseeing"],
     "itinerary": {
       "@type": "ItemList",
@@ -141,12 +146,11 @@ export default async function TourDetailPage({ params }: Props) {
         }
       }))
     },
-    ...(!tour.priceIsQuote ? { "offers": {
+    ...(structuredPrice ? { "offers": {
       "@type": "Offer",
       "name": title,
-      "description": tour.price,
+      "price": structuredPrice,
       "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock",
       "url": canonicalUrl
     } } : {})
   };
@@ -587,6 +591,40 @@ export default async function TourDetailPage({ params }: Props) {
                     {isVi ? 'Đọc cẩm nang Huế' : 'Read the Hue travel guide'} →
                   </Link>
                 </aside>
+              )}
+
+              {relatedTours.length > 0 && (
+                <section className="flex flex-col gap-5 pt-8 border-t border-[var(--color-sand)]" aria-labelledby="related-tours-heading">
+                  <h2 id="related-tours-heading" className="text-h3 font-display text-[var(--color-ink)]">{strings.relatedTours}</h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {relatedTours.map((relatedTour) => relatedTour && (
+                      <Link
+                        key={relatedTour.slug}
+                        href={`/${locale}/tours/${relatedTour.slug}`}
+                        className="group overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-sand)] bg-white hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-terracotta)]"
+                      >
+                        <div className="relative aspect-[16/9] bg-[var(--color-sand)]">
+                          <Image
+                            src={relatedTour.image}
+                            alt={(isVi ? relatedTour.imageAlt?.vi : relatedTour.imageAlt?.en) ?? (isVi ? relatedTour.title.vi : relatedTour.title.en)}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 40vw"
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        </div>
+                        <div className="flex flex-col gap-2 p-4">
+                          <h3 className="font-display text-h4 text-[var(--color-ink)] group-hover:text-[var(--color-terracotta)]">
+                            {isVi ? relatedTour.title.vi : relatedTour.title.en}
+                          </h3>
+                          <p className="text-sm text-[var(--color-ink)]/70 line-clamp-2">
+                            {isVi ? relatedTour.shortDescription.vi : relatedTour.shortDescription.en}
+                          </p>
+                          <span className="text-sm font-semibold text-[var(--color-terracotta)]">{strings.viewRelatedTour} →</span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
               )}
 
               {/* FAQ */}

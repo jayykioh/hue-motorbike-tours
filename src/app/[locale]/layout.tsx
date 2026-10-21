@@ -19,33 +19,14 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://huebiketour.com'),
-  title: 'Hue Motorbike Tour & Easy Rider Hue | #1 Local Guide in Central Vietnam',
-  description: 'Book the best hue motorbike tour with expert easy rider guides. Explore Hue, Hai Van Pass & Hoi An on a hue bike tour. 5-star rated. WhatsApp booking available.',
-  keywords: [
-    'hue motorbike tour',
-    'easy rider hue tour',
-    'motorbike tour in hue',
-    'hue bike tour',
-    'tour in hue',
-    'hue easy rider',
-    'easy rider hue',
-    'hai van pass motorbike',
-    'hue to hoi an motorbike',
-    'hue food tour',
-    'dmz tour hue',
-    'central vietnam motorbike tour',
-    'hue imperial city tour',
-    'hue travel guide',
-    'huebiketour',
-    'Vietnam motorbike tour',
-    'Hue guided tour',
-  ],
+  title: 'Hue Motorbike Tours',
+  description: 'Explore Hue and Central Vietnam with local motorbike tours, Easy Rider journeys, cultural day trips, and food experiences.',
   openGraph: {
-    title: 'Hue Motorbike Tour & Easy Rider Hue | Best Local Guide',
-    description: 'Experience the real Hue on a motorbike. Expert easy rider guides, authentic food stops, and UNESCO heritage sites. Book via WhatsApp today.',
+    title: 'Hue Motorbike Tours | Easy Rider & Local Day Trips',
+    description: 'Explore Hue and Central Vietnam with local motorbike tours, Easy Rider journeys, cultural day trips, and food experiences.',
     url: 'https://huebiketour.com',
     siteName: 'Hue Motorbike Tours',
-    images: [{ url: '/og-home.webp', width: 1200, height: 630, alt: 'Hue Motorbike Tour - Easy Rider Central Vietnam' }],
+    images: [{ url: '/photo/hue-imperial-city-tour-og.jpg', width: 1200, height: 630, alt: 'Hue Imperial City tour in Central Vietnam' }],
     locale: 'en_US',
     type: 'website',
   },
@@ -54,8 +35,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hue Motorbike Tour & Easy Rider Hue | #1 Local Guide",
-    description: "Best hue motorbike tour with local easy rider guides. Hai Van Pass, Imperial City, Food Tour & more. Book on WhatsApp.",
+    title: "Hue Motorbike Tours | Easy Rider & Local Day Trips",
+    description: "Explore Hue and Central Vietnam with local motorbike tours, cultural day trips, and food experiences.",
   },
   verification: {
     google: '_UFGjgDoCo5QghP8c2ZnF1cXde3XkWuuet3YcH7eORI',
@@ -86,73 +67,31 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": ["TravelAgency", "LocalBusiness"],
+  "@type": "TravelAgency",
+  "@id": "https://huebiketour.com/#travel-agency",
   "name": "Hue Motorbike Tours",
   "alternateName": ["Hue Bike Tour", "Easy Rider Hue", "huebiketour.com"],
-  "description": "Expert-guided motorbike tours through Hue, Hai Van Pass, and Central Vietnam. Easy Rider hue tour, local food tours, UNESCO heritage sites, and DMZ tours.",
+  "description": "Local motorbike tours, Easy Rider journeys, cultural day trips, and food experiences in Hue and Central Vietnam.",
   "telephone": "+84862391918",
   "email": "info@huebiketour.com",
   "url": "https://huebiketour.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Hue",
-    "addressRegion": "Thua Thien Hue",
-    "addressCountry": "VN"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 16.46370,
-    "longitude": 107.59100
-  },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday", "Tuesday", "Wednesday", "Thursday",
-        "Friday", "Saturday", "Sunday"
-      ],
-      "opens": "07:00",
-      "closes": "21:00"
-    }
-  ],
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+84862391918",
     "contactType": "customer service",
     "availableLanguage": ["English", "Vietnamese"],
-    "contactOption": "TollFree",
-    "areaServed": "VN"
+    "areaServed": "Central Vietnam"
   },
-  "areaServed": ["Hue", "Thua Thien Hue", "Da Nang", "Hoi An", "Quang Tri"],
+  "areaServed": ["Hue City", "Da Nang", "Hoi An", "Quang Tri"],
   "founder": {
     "@type": "Person",
     "name": "Mai Anh Tu",
     "jobTitle": "Founder & Head Easy Rider Guide",
     "knowsAbout": ["Hue Motorbike Tours", "Hoi An Tours", "Da Nang Tours", "Central Vietnam Travel", "Easy Rider Vietnam"],
-    "sameAs": [
-      "https://hoianmotorbike.com",
-      "https://dananghoiantour.com",
-      "https://huebiketour.com"
-    ]
   },
-  "priceRange": "$$",
-  "currenciesAccepted": "USD, VND",
-  "paymentAccepted": "Cash, Bank Transfer",
   "sameAs": [
-    "https://www.facebook.com/Vietnamonmotorbike",
-    "https://hoianmotorbike.com",
-    "https://dananghoiantour.com"
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Hue Motorbike Tour Packages",
-    "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "TouristTrip", "name": "Hue to Hoi An via Hai Van Pass Motorbike Tour", "url": "https://huebiketour.com/en/tours/hue-to-hoi-an-via-hai-van-pass" } },
-      { "@type": "Offer", "itemOffered": { "@type": "TouristTrip", "name": "Hue Imperial City Motorbike Tour", "url": "https://huebiketour.com/en/tours/hue-imperial-city-tour" } },
-      { "@type": "Offer", "itemOffered": { "@type": "TouristTrip", "name": "Hue DMZ Historical Tour by Motorbike", "url": "https://huebiketour.com/en/tours/hue-dmz-tour" } },
-      { "@type": "Offer", "itemOffered": { "@type": "TouristTrip", "name": "Hue Food Tour and Tam Giang Sunset", "url": "https://huebiketour.com/en/tours/hue-food-tour-tam-giang-sunset" } }
-    ]
-  }
+    "https://www.facebook.com/Vietnamonmotorbike"
+  ]
 };
 
 export default async function RootLayout({
@@ -168,7 +107,7 @@ export default async function RootLayout({
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
         />
         <Header />
         <main className="flex-1 flex flex-col min-h-screen">

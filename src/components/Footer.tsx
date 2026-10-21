@@ -16,7 +16,7 @@ export default function Footer() {
       language: "Language",
       partner: "Also by Tu",
       rights: "© 2026 Hue Motorbike Tours. All rights reserved.",
-      description: "Premium motorbike tours and authentic local experiences in Hue, Vietnam.",
+      description: "Local motorbike tours and cultural experiences in Hue, Vietnam.",
       links: {
         tour1: "Hue Motorbike Tour",
         tour2: "Hue Imperial City",
@@ -36,7 +36,7 @@ export default function Footer() {
       language: "Ngôn ngữ",
       partner: "Cũng bởi Tú",
       rights: "© 2026 Hue Motorbike Tours. Mọi quyền được bảo lưu.",
-      description: "Trải nghiệm tour xe máy cao cấp và văn hóa địa phương đích thực tại Huế, Việt Nam.",
+      description: "Tour xe máy và trải nghiệm văn hóa địa phương tại Huế, Việt Nam.",
       links: {
         tour1: "Tour Xe Máy Huế",
         tour2: "Đại Nội Huế",
@@ -75,7 +75,7 @@ export default function Footer() {
             {/* NAP block — visible to crawlers for local SEO */}
             <address className="not-italic flex flex-col gap-1 text-small text-[var(--color-limestone)]/70">
               <span className="font-semibold text-[var(--color-limestone)]/90">Hue Motorbike Tours</span>
-              <span>Hue City, Thua Thien Hue Province, Vietnam</span>
+              <span>Based in Hue City, Vietnam</span>
               <a
                 href="tel:+84862391918"
                 className="hover:text-[var(--color-terracotta)] transition-colors font-semibold"

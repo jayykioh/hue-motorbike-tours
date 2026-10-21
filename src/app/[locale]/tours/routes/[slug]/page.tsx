@@ -1,7 +1,6 @@
 ﻿import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { programmaticRoutes } from '@/data/routes';
-import Image from 'next/image';
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -26,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: meta.title,
     description: meta.description,
-    keywords: meta.keywords,
+    robots: { index: false, follow: true },
     alternates: {
       canonical: `https://huebiketour.com/${locale}/tours/routes/${slug}`,
       languages: {
@@ -55,47 +54,29 @@ export default async function ProgrammaticRoutePage({ params }: Props) {
   const originName = isVi ? route.origin.vi : route.origin.en;
   const destName = isVi ? route.destination.vi : route.destination.en;
   const titleText = isVi ? `Tour Xe Máy ${originName} đi ${destName}` : `${originName} to ${destName} Motorbike Tour`;
+  const labels = isVi
+    ? { distance: 'Quãng đường', time: 'Thời gian dự kiến', transport: 'Phương tiện', guide: 'Hướng dẫn', departure: 'Khởi hành', arrival: 'Điểm đến' }
+    : { distance: 'Distance', time: 'Estimated time', transport: 'Transport', guide: 'Guide', departure: 'Departure', arrival: 'Arrival' };
 
-  // JSON-LD: TouristTrip + FAQPage
+  // The route template has no visible FAQ section, so only describe the trip.
   const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "TouristTrip",
-        "name": isVi ? route.meta.vi.title : route.meta.en.title,
-        "description": isVi ? route.meta.vi.description : route.meta.en.description,
-        "touristType": "Sightseeing",
-        "provider": {
-          "@type": "TravelAgency",
-          "name": "Hue Motorbike Tours",
-          "url": "https://huebiketour.com"
-        },
-        "itinerary": {
-          "@type": "ItemList",
-          "itemListElement": route.stops.map((stop, index) => ({
-            "@type": "ListItem",
-            "position": index + 1,
-            "item": {
-              "@type": "TouristAttraction",
-              "name": isVi ? stop.vi : stop.en
-            }
-          }))
+    "@type": "TouristTrip",
+    "name": isVi ? route.meta.vi.title : route.meta.en.title,
+    "description": isVi ? route.meta.vi.description : route.meta.en.description,
+    "touristType": "Sightseeing",
+    "provider": { "@id": "https://huebiketour.com/#travel-agency" },
+    "itinerary": {
+      "@type": "ItemList",
+      "itemListElement": route.stops.map((stop, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "TouristAttraction",
+          "name": isVi ? stop.vi : stop.en
         }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": isVi ? `Từ ${originName} đi ${destName} bao nhiêu km?` : `How far is it from ${originName} to ${destName}?`,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": isVi ? `Khoảng cách là ${route.distanceKm}km, mất khoảng ${route.durationHours} giờ đi xe máy.` : `The distance is ${route.distanceKm}km, taking around ${route.durationHours} hours by motorbike.`
-            }
-          }
-        ]
-      }
-    ]
+      }))
+    }
   };
 
   const whatsappMessage = encodeURIComponent(
@@ -124,19 +105,19 @@ export default async function ProgrammaticRoutePage({ params }: Props) {
           {/* Key Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto w-full">
             <div className="bg-white p-6 rounded-xl shadow-sm text-center">
-              <span className="block text-small font-bold text-[var(--color-terracotta)] uppercase mb-2">Distance</span>
+              <span className="block text-small font-bold text-[var(--color-terracotta)] uppercase mb-2">{labels.distance}</span>
               <span className="text-h3 font-display text-[var(--color-ink)]">{route.distanceKm} km</span>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-sm text-center">
-              <span className="block text-small font-bold text-[var(--color-terracotta)] uppercase mb-2">Time</span>
+              <span className="block text-small font-bold text-[var(--color-terracotta)] uppercase mb-2">{labels.time}</span>
               <span className="text-h3 font-display text-[var(--color-ink)]">{route.durationHours} hrs</span>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-sm text-center">
-              <span className="block text-small font-bold text-[var(--color-terracotta)] uppercase mb-2">Transport</span>
-              <span className="text-h3 font-display text-[var(--color-ink)]">Motorbike</span>
+              <span className="block text-small font-bold text-[var(--color-terracotta)] uppercase mb-2">{labels.transport}</span>
+              <span className="text-h3 font-display text-[var(--color-ink)]">{isVi ? 'Xe máy' : 'Motorbike'}</span>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-sm text-center">
-              <span className="block text-small font-bold text-[var(--color-terracotta)] uppercase mb-2">Guide</span>
+              <span className="block text-small font-bold text-[var(--color-terracotta)] uppercase mb-2">{labels.guide}</span>
               <span className="text-h3 font-display text-[var(--color-ink)]">Easy Rider</span>
             </div>
           </div>
@@ -146,7 +127,8 @@ export default async function ProgrammaticRoutePage({ params }: Props) {
             
             {/* Map */}
             <div className="lg:col-span-7 h-[500px] bg-gray-200 rounded-2xl overflow-hidden shadow-md">
-              <iframe 
+              <iframe
+                title={isVi ? `Bản đồ tuyến đường ${originName} đến ${destName}` : `Route map from ${originName} to ${destName}`}
                 src={route.mapEmbedUrl} 
                 width="100%" 
                 height="100%" 
@@ -171,7 +153,7 @@ export default async function ProgrammaticRoutePage({ params }: Props) {
                 <div className="flex gap-4 relative z-10">
                   <div className="w-6 h-6 rounded-full bg-[var(--color-terracotta)] text-white flex items-center justify-center shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-bold text-[var(--color-ink)]">Departure: {originName}</h4>
+                    <h4 className="font-bold text-[var(--color-ink)]">{labels.departure}: {originName}</h4>
                   </div>
                 </div>
 
@@ -189,7 +171,7 @@ export default async function ProgrammaticRoutePage({ params }: Props) {
                 <div className="flex gap-4 relative z-10">
                   <div className="w-6 h-6 rounded-full bg-[var(--color-ink)] flex items-center justify-center shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-bold text-[var(--color-ink)]">Arrival: {destName}</h4>
+                    <h4 className="font-bold text-[var(--color-ink)]">{labels.arrival}: {destName}</h4>
                   </div>
                 </div>
               </div>
